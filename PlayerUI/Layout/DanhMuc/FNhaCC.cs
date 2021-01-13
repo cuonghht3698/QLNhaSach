@@ -32,10 +32,10 @@ namespace QLNhaSach.Layout
             string where = "";
             if (!String.IsNullOrEmpty(ten))
             {
-                where = " where tenncc like '%" + ten + "%'";
+                where = " where ten like '%" + ten + "%'";
             }
             string orderBy = " order by diachi";
-            dataGridView1.DataSource = cn.getDataTable("SELECT ROW_NUMBER() OVER (ORDER BY tenncc) as 'STT',mancc as 'Mã', tenncc as 'Tên', diachi as 'Địa chỉ', sdt as 'SĐT', email as 'Email' FROM nhacungcap" + where + orderBy);
+            dataGridView1.DataSource = cn.getDataTable("SELECT ROW_NUMBER() OVER (ORDER BY ten) as 'STT',id as 'Mã', ten as 'Tên', diachi as 'Địa chỉ', sdt as 'SĐT', email as 'Email' FROM nhacungcap" + where + orderBy);
 
         }
         private void addButtonDataGripview()
@@ -59,7 +59,7 @@ namespace QLNhaSach.Layout
                                      MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
-                cn.ExecuteNonQuery("Delete nhacungcap where mancc =" + ma);
+                cn.ExecuteNonQuery("Delete nhacungcap where id =" + ma);
                 BindGrid("");
                 Clear();
             }
@@ -74,14 +74,14 @@ namespace QLNhaSach.Layout
             // 0 la them 1 la sua
             else if (check == 0)
             {
-                cn.ExecuteNonQuery("INSERT INTO nhacungcap (tenncc,diachi,sdt,email) VALUES (N'" + txtNcc.Text + "',N'" + txtDiaChi.Text + "',N'" + txtSdt.Text + "',N'" + txtEmail.Text + "')");
+                cn.ExecuteNonQuery("INSERT INTO nhacungcap (ten,diachi,sdt,email) VALUES (N'" + txtNcc.Text + "',N'" + txtDiaChi.Text + "',N'" + txtSdt.Text + "',N'" + txtEmail.Text + "')");
                 lbThongBao.Text = "Thêm nhà cung cấp thành công";
                 BindGrid("");
                 Clear();
             }
             else if (check == 1)
             {
-                cn.ExecuteNonQuery("UPDATE nhacungcap SET tenncc = N'" + txtNcc.Text + "',diachi = N'" + txtDiaChi.Text + "',sdt = N'" + txtSdt.Text + "',email = N'" + txtEmail.Text + "' WHERE mancc = " + ma);
+                cn.ExecuteNonQuery("UPDATE nhacungcap SET ten = N'" + txtNcc.Text + "',diachi = N'" + txtDiaChi.Text + "',sdt = N'" + txtSdt.Text + "',email = N'" + txtEmail.Text + "' WHERE id = " + ma);
                 lbThongBao.Text = "Sửa nhà cung cấp thành công";
                 BindGrid("");
                 Clear();

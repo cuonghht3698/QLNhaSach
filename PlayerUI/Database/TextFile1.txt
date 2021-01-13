@@ -1,0 +1,125 @@
+﻿CREATE DATABASE NStienphong1
+GO
+USE NStienphong1
+GO
+CREATE TABLE khachhang(
+	id int primary key identity,
+	ten nvarchar(50),
+	ngaysinh nvarchar(50),
+	sdt nvarchar(50),
+	gioitinh bit,
+	quequan nvarchar(50),
+	username nvarchar(50),
+	passwordHash nvarchar(50),
+	active bit
+)
+GO
+CREATE TABLE nhanvien(
+	id int primary key identity,
+	ten nvarchar(50),
+	ngaysinh nvarchar(50),
+	sdt nvarchar(50),
+	gioitinh bit,
+	quequan nvarchar(50),
+	username nvarchar(50),
+	passwordHash nvarchar(50),
+	active bit,
+	quyen nvarchar(50)
+)
+GO
+CREATE TABLE kho(
+	id int primary key identity,
+	ten nvarchar(50),
+	diachi nvarchar(50)
+)
+GO
+CREATE TABLE nhacungcap(
+	id int primary key identity,
+	ten nvarchar(50),
+	diachi nvarchar(50),
+	sdt nvarchar(50),
+	email nvarchar(50)
+)
+GO
+CREATE TABLE nhaxb(
+	id int primary key identity,
+	ten nvarchar(50),
+	diachi nvarchar(50),
+	sdt nvarchar(50),
+)
+GO
+CREATE TABLE loaisach(
+	id int primary key identity,
+	ten nvarchar(50),
+	mota nvarchar(100)
+)
+GO
+CREATE TABLE sach(
+	id int primary key identity,
+	ten nvarchar(100),
+	soluong int,
+	dongia decimal(18,0),
+	ngaynhap datetime,
+	tacgia nvarchar(50),
+	mota nvarchar(500),
+	anh nvarchar(250),
+	khoId int,
+	nccId int,
+	loaisachId int,
+	nxbId int,
+	active bit,
+	CONSTRAINT FK_mathang_kho FOREIGN KEY (khoId) REFERENCES kho(id),
+	CONSTRAINT FK_mathang_ncc FOREIGN KEY (nccId) REFERENCES nhacungcap(id),
+	CONSTRAINT FK_mathang_loai FOREIGN KEY (loaisachId) REFERENCES loaisach(id),
+	CONSTRAINT FK_mathang_nxb FOREIGN KEY (nxbId) REFERENCES nhaxb(id),
+)
+GO
+CREATE TABLE loaiphieu(
+	id int primary key identity,
+	ten nvarchar(50),
+	mota nvarchar(100)
+)
+GO
+CREATE TABLE phieu(
+	id int primary key identity,
+	ngaytao datetime,
+	ngayketthuc datetime,
+	trangthai nvarchar(40),
+	nhanvienId int,
+	loaiphieuId int,
+	CONSTRAINT FK_phieu_nhanvienId FOREIGN KEY (nhanvienId) REFERENCES nhanvien(id),
+	CONSTRAINT FK_phieu_loaiphieuId FOREIGN KEY (loaiphieuId) REFERENCES loaiphieu(id)
+)
+GO
+CREATE TABLE chitietphieu(
+	id int primary key identity,
+	phieuId int,
+	sachId int,
+	soluong int,
+	dongia decimal(18,0),
+	CONSTRAINT FK_chitietphieu_phieuId FOREIGN KEY (phieuId) REFERENCES phieu(id),
+	CONSTRAINT FK_chitietphieu_sachId FOREIGN KEY (sachId) REFERENCES sach(id)
+)
+GO
+CREATE TABLE hoadon (
+	id int primary key identity,
+	khachhangId int,
+	nhanvienId int,
+	ngaydat datetime,
+	ngaygiaohang datetime,
+	noigiaohang datetime,
+	sdt nvarchar(20),
+	trangthai nvarchar(50),
+	CONSTRAINT FK_hoadon_khachhangId FOREIGN KEY (khachhangId) REFERENCES khachhang(id),
+	CONSTRAINT FK_hoadon_nhanvienId FOREIGN KEY (nhanvienId) REFERENCES nhanvien(id)
+)
+GO
+CREATE TABLE chitiethoadon (
+	id int primary key identity,
+	hoadonId int,
+	sachId int,
+	dongia decimal(18,0),
+	soluong int,
+	CONSTRAINT FK_chitiethoadon_hoadonId FOREIGN KEY (hoadonId) REFERENCES hoadon(id),
+	CONSTRAINT FK_chitiethoadon_sachId FOREIGN KEY (sachId) REFERENCES sach(id),
+)

@@ -31,10 +31,10 @@ namespace QLNhaSach.Layout
             string where = "";
             if (!String.IsNullOrEmpty(ten))
             {
-                where = " where tenloai like '%" + ten + "%'";
+                where = " where ten like '%" + ten + "%'";
             }
-            string orderBy = " order by tenloai";
-            dataGridView1.DataSource = cn.getDataTable("SELECT ROW_NUMBER() OVER (ORDER BY tenloai) as 'STT',maloai as 'Mã', tenloai as 'Tên', mota as 'Mô tả' FROM loaimathang" + where + orderBy);
+            string orderBy = " order by ten";
+            dataGridView1.DataSource = cn.getDataTable("SELECT ROW_NUMBER() OVER (ORDER BY ten) as 'STT',id as 'Mã', ten as 'Tên', mota as 'Mô tả' FROM loaisach" + where + orderBy);
 
         }
         private void addButtonDataGripview()
@@ -58,7 +58,7 @@ namespace QLNhaSach.Layout
                                      MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
-                cn.ExecuteNonQuery("Delete loaimathang where maloai =" + ma);
+                cn.ExecuteNonQuery("Delete loaisach where id =" + ma);
                 BindGrid("");
                 Clear();
             }
@@ -73,7 +73,7 @@ namespace QLNhaSach.Layout
             // 0 la them 1 la sua
             else if (check == 0)
             {
-                cn.ExecuteNonQuery("INSERT INTO loaimathang (tenloai,mota) VALUES (N'" + txtTenLoai.Text + "',N'" + txtMoTa.Text + "')");
+                cn.ExecuteNonQuery("INSERT INTO loaisach (tenloai,mota) VALUES (N'" + txtTenLoai.Text + "',N'" + txtMoTa.Text + "')");
                 lbThongBao.ForeColor = Color.Green;
                 lbThongBao.Text = "Thêm loại sách thành công";
                 BindGrid("");
@@ -83,7 +83,7 @@ namespace QLNhaSach.Layout
             {
                 if (!String.IsNullOrEmpty(ma))
                 {
-                    cn.ExecuteNonQuery("UPDATE loaimathang SET tenloai = N'" + txtTenLoai.Text + "',mota = N'" + txtMoTa.Text + "' WHERE maloai = " + ma);
+                    cn.ExecuteNonQuery("UPDATE loaisach SET ten = N'" + txtTenLoai.Text + "',mota = N'" + txtMoTa.Text + "' WHERE id = " + ma);
                     lbThongBao.ForeColor = Color.Green;
                     lbThongBao.Text = "Sửa loại sách thành công";
                     BindGrid("");

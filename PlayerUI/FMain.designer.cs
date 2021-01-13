@@ -83,7 +83,7 @@
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(250, 710);
+            this.panelSideMenu.Size = new System.Drawing.Size(250, 615);
             this.panelSideMenu.TabIndex = 0;
             // 
             // btnExit
@@ -316,7 +316,7 @@
             this.button8.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.button8.Size = new System.Drawing.Size(233, 40);
             this.button8.TabIndex = 0;
-            this.button8.Text = "New playlist";
+            this.button8.Text = "Sách";
             this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
@@ -336,7 +336,7 @@
             this.btnPlaylist.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnPlaylist.Size = new System.Drawing.Size(233, 45);
             this.btnPlaylist.TabIndex = 3;
-            this.btnPlaylist.Text = "  Playlist management";
+            this.btnPlaylist.Text = " Quản lý sách";
             this.btnPlaylist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPlaylist.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPlaylist.UseVisualStyleBackColor = true;
@@ -482,9 +482,9 @@
             // 
             this.panelPlayer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.panelPlayer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelPlayer.Location = new System.Drawing.Point(250, 700);
+            this.panelPlayer.Location = new System.Drawing.Point(250, 605);
             this.panelPlayer.Name = "panelPlayer";
-            this.panelPlayer.Size = new System.Drawing.Size(956, 10);
+            this.panelPlayer.Size = new System.Drawing.Size(941, 10);
             this.panelPlayer.TabIndex = 1;
             this.panelPlayer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPlayer_Paint);
             // 
@@ -495,7 +495,7 @@
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(250, 0);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(956, 700);
+            this.panelChildForm.Size = new System.Drawing.Size(941, 605);
             this.panelChildForm.TabIndex = 2;
             this.panelChildForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelChildForm_Paint);
             // 
@@ -503,7 +503,7 @@
             // 
             this.pictureBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(357, 237);
+            this.pictureBox9.Location = new System.Drawing.Point(349, 189);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(226, 218);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -515,7 +515,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1206, 710);
+            this.ClientSize = new System.Drawing.Size(1191, 615);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelPlayer);
             this.Controls.Add(this.panelSideMenu);

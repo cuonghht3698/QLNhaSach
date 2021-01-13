@@ -31,10 +31,10 @@ namespace QLNhaSach.Layout
             string where = "";
             if (!String.IsNullOrEmpty(ten))
             {
-                where = " where tennxb like '%" + ten + "%'";
+                where = " where ten like '%" + ten + "%'";
             }
             string orderBy = " order by diachi";
-            dataGridView1.DataSource = cn.getDataTable("SELECT ROW_NUMBER() OVER (ORDER BY diachi) as 'STT',manxb as 'Mã', tennxb as 'Tên', diachi as 'Địa chỉ', sdt as 'SĐT' FROM nhaxb" + where + orderBy);
+            dataGridView1.DataSource = cn.getDataTable("SELECT ROW_NUMBER() OVER (ORDER BY diachi) as 'STT',id as 'Mã', ten as 'Tên', diachi as 'Địa chỉ', sdt as 'SĐT' FROM nhaxb" + where + orderBy);
 
         }
         private void addButtonDataGripview()
@@ -99,7 +99,7 @@ namespace QLNhaSach.Layout
             // 0 la them 1 la sua
             else if (check == 0)
             {
-                cn.ExecuteNonQuery("INSERT INTO nhaxb (tennxb,diachi,sdt) VALUES (N'" + txtNXB.Text + "',N'" + txtDiaChi.Text + "',N'" + txtSdt.Text + "')");
+                cn.ExecuteNonQuery("INSERT INTO nhaxb (ten,diachi,sdt) VALUES (N'" + txtNXB.Text + "',N'" + txtDiaChi.Text + "',N'" + txtSdt.Text + "')");
                 lbThongBao.Text = "Thêm nhà xuất bản thành công";
                 BindGrid("");
                 Clear();
@@ -108,7 +108,7 @@ namespace QLNhaSach.Layout
             {
                 if (!String.IsNullOrEmpty(ma))
                 {
-                    cn.ExecuteNonQuery("UPDATE nhaxb SET tennxb = N'" + txtNXB.Text + "',diachi = N'" + txtDiaChi.Text + "',sdt = N'" + txtSdt.Text + "' WHERE manxb = " + ma);
+                    cn.ExecuteNonQuery("UPDATE nhaxb SET ten = N'" + txtNXB.Text + "',diachi = N'" + txtDiaChi.Text + "',sdt = N'" + txtSdt.Text + "' WHERE id = " + ma);
                     lbThongBao.Text = "Sửa nhà xuất bản thành công";
                     ma = null;
                     BindGrid("");

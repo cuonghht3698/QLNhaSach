@@ -32,10 +32,10 @@ namespace QLNhaSach.Layout
             string where = "";
             if (!String.IsNullOrEmpty(ten))
             {
-                where = " where tenkho like '%" + ten + "%'";
+                where = " where ten like '%" + ten + "%'";
             }
             string orderBy = " order by diachi";
-            dataGridView1.DataSource = cn.getDataTable("SELECT ROW_NUMBER() OVER (ORDER BY diachi) as 'STT',makho as 'Mã', tenkho as 'Tên', diachi as 'Địa chỉ' FROM kho" + where + orderBy);
+            dataGridView1.DataSource = cn.getDataTable("SELECT ROW_NUMBER() OVER (ORDER BY diachi) as 'STT',id as 'Mã', ten as 'Tên', diachi as 'Địa chỉ' FROM kho" + where + orderBy);
 
         }
         private void addButtonDataGripview()
@@ -59,7 +59,7 @@ namespace QLNhaSach.Layout
                                      MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
-                cn.ExecuteNonQuery("Delete kho where makho =" + ma);
+                cn.ExecuteNonQuery("Delete kho where id =" + ma);
                 BindGrid("");
                 Clear();
             }
@@ -74,7 +74,7 @@ namespace QLNhaSach.Layout
             // 0 la them 1 la sua
             else if (check == 0)
             {
-                cn.ExecuteNonQuery("INSERT INTO kho (tenkho,diachi) VALUES (N'" + txtKho.Text + "',N'" + txtDiaChi.Text + "')");
+                cn.ExecuteNonQuery("INSERT INTO kho (ten,diachi) VALUES (N'" + txtKho.Text + "',N'" + txtDiaChi.Text + "')");
                 lbThongBao.ForeColor = Color.Green;
                 lbThongBao.Text = "Thêm kho thành công";
                 BindGrid("");
@@ -84,7 +84,7 @@ namespace QLNhaSach.Layout
             {
                 if (!String.IsNullOrEmpty(ma))
                 {
-                    cn.ExecuteNonQuery("UPDATE kho SET tenkho = N'" + txtKho.Text + "',diachi = N'" + txtDiaChi.Text + "' WHERE makho = " + ma);
+                    cn.ExecuteNonQuery("UPDATE kho SET ten = N'" + txtKho.Text + "',diachi = N'" + txtDiaChi.Text + "' WHERE id = " + ma);
                     lbThongBao.ForeColor = Color.Green;
                     lbThongBao.Text = "Sửa nhà cung cấp thành công";
                     BindGrid("");
@@ -139,6 +139,11 @@ namespace QLNhaSach.Layout
         private void btnSua_Click(object sender, EventArgs e)
         {
             CreateOrUpdate(1);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using QLNhaSach.Function;
 using QLNhaSach.Layout;
+using QLNhaSach.Layout.Sach;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -89,7 +90,8 @@ namespace PlayerUI
             //..
             //your codes
             //..
-            
+            openChildForm(new FQLSach());
+
         }
 
         private void button7_Click(object sender, EventArgs e)
