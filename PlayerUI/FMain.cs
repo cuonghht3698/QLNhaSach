@@ -51,7 +51,7 @@ namespace PlayerUI
             //..
             //your codes
             //..
-            
+            this.Width = 1200;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -60,6 +60,7 @@ namespace PlayerUI
             //your codes
             //..
             openChildForm(new FNhaXB());
+            this.Width = 1200;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -68,6 +69,7 @@ namespace PlayerUI
             //your codes
             //..
             openChildForm(new FKho());
+            this.Width = 1200;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -76,6 +78,7 @@ namespace PlayerUI
             //your codes
             //..
             openChildForm(new FLoaiSach());
+            this.Width = 1200;
         }
         #endregion
 
@@ -91,7 +94,7 @@ namespace PlayerUI
             //your codes
             //..
             openChildForm(new FQLSach());
-
+            this.Width = 1500;
         }
 
         private void button7_Click(object sender, EventArgs e)

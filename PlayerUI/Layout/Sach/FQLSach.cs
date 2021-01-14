@@ -24,18 +24,28 @@ namespace QLNhaSach.Layout.Sach
 
         private void FQLSach_Load(object sender, EventArgs e)
         {
-
+            BindGrid("''");
         }
         private void BindGrid(string ten)
         {
             string where = "";
-            if (!String.IsNullOrEmpty(ten))
-            {
-                where = " where tenloai like '%" + ten + "%'";
-            }
-            string orderBy = " order by tenloai";
-            dataGridView1.DataSource = cn.getDataTable("SELECT ROW_NUMBER() OVER (ORDER BY tenloai) as 'STT',mahang as 'Mã', tenloai as 'Tên', mota as 'Mô tả' FROM loaimathang" + where + orderBy);
+                where = " where ( "+ ten+ " = '' or s.ten like N'%" + ten+ "%')";
+            string orderBy = " order by loai.ten";
 
+            dataGridView1.DataSource = cn.getDataTable("select ROW_NUMBER() OVER (ORDER BY loai.ten) as STT,s.id as 'Mã', s.ten as 'Tên'," +
+                " s.soluong as 'SL' , s.dongia  as 'Đơn giá', s.tacgia  as 'Tác giả', s.anh  as 'Ảnh',k.ten  as 'Kho',ncc.ten  as 'NCC'," +
+                "loai.ten  as 'Loại', nxb.ten  as 'NXB', s.active  as 'Hoạt động' from sach s left join kho k on s.khoId = k.id " +
+                "join nhacungcap ncc on s.nccId = ncc.id join loaisach loai on s.loaisachId = loai.id join nhaxb nxb on s.nxbId = nxb.id " + where + orderBy);
+            
+        }
+        private void GetAllRow()
+        {
+            DataTable read = cn.getDataTable("select * from sach where id ="+ ma);
+            if (read.Rows.Count > 0)
+            {
+                txtId.Text = read.Rows[0][1].ToString();
+
+            }
         }
         private void addButtonDataGripview()
         {
@@ -63,7 +73,27 @@ namespace QLNhaSach.Layout.Sach
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            BindGrid(textBox1.Text);
+            
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0 && e.RowIndex != -1)
+            {
+                ma = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                Delete(ma);
+
+            }
+            else if (e.RowIndex != -1)
+            {
+                ma = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                GetAllRow();
+            }
         }
     }
 }
