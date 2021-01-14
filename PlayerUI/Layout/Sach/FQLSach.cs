@@ -1,4 +1,5 @@
 ﻿using QLNhaSach.Business;
+using QLNhaSach.Function;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,12 @@ namespace QLNhaSach.Layout.Sach
     {
         private Connect cn;
         private string ma;
+        private string search = "";
+        private int Sactive = 0;
+        private int Skho = 0;
+        private int Sncc = 0;
+        private int Sloai = 0;
+        private int Snxb = 0;
         public FQLSach()
         {
             InitializeComponent();
@@ -24,21 +31,16 @@ namespace QLNhaSach.Layout.Sach
 
         private void FQLSach_Load(object sender, EventArgs e)
         {
-            BindGrid("''");
+            BindGrid();
             addButtonDataGripview();
             datePickNgayNhap.CustomFormat = "dd/MM/yyyy";
             setDataCombo();
+            checkActive.Checked = true;
+            ClearSearch();
         }
-        private void BindGrid(string ten)
+        private void BindGrid()
         {
-            string where = "";
-            where = " where ( " + ten + " = '' or s.ten like N'%" + ten + "%')";
-            string orderBy = " order by loai.ten,s.active";
-
-            dataGridView1.DataSource = cn.getDataTable("select ROW_NUMBER() OVER (ORDER BY loai.ten) as STT,s.id as 'Mã', s.ten as 'Tên'," +
-                " s.soluong as 'SL' , s.dongia  as 'Đơn giá', s.tacgia  as 'Tác giả', s.anh  as 'Ảnh',k.ten  as 'Kho',ncc.ten  as 'NCC'," +
-                "loai.ten  as 'Loại', nxb.ten  as 'NXB', s.active as 'Hoạt động' from sach s left join kho k on s.khoId = k.id " +
-                "left join nhacungcap ncc on s.nccId = ncc.id left join loaisach loai on s.loaisachId = loai.id left join nhaxb nxb on s.nxbId = nxb.id" + where + orderBy);
+            dataGridView1.DataSource = cn.callSachProcedure("getSach", search, Skho, Sncc, Sloai, Snxb, Sactive);
 
         }
         private void GetAllRow()
@@ -52,20 +54,21 @@ namespace QLNhaSach.Layout.Sach
                 txtSoLuong.Text = read.Rows[0][2].ToString();
                 txtDonGia.Text = read.Rows[0][3].ToString();
                 string ngaynhap = read.Rows[0][4].ToString();
-                datePickNgayNhap.Value = ngaynhap!=""? DateTime.Parse(ngaynhap):DateTime.Now;
+                datePickNgayNhap.Value = ngaynhap != "" ? DateTime.Parse(ngaynhap) : DateTime.Now;
                 txtTacGia.Text = read.Rows[0][5].ToString();
                 txtMoTa.Text = read.Rows[0][6].ToString();
                 checkActive.Text = read.Rows[0][12].ToString() == "True" ? "Hoạt động" : "Ngừng kinh doanh";
                 checkActive.Checked = read.Rows[0][12].ToString() == "True" ? true : false;
 
-                Console.WriteLine(read.Rows[0][12].ToString());
+
+
             }
         }
         private void addButtonDataGripview()
         {
             dataGridView1.Columns[0].Width = 34;
             dataGridView1.Columns[1].Width = 34;
-            dataGridView1.Columns[11].Width = 34;
+            dataGridView1.Columns[11].Width = 44;
             DataGridViewButtonColumn delete = new DataGridViewButtonColumn();
             delete.HeaderText = "Xóa";
             delete.Name = "btnDelete";
@@ -83,7 +86,7 @@ namespace QLNhaSach.Layout.Sach
             if (confirmResult == DialogResult.Yes)
             {
                 cn.ExecuteNonQuery("Delete sach where id =" + ma);
-                BindGrid("");
+                BindGrid();
             }
         }
 
@@ -91,12 +94,12 @@ namespace QLNhaSach.Layout.Sach
         private void setDataCombo()
         {
             DataTable tbKho = cn.getDataTable("select * from kho");
-            if(tbKho.Rows.Count > 0)
+            if (tbKho.Rows.Count > 0)
             {
                 foreach (DataRow item in tbKho.Rows)
                 {
-                    cbKho.Items.Add(item[1].ToString());
-                    cbSearchKho.Items.Add(item[1].ToString());
+                    cbKho.Items.Add(item[0].ToString() + "- " + item[1].ToString());
+                    cbSearchKho.Items.Add(item[0].ToString() + "- " + item[1].ToString());
                 }
             }
             DataTable tbNcc = cn.getDataTable("select * from nhacungcap");
@@ -104,8 +107,8 @@ namespace QLNhaSach.Layout.Sach
             {
                 foreach (DataRow item in tbNcc.Rows)
                 {
-                    cbNCC.Items.Add(item[1].ToString());
-                    cbSearchNCC.Items.Add(item[1].ToString());
+                    cbNCC.Items.Add(item[0].ToString() + "- " + item[1].ToString());
+                    cbSearchNCC.Items.Add(item[0].ToString() + "- " + item[1].ToString());
                 }
             }
             DataTable tbNxb = cn.getDataTable("select * from nhaxb");
@@ -113,8 +116,8 @@ namespace QLNhaSach.Layout.Sach
             {
                 foreach (DataRow item in tbNxb.Rows)
                 {
-                    cbNhaXuatBan.Items.Add(item[1].ToString());
-                    cbSearchNXB.Items.Add(item[1].ToString());
+                    cbNhaXuatBan.Items.Add(item[0].ToString() + "- " + item[1].ToString());
+                    cbSearchNXB.Items.Add(item[0].ToString() + "- " + item[1].ToString());
                 }
             }
             DataTable tbLoai = cn.getDataTable("select * from loaisach");
@@ -122,18 +125,14 @@ namespace QLNhaSach.Layout.Sach
             {
                 foreach (DataRow item in tbLoai.Rows)
                 {
-                    cbLoaiSach.Items.Add(item[1].ToString());
-                    cbSearchLoai.Items.Add(item[1].ToString());
+                    cbLoaiSach.Items.Add(item[0].ToString() + "- " + item[1].ToString());
+                    cbSearchLoai.Items.Add(item[0].ToString() + "- " + item[1].ToString());
                 }
             }
         }
         // end khóa ngoại
 
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -152,6 +151,60 @@ namespace QLNhaSach.Layout.Sach
             else if (e.RowIndex != -1)
             {
                 ma = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                string kho, ncc, nxb, loai,anh;
+                kho = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+                ncc = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
+                loai = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
+                nxb = dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
+                anh = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+                //AUTO KHO
+                if (String.IsNullOrEmpty(kho))
+                {
+                    cbKho.SelectedIndex = 0;
+                }
+                else
+                {
+                    cbKho.SelectedItem = kho;
+                }
+
+                //AUTO NCC
+                if (String.IsNullOrEmpty(ncc))
+                {
+                    cbNCC.SelectedIndex = 0;
+                }
+                else
+                {
+                    cbNCC.SelectedItem = ncc;
+                }
+
+                //AUTO LOAI
+                if (String.IsNullOrEmpty(loai))
+                {
+                    cbLoaiSach.SelectedIndex = 0;
+                }
+                else
+                {
+                    cbLoaiSach.SelectedItem = loai;
+                }
+
+                //AUTO NXB
+                if (String.IsNullOrEmpty(nxb))
+                {
+                    cbNhaXuatBan.SelectedIndex = 0;
+                }
+                else
+                {
+                    cbNhaXuatBan.SelectedItem = nxb;
+                }
+                //AUTO NXB
+                if (String.IsNullOrEmpty(anh))
+                {
+                    
+                }
+                else
+                {
+                    ptbAnh.Image = PublicFunction.GetImageFromString(anh);
+                }
                 GetAllRow();
             }
         }
@@ -172,6 +225,104 @@ namespace QLNhaSach.Layout.Sach
         }
 
         private void panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cbHoatDong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Sactive = cbHoatDong.SelectedIndex;
+            BindGrid();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            search = txtSearch.Text;
+            BindGrid();
+        }
+
+        private void cbSearchNXB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Snxb = cbSearchNXB.SelectedIndex;
+            BindGrid();
+        }
+
+        private void cbSearchLoai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Sloai = cbSearchLoai.SelectedIndex;
+            BindGrid();
+        }
+
+        private void cbSearchNCC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Sncc = cbSearchNCC.SelectedIndex;
+            BindGrid();
+        }
+
+        private void cbSearchKho_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Skho = cbSearchKho.SelectedIndex;
+            BindGrid();
+        }
+
+        private void ClearSearch()
+        {
+            cbSearchNXB.SelectedIndex = 0;
+            cbSearchKho.SelectedIndex = 0;
+            cbSearchNCC.SelectedIndex = 0;
+            cbSearchLoai.SelectedIndex = 0;
+            cbHoatDong.SelectedIndex = 0;
+            BindGrid();
+        }
+
+        private void ptbAnh_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                dlg.Title = "Open Image";
+                dlg.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    PictureBox PictureBox1 = new PictureBox();
+
+                    // Create a new Bitmap object from the picture file on disk,
+                    // and assign that to the PictureBox.Image property
+                    PictureBox1.Image = new Bitmap(dlg.FileName);
+                    ptbAnh.Image = new Bitmap(dlg.FileName);
+                    Console.WriteLine(PublicFunction.GetStringFromImage(ptbAnh.Image)); 
+                }
+            }
+        }
+
+
+        private void Insert()
+        {
+            string ten, tacgia, mota, anh;
+            int soluong, dongia, khoId, nccId, loaisachId, nxbId;
+            DateTime ngaynhap;
+            bool active;
+            ten = txtTen.Text;
+            tacgia = txtTacGia.Text;
+            mota = txtMoTa.Text;
+            anh = ptbAnh.Image.ToString() != null ? PublicFunction.GetStringFromImage(ptbAnh.Image) : "";
+            soluong = int.Parse(txtSoLuong.Text);
+            dongia = int.Parse(txtDonGia.Text);
+            ngaynhap = DateTime.Now;
+            khoId = PublicFunction.GetIdFromCombobox(cbKho.SelectedItem.ToString());
+            nccId = PublicFunction.GetIdFromCombobox(cbNCC.SelectedItem.ToString());
+            loaisachId = PublicFunction.GetIdFromCombobox(cbLoaiSach.SelectedItem.ToString());
+            nxbId = PublicFunction.GetIdFromCombobox(cbNhaXuatBan.SelectedItem.ToString());
+            active = checkActive.Checked;
+            cn.CreateSachProcedure(ten,soluong,dongia,ngaynhap,tacgia,mota,anh,khoId,nccId,loaisachId,nxbId,active);
+            BindGrid();
+        }
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            Insert();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
