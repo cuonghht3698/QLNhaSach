@@ -34,7 +34,6 @@ namespace QLNhaSach.Layout.Authent
             this.txtUser = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnDangNhap = new System.Windows.Forms.Button();
             this.linkQuenMatKhau = new System.Windows.Forms.LinkLabel();
             this.LinkTaoTaiKhoan = new System.Windows.Forms.LinkLabel();
             this.cbNhoMatKhau = new System.Windows.Forms.CheckBox();
@@ -43,6 +42,7 @@ namespace QLNhaSach.Layout.Authent
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbCheckNV = new System.Windows.Forms.Label();
             this.lbLoginFailed = new System.Windows.Forms.Label();
+            this.btnDangNhap = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,18 +84,6 @@ namespace QLNhaSach.Layout.Authent
             this.txtPassword.Size = new System.Drawing.Size(202, 25);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
-            // 
-            // btnDangNhap
-            // 
-            this.btnDangNhap.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangNhap.ForeColor = System.Drawing.Color.Blue;
-            this.btnDangNhap.Location = new System.Drawing.Point(149, 256);
-            this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(202, 50);
-            this.btnDangNhap.TabIndex = 100;
-            this.btnDangNhap.Text = "Đăng nhập";
-            this.btnDangNhap.UseVisualStyleBackColor = true;
-            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // linkQuenMatKhau
             // 
@@ -182,11 +170,26 @@ namespace QLNhaSach.Layout.Authent
             this.lbLoginFailed.Size = new System.Drawing.Size(0, 13);
             this.lbLoginFailed.TabIndex = 101;
             // 
+            // btnDangNhap
+            // 
+            this.btnDangNhap.IconChar = FontAwesome.Sharp.IconChar.Mendeley;
+            this.btnDangNhap.IconColor = System.Drawing.Color.Maroon;
+            this.btnDangNhap.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            this.btnDangNhap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDangNhap.Location = new System.Drawing.Point(156, 256);
+            this.btnDangNhap.Name = "btnDangNhap";
+            this.btnDangNhap.Size = new System.Drawing.Size(168, 50);
+            this.btnDangNhap.TabIndex = 102;
+            this.btnDangNhap.Text = "Đăng nhập";
+            this.btnDangNhap.UseVisualStyleBackColor = true;
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click_1);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(486, 328);
+            this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.lbLoginFailed);
             this.Controls.Add(this.lbCheckNV);
             this.Controls.Add(this.pictureBox1);
@@ -195,7 +198,6 @@ namespace QLNhaSach.Layout.Authent
             this.Controls.Add(this.cbNhoMatKhau);
             this.Controls.Add(this.LinkTaoTaiKhoan);
             this.Controls.Add(this.linkQuenMatKhau);
-            this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.label2);
@@ -217,7 +219,6 @@ namespace QLNhaSach.Layout.Authent
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.LinkLabel linkQuenMatKhau;
         private System.Windows.Forms.LinkLabel LinkTaoTaiKhoan;
         private System.Windows.Forms.CheckBox cbNhoMatKhau;
@@ -226,5 +227,6 @@ namespace QLNhaSach.Layout.Authent
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbCheckNV;
         private System.Windows.Forms.Label lbLoginFailed;
+        private FontAwesome.Sharp.IconButton btnDangNhap;
     }
 }

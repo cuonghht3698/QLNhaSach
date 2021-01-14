@@ -122,5 +122,10 @@ namespace QLNhaSach.Layout.Authent
         {
            
         }
+
+        private void btnDangNhap_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
