@@ -48,15 +48,22 @@ namespace QLNhaSach.Function
 
         public static Image GetImageFromString(string base64String)
         {
-            byte[] buffer = Convert.FromBase64String(base64String);
-
-            if (buffer != null)
+            try
             {
-                ImageConverter ic = new ImageConverter();
-                return ic.ConvertFrom(buffer) as Image;
+                byte[] buffer = Convert.FromBase64String(base64String);
+
+                if (buffer != null)
+                {
+                    ImageConverter ic = new ImageConverter();
+                    return ic.ConvertFrom(buffer) as Image;
+                }
+                else
+                    return null;
             }
-            else
+            catch(Exception e)
+            {
                 return null;
+            }
         }
     }
 }

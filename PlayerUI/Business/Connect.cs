@@ -89,11 +89,20 @@ namespace QLNhaSach.Business
 
         }
 
-        public DataTable CreateSachProcedure(string ten, int soluong, int dongia, DateTime ngaynhap, string tacgia, string mota, string anh, int khoId, int nccId, int loaisachId, int nxbId, bool active)
+        public DataTable CreateOrUpdateSachProcedure(bool insert,int id ,string ten, int soluong, int dongia, DateTime ngaynhap, string tacgia, string mota, string anh, int khoId, int nccId, int loaisachId, int nxbId, bool active)
         {
             connect();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "EXECUTE InsertSach " + "@ten,@soluong,@dongia,@ngaynhap,@tacgia,@mota,@anh,@khoId,@nccId,@loaisachId,@nxbId,@active";
+            // true là insert
+            if (insert)
+            {
+                cmd.CommandText = "EXECUTE InsertSach " + "@ten,@soluong,@dongia,@ngaynhap,@tacgia,@mota,@anh,@khoId,@nccId,@loaisachId,@nxbId,@active";
+            }
+            else
+            {
+                cmd.CommandText = "EXECUTE updateSach " + "@id,@ten,@soluong,@dongia,@ngaynhap,@tacgia,@mota,@anh,@khoId,@nccId,@loaisachId,@nxbId,@active";
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            }
             cmd.Parameters.Add("@ten", SqlDbType.NVarChar, 50).Value = ten;
             cmd.Parameters.Add("@soluong", SqlDbType.NVarChar, 50).Value = soluong;
             cmd.Parameters.Add("@dongia", SqlDbType.NVarChar, 50).Value = dongia;

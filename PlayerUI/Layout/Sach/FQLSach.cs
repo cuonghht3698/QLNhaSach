@@ -296,12 +296,13 @@ namespace QLNhaSach.Layout.Sach
         }
 
 
-        private void Insert()
+        private void Insert(bool check)
         {
             string ten, tacgia, mota, anh;
-            int soluong, dongia, khoId, nccId, loaisachId, nxbId;
+            int id,soluong, dongia, khoId, nccId, loaisachId, nxbId;
             DateTime ngaynhap;
             bool active;
+            id = int.Parse(txtMa.Text);
             ten = txtTen.Text;
             tacgia = txtTacGia.Text;
             mota = txtMoTa.Text;
@@ -314,17 +315,25 @@ namespace QLNhaSach.Layout.Sach
             loaisachId = PublicFunction.GetIdFromCombobox(cbLoaiSach.SelectedItem.ToString());
             nxbId = PublicFunction.GetIdFromCombobox(cbNhaXuatBan.SelectedItem.ToString());
             active = checkActive.Checked;
-            cn.CreateSachProcedure(ten,soluong,dongia,ngaynhap,tacgia,mota,anh,khoId,nccId,loaisachId,nxbId,active);
+            if(check)
+            cn.CreateOrUpdateSachProcedure(true,0,ten,soluong,dongia,ngaynhap,tacgia,mota,anh,khoId,nccId,loaisachId,nxbId,active);
+            else
+                cn.CreateOrUpdateSachProcedure(false, id, ten, soluong, dongia, ngaynhap, tacgia, mota, anh, khoId, nccId, loaisachId, nxbId, active);
             BindGrid();
         }
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            Insert();
+            Insert(true);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            Insert(false);
         }
     }
 }

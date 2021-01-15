@@ -30,11 +30,13 @@ namespace QLNhaSach.Layout.Sach
         private void InitializeComponent()
         {
             System.Windows.Forms.Label label1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FQLSach));
             this.lbThongBao = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.cbHoatDong = new System.Windows.Forms.ComboBox();
             this.cbSearchKho = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -77,7 +79,6 @@ namespace QLNhaSach.Layout.Sach
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -173,6 +174,14 @@ namespace QLNhaSach.Layout.Sach
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(846, 80);
             this.panel4.TabIndex = 21;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(91, 8);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(143, 25);
+            this.txtSearch.TabIndex = 20;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // cbHoatDong
             // 
@@ -342,16 +351,16 @@ namespace QLNhaSach.Layout.Sach
             this.cbNhaXuatBan.FormattingEnabled = true;
             this.cbNhaXuatBan.Items.AddRange(new object[] {
             "-- Nhà xuất bản"});
-            this.cbNhaXuatBan.Location = new System.Drawing.Point(361, 48);
+            this.cbNhaXuatBan.Location = new System.Drawing.Point(414, 51);
             this.cbNhaXuatBan.Name = "cbNhaXuatBan";
-            this.cbNhaXuatBan.Size = new System.Drawing.Size(129, 25);
+            this.cbNhaXuatBan.Size = new System.Drawing.Size(172, 25);
             this.cbNhaXuatBan.TabIndex = 9;
             // 
             // checkActive
             // 
             this.checkActive.AutoSize = true;
             this.checkActive.Enabled = false;
-            this.checkActive.Location = new System.Drawing.Point(601, 29);
+            this.checkActive.Location = new System.Drawing.Point(649, 32);
             this.checkActive.Name = "checkActive";
             this.checkActive.Size = new System.Drawing.Size(89, 21);
             this.checkActive.TabIndex = 8;
@@ -361,9 +370,9 @@ namespace QLNhaSach.Layout.Sach
             // datePickNgayNhap
             // 
             this.datePickNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datePickNgayNhap.Location = new System.Drawing.Point(361, 264);
+            this.datePickNgayNhap.Location = new System.Drawing.Point(414, 264);
             this.datePickNgayNhap.Name = "datePickNgayNhap";
-            this.datePickNgayNhap.Size = new System.Drawing.Size(133, 25);
+            this.datePickNgayNhap.Size = new System.Drawing.Size(172, 25);
             this.datePickNgayNhap.TabIndex = 7;
             // 
             // iconButton2
@@ -375,12 +384,13 @@ namespace QLNhaSach.Layout.Sach
             this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton2.IconColor = System.Drawing.Color.Black;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.Location = new System.Drawing.Point(805, 110);
+            this.iconButton2.Location = new System.Drawing.Point(853, 113);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(119, 38);
             this.iconButton2.TabIndex = 5;
             this.iconButton2.Text = "Sửa";
             this.iconButton2.UseVisualStyleBackColor = false;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // iconButton3
             // 
@@ -391,7 +401,7 @@ namespace QLNhaSach.Layout.Sach
             this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton3.IconColor = System.Drawing.Color.Black;
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.Location = new System.Drawing.Point(805, 168);
+            this.iconButton3.Location = new System.Drawing.Point(853, 171);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(119, 38);
             this.iconButton3.TabIndex = 5;
@@ -408,7 +418,7 @@ namespace QLNhaSach.Layout.Sach
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(805, 56);
+            this.iconButton1.Location = new System.Drawing.Point(853, 59);
             this.iconButton1.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(119, 38);
@@ -424,9 +434,9 @@ namespace QLNhaSach.Layout.Sach
             this.cbLoaiSach.FormattingEnabled = true;
             this.cbLoaiSach.Items.AddRange(new object[] {
             "-- Loại sách"});
-            this.cbLoaiSach.Location = new System.Drawing.Point(361, 97);
+            this.cbLoaiSach.Location = new System.Drawing.Point(414, 100);
             this.cbLoaiSach.Name = "cbLoaiSach";
-            this.cbLoaiSach.Size = new System.Drawing.Size(129, 25);
+            this.cbLoaiSach.Size = new System.Drawing.Size(172, 25);
             this.cbLoaiSach.TabIndex = 4;
             // 
             // cbNCC
@@ -436,9 +446,9 @@ namespace QLNhaSach.Layout.Sach
             this.cbNCC.FormattingEnabled = true;
             this.cbNCC.Items.AddRange(new object[] {
             "- Nhà cung cấp -"});
-            this.cbNCC.Location = new System.Drawing.Point(361, 211);
+            this.cbNCC.Location = new System.Drawing.Point(414, 214);
             this.cbNCC.Name = "cbNCC";
-            this.cbNCC.Size = new System.Drawing.Size(133, 25);
+            this.cbNCC.Size = new System.Drawing.Size(172, 25);
             this.cbNCC.TabIndex = 4;
             // 
             // cbKho
@@ -448,14 +458,16 @@ namespace QLNhaSach.Layout.Sach
             this.cbKho.FormattingEnabled = true;
             this.cbKho.Items.AddRange(new object[] {
             "-- Kho"});
-            this.cbKho.Location = new System.Drawing.Point(361, 144);
+            this.cbKho.Location = new System.Drawing.Point(414, 147);
             this.cbKho.Name = "cbKho";
-            this.cbKho.Size = new System.Drawing.Size(130, 25);
+            this.cbKho.Size = new System.Drawing.Size(172, 25);
             this.cbKho.TabIndex = 4;
             // 
             // ptbAnh
             // 
-            this.ptbAnh.Location = new System.Drawing.Point(605, 56);
+            this.ptbAnh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbAnh.Image = ((System.Drawing.Image)(resources.GetObject("ptbAnh.Image")));
+            this.ptbAnh.Location = new System.Drawing.Point(653, 59);
             this.ptbAnh.Name = "ptbAnh";
             this.ptbAnh.Size = new System.Drawing.Size(156, 157);
             this.ptbAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -465,14 +477,14 @@ namespace QLNhaSach.Layout.Sach
             // 
             // txtTacGia
             // 
-            this.txtTacGia.Location = new System.Drawing.Point(105, 144);
+            this.txtTacGia.Location = new System.Drawing.Point(105, 165);
             this.txtTacGia.Name = "txtTacGia";
-            this.txtTacGia.Size = new System.Drawing.Size(133, 25);
+            this.txtTacGia.Size = new System.Drawing.Size(200, 25);
             this.txtTacGia.TabIndex = 2;
             // 
             // txtMoTa
             // 
-            this.txtMoTa.Location = new System.Drawing.Point(601, 219);
+            this.txtMoTa.Location = new System.Drawing.Point(649, 222);
             this.txtMoTa.Multiline = true;
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Size = new System.Drawing.Size(323, 73);
@@ -482,28 +494,29 @@ namespace QLNhaSach.Layout.Sach
             // 
             this.txtDonGia.Location = new System.Drawing.Point(105, 267);
             this.txtDonGia.Name = "txtDonGia";
-            this.txtDonGia.Size = new System.Drawing.Size(133, 25);
+            this.txtDonGia.Size = new System.Drawing.Size(102, 25);
             this.txtDonGia.TabIndex = 2;
             // 
             // txtTen
             // 
             this.txtTen.Location = new System.Drawing.Point(105, 97);
+            this.txtTen.Multiline = true;
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(133, 25);
+            this.txtTen.Size = new System.Drawing.Size(200, 41);
             this.txtTen.TabIndex = 2;
             // 
             // txtSoLuong
             // 
             this.txtSoLuong.Location = new System.Drawing.Point(105, 206);
             this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Size = new System.Drawing.Size(133, 25);
+            this.txtSoLuong.Size = new System.Drawing.Size(102, 25);
             this.txtSoLuong.TabIndex = 2;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label15.Location = new System.Drawing.Point(273, 147);
+            this.label15.Location = new System.Drawing.Point(326, 150);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(33, 17);
             this.label15.TabIndex = 1;
@@ -516,14 +529,14 @@ namespace QLNhaSach.Layout.Sach
             this.txtMa.Location = new System.Drawing.Point(105, 53);
             this.txtMa.Name = "txtMa";
             this.txtMa.ReadOnly = true;
-            this.txtMa.Size = new System.Drawing.Size(133, 25);
+            this.txtMa.Size = new System.Drawing.Size(102, 25);
             this.txtMa.TabIndex = 2;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label14.Location = new System.Drawing.Point(273, 214);
+            this.label14.Location = new System.Drawing.Point(326, 217);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(90, 17);
             this.label14.TabIndex = 1;
@@ -533,7 +546,7 @@ namespace QLNhaSach.Layout.Sach
             // 
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label17.Location = new System.Drawing.Point(509, 77);
+            this.label17.Location = new System.Drawing.Point(614, 59);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(33, 17);
             this.label17.TabIndex = 1;
@@ -543,7 +556,7 @@ namespace QLNhaSach.Layout.Sach
             // 
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label18.Location = new System.Drawing.Point(512, 222);
+            this.label18.Location = new System.Drawing.Point(600, 225);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(43, 17);
             this.label18.TabIndex = 1;
@@ -553,7 +566,7 @@ namespace QLNhaSach.Layout.Sach
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.Location = new System.Drawing.Point(273, 53);
+            this.label10.Location = new System.Drawing.Point(326, 56);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(39, 17);
             this.label10.TabIndex = 1;
@@ -574,7 +587,7 @@ namespace QLNhaSach.Layout.Sach
             // 
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label16.Location = new System.Drawing.Point(273, 100);
+            this.label16.Location = new System.Drawing.Point(326, 103);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(65, 17);
             this.label16.TabIndex = 1;
@@ -584,7 +597,7 @@ namespace QLNhaSach.Layout.Sach
             // 
             this.label21.AutoSize = true;
             this.label21.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label21.Location = new System.Drawing.Point(276, 264);
+            this.label21.Location = new System.Drawing.Point(329, 264);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(72, 17);
             this.label21.TabIndex = 1;
@@ -594,7 +607,7 @@ namespace QLNhaSach.Layout.Sach
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label11.Location = new System.Drawing.Point(34, 147);
+            this.label11.Location = new System.Drawing.Point(34, 168);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(52, 17);
             this.label11.TabIndex = 1;
@@ -639,14 +652,6 @@ namespace QLNhaSach.Layout.Sach
             this.label6.Size = new System.Drawing.Size(50, 17);
             this.label6.TabIndex = 0;
             this.label6.Text = "Chi tiết";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(91, 8);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(143, 25);
-            this.txtSearch.TabIndex = 20;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // FQLSach
             // 
