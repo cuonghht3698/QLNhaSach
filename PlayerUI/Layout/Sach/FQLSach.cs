@@ -85,8 +85,22 @@ namespace QLNhaSach.Layout.Sach
                                      MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
-                cn.ExecuteNonQuery("Delete sach where id =" + ma);
-                BindGrid();
+                try
+                {
+                    cn.ExecuteNonQuery("Delete sach where id =" + ma);
+                    BindGrid();
+                }
+                catch
+                {
+                    DialogResult dr = MessageBox.Show("Không thể xóa sách! Bỏ hoạt động", "Thông báo", MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Information);
+                    if (dr == DialogResult.Yes)
+                    {
+                        cn.ExecuteNonQuery("UPDATE sach active = false where id =" + ma);
+                        BindGrid();
+                    }
+                }
+
             }
         }
 
@@ -151,7 +165,7 @@ namespace QLNhaSach.Layout.Sach
             else if (e.RowIndex != -1)
             {
                 ma = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                string kho, ncc, nxb, loai,anh;
+                string kho, ncc, nxb, loai, anh;
                 kho = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
                 ncc = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
                 loai = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
@@ -199,7 +213,7 @@ namespace QLNhaSach.Layout.Sach
                 //AUTO NXB
                 if (String.IsNullOrEmpty(anh))
                 {
-                    
+
                 }
                 else
                 {
@@ -290,7 +304,7 @@ namespace QLNhaSach.Layout.Sach
                     // and assign that to the PictureBox.Image property
                     PictureBox1.Image = new Bitmap(dlg.FileName);
                     ptbAnh.Image = new Bitmap(dlg.FileName);
-                    Console.WriteLine(PublicFunction.GetStringFromImage(ptbAnh.Image)); 
+                    Console.WriteLine(PublicFunction.GetStringFromImage(ptbAnh.Image));
                 }
             }
         }
@@ -298,32 +312,41 @@ namespace QLNhaSach.Layout.Sach
 
         private void Insert(bool check)
         {
-            string ten, tacgia, mota, anh;
-            int id,soluong, dongia, khoId, nccId, loaisachId, nxbId;
-            DateTime ngaynhap;
-            bool active;
-            id = int.Parse(txtMa.Text);
-            ten = txtTen.Text;
-            tacgia = txtTacGia.Text;
-            mota = txtMoTa.Text;
-            anh = ptbAnh.Image.ToString() != null ? PublicFunction.GetStringFromImage(ptbAnh.Image) : "";
-            soluong = int.Parse(txtSoLuong.Text);
-            dongia = int.Parse(txtDonGia.Text);
-            ngaynhap = DateTime.Now;
-            khoId = PublicFunction.GetIdFromCombobox(cbKho.SelectedItem.ToString());
-            nccId = PublicFunction.GetIdFromCombobox(cbNCC.SelectedItem.ToString());
-            loaisachId = PublicFunction.GetIdFromCombobox(cbLoaiSach.SelectedItem.ToString());
-            nxbId = PublicFunction.GetIdFromCombobox(cbNhaXuatBan.SelectedItem.ToString());
-            active = checkActive.Checked;
-            if(check)
-            cn.CreateOrUpdateSachProcedure(true,0,ten,soluong,dongia,ngaynhap,tacgia,mota,anh,khoId,nccId,loaisachId,nxbId,active);
-            else
-                cn.CreateOrUpdateSachProcedure(false, id, ten, soluong, dongia, ngaynhap, tacgia, mota, anh, khoId, nccId, loaisachId, nxbId, active);
-            BindGrid();
+            try
+            {
+                string ten, tacgia, mota, anh;
+                int id, soluong, dongia, khoId, nccId, loaisachId, nxbId;
+                DateTime ngaynhap;
+                bool active;
+                id = int.Parse(txtMa.Text);
+                ten = txtTen.Text;
+                tacgia = txtTacGia.Text;
+                mota = txtMoTa.Text;
+                anh = ptbAnh.Image.ToString() != null ? PublicFunction.GetStringFromImage(ptbAnh.Image) : "";
+                soluong = int.Parse(txtSoLuong.Text);
+                dongia = int.Parse(txtDonGia.Text);
+                ngaynhap = DateTime.Now;
+                khoId = PublicFunction.GetIdFromCombobox(cbKho.SelectedItem.ToString());
+                nccId = PublicFunction.GetIdFromCombobox(cbNCC.SelectedItem.ToString());
+                loaisachId = PublicFunction.GetIdFromCombobox(cbLoaiSach.SelectedItem.ToString());
+                nxbId = PublicFunction.GetIdFromCombobox(cbNhaXuatBan.SelectedItem.ToString());
+                active = checkActive.Checked;
+                if (check)
+                    cn.CreateOrUpdateSachProcedure(true, 0, ten, soluong, dongia, ngaynhap, tacgia, mota, anh, khoId, nccId, loaisachId, nxbId, active);
+                else
+                    cn.CreateOrUpdateSachProcedure(false, id, ten, soluong, dongia, ngaynhap, tacgia, mota, anh, khoId, nccId, loaisachId, nxbId, active);
+                BindGrid();
+            }
+            catch
+            {
+                MessageBox.Show("Cách trường dữ liệu không đúng!", "Thông báo");
+            }
         }
         private void iconButton1_Click(object sender, EventArgs e)
         {
+
             Insert(true);
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -334,6 +357,26 @@ namespace QLNhaSach.Layout.Sach
         private void iconButton2_Click(object sender, EventArgs e)
         {
             Insert(false);
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkActive_CheckedChanged(object sender, EventArgs e)
+        {
+            checkActive.Text = checkActive.Checked == true ?  "Hoạt động" : "Ngừng kinh doanh";
         }
     }
 }
