@@ -17,7 +17,7 @@ namespace QLNhaSach.Function
 
             using (var sha = new System.Security.Cryptography.SHA256Managed())
             {
-                byte[] textData = System.Text.Encoding.UTF8.GetBytes(password);
+                byte[] textData = Encoding.UTF8.GetBytes(password);
                 byte[] hash = sha.ComputeHash(textData);
                 return BitConverter.ToString(hash).Replace("-", String.Empty);
             }
@@ -25,7 +25,13 @@ namespace QLNhaSach.Function
 
         public static int GetIdFromCombobox(string value)
         {
-            return int.Parse(value.Split('-')[0]);
+            if (!String.IsNullOrEmpty(value))
+            {
+                
+                return  int.TryParse(value.Split('-')[0],out int re)?int.Parse(value.Split('-')[0]):0;
+            }
+              
+            return 0;
         }
         public static string GetNameFromCombobox(string value)
         {

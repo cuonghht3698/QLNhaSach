@@ -65,6 +65,7 @@
       <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net45\FontAwesome.Sharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -117,6 +118,18 @@
     <Compile Include="Layout\DanhMuc\FNhaXB.Designer.cs">
       <DependentUpon>FNhaXB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layout\KhachHang\FMainKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\KhachHang\FMainKH.Designer.cs">
+      <DependentUpon>FMainKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\KhachHang\FSachKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\KhachHang\FSachKH.Designer.cs">
+      <DependentUpon>FSachKH.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\Sach\FQLSach.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +138,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\SachService.cs" />
     <EmbeddedResource Include="FMain.resx">
       <DependentUpon>FMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,6 +156,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\DanhMuc\FNhaXB.resx">
       <DependentUpon>FNhaXB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\KhachHang\FMainKH.resx">
+      <DependentUpon>FMainKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\KhachHang\FSachKH.resx">
+      <DependentUpon>FSachKH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\Sach\FQLSach.resx">
       <DependentUpon>FQLSach.cs</DependentUpon>

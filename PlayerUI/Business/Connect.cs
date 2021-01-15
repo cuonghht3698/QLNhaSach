@@ -5,12 +5,12 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Configuration;
 namespace QLNhaSach.Business
 {
     public class Connect
     {
-        private string connString = "Server=DESKTOP-BJJNCTC;Database=NStienphong;Integrated Security=true;";
+        private string connString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
         private SqlConnection conn;
         public Connect()
         {
@@ -89,33 +89,33 @@ namespace QLNhaSach.Business
 
         }
 
-        public DataTable CreateOrUpdateSachProcedure(bool insert,int id ,string ten, int soluong, int dongia, DateTime ngaynhap, string tacgia, string mota, string anh, int khoId, int nccId, int loaisachId, int nxbId, bool active)
+        public DataTable CreateOrUpdateSachProcedure(bool insert, int id, string ten, int soluong, int dongia, DateTime ngaynhap, string tacgia, string mota, int khoId, int nccId, int loaisachId, int nxbId, bool active, int giaban,string anh)
         {
             connect();
             SqlCommand cmd = conn.CreateCommand();
             // true là insert
             if (insert)
             {
-                cmd.CommandText = "EXECUTE InsertSach " + "@ten,@soluong,@dongia,@ngaynhap,@tacgia,@mota,@anh,@khoId,@nccId,@loaisachId,@nxbId,@active";
+                cmd.CommandText = "EXECUTE InsertSach " + "@ten,@soluong,@dongia,@ngaynhap,@tacgia,@mota,@khoId,@nccId,@loaisachId,@nxbId,@active,@giaban,@anh";
             }
             else
             {
-                cmd.CommandText = "EXECUTE updateSach " + "@id,@ten,@soluong,@dongia,@ngaynhap,@tacgia,@mota,@anh,@khoId,@nccId,@loaisachId,@nxbId,@active";
+                cmd.CommandText = "EXECUTE updateSach " + "@id,@ten,@soluong,@dongia,@ngaynhap,@tacgia,@mota,@khoId,@nccId,@loaisachId,@nxbId,@active,@giaban,@anh";
                 cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
             }
             cmd.Parameters.Add("@ten", SqlDbType.NVarChar, 50).Value = ten;
-            cmd.Parameters.Add("@soluong", SqlDbType.NVarChar, 50).Value = soluong;
-            cmd.Parameters.Add("@dongia", SqlDbType.NVarChar, 50).Value = dongia;
+            cmd.Parameters.Add("@soluong", SqlDbType.Int).Value = soluong;
+            cmd.Parameters.Add("@dongia", SqlDbType.Decimal).Value = dongia;
             cmd.Parameters.Add("@ngaynhap", SqlDbType.NVarChar, 50).Value = ngaynhap;
             cmd.Parameters.Add("@tacgia", SqlDbType.NVarChar, 50).Value = tacgia;
             cmd.Parameters.Add("@mota", SqlDbType.NVarChar, 50).Value = mota;
+            cmd.Parameters.Add("@khoId", SqlDbType.Int).Value = khoId;
+            cmd.Parameters.Add("@nccId", SqlDbType.Int).Value = nccId;
+            cmd.Parameters.Add("@loaisachId", SqlDbType.Int).Value = loaisachId;
+            cmd.Parameters.Add("@nxbId", SqlDbType.Int).Value = nxbId;
+            cmd.Parameters.Add("@active", SqlDbType.Bit).Value = active;
+            cmd.Parameters.Add("@giaban", SqlDbType.Decimal).Value = giaban;
             cmd.Parameters.Add("@anh", SqlDbType.VarChar).Value = anh;
-            cmd.Parameters.Add("@khoId", SqlDbType.NVarChar, 50).Value = khoId;
-            cmd.Parameters.Add("@nccId", SqlDbType.NVarChar, 50).Value = nccId;
-            cmd.Parameters.Add("@loaisachId", SqlDbType.NVarChar, 50).Value = loaisachId;
-            cmd.Parameters.Add("@nxbId", SqlDbType.NVarChar, 50).Value = nxbId;
-            cmd.Parameters.Add("@active", SqlDbType.NVarChar, 50).Value = active;
-
             DataTable tb = new DataTable();
             tb.Load(cmd.ExecuteReader());
             return tb;

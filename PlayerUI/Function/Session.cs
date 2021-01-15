@@ -19,7 +19,5 @@ namespace QLNhaSach.Function
         public static string phucap;
         public static string username;
         public static string luongcoban;
-
-
     }
 }

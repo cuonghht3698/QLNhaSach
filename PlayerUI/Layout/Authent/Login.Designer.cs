@@ -182,7 +182,7 @@ namespace QLNhaSach.Layout.Authent
             this.btnDangNhap.TabIndex = 102;
             this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.UseVisualStyleBackColor = true;
-            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click_1);
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // Login
             // 
