@@ -89,18 +89,18 @@ namespace QLNhaSach.Business
 
         }
 
-        public DataTable CreateOrUpdateSachProcedure(bool insert, int id, string ten, int soluong, int dongia, DateTime ngaynhap, string tacgia, string mota, int khoId, int nccId, int loaisachId, int nxbId, bool active, int giaban,string anh)
+        public DataTable CreateOrUpdateSachProcedure(bool insert, int id, string ten, int soluong, int dongia, DateTime ngaynhap, string tacgia, string mota, int khoId, int nccId, int loaisachId, int nxbId, bool active, int giaban,string anh,string dvt)
         {
             connect();
             SqlCommand cmd = conn.CreateCommand();
             // true là insert
             if (insert)
             {
-                cmd.CommandText = "EXECUTE InsertSach " + "@ten,@soluong,@dongia,@ngaynhap,@tacgia,@mota,@khoId,@nccId,@loaisachId,@nxbId,@active,@giaban,@anh";
+                cmd.CommandText = "EXECUTE InsertSach " + "@ten,@soluong,@dongia,@ngaynhap,@tacgia,@mota,@khoId,@nccId,@loaisachId,@nxbId,@active,@giaban,@anh,@dvt";
             }
             else
             {
-                cmd.CommandText = "EXECUTE updateSach " + "@id,@ten,@soluong,@dongia,@ngaynhap,@tacgia,@mota,@khoId,@nccId,@loaisachId,@nxbId,@active,@giaban,@anh";
+                cmd.CommandText = "EXECUTE updateSach " + "@id,@ten,@soluong,@dongia,@ngaynhap,@tacgia,@mota,@khoId,@nccId,@loaisachId,@nxbId,@active,@giaban,@anh,@dvt";
                 cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
             }
             cmd.Parameters.Add("@ten", SqlDbType.NVarChar, 50).Value = ten;
@@ -116,6 +116,7 @@ namespace QLNhaSach.Business
             cmd.Parameters.Add("@active", SqlDbType.Bit).Value = active;
             cmd.Parameters.Add("@giaban", SqlDbType.Decimal).Value = giaban;
             cmd.Parameters.Add("@anh", SqlDbType.VarChar).Value = anh;
+            cmd.Parameters.Add("@dvt", SqlDbType.NVarChar).Value = dvt;
             DataTable tb = new DataTable();
             tb.Load(cmd.ExecuteReader());
             return tb;
@@ -131,6 +132,17 @@ namespace QLNhaSach.Business
             cmd.Parameters.Add("@loai", SqlDbType.Int).Value = loai;
             cmd.Parameters.Add("@nxb", SqlDbType.Int).Value = nxb;
             cmd.Parameters.Add("@active", SqlDbType.Int).Value = active;
+            DataTable tb = new DataTable();
+            tb.Load(cmd.ExecuteReader());
+            return tb;
+        }
+
+        public DataTable callSachMauProcedure(string ten)
+        {
+            connect();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "EXECUTE getSachMau @ten";
+            cmd.Parameters.Add("@ten", SqlDbType.NVarChar, 50).Value = ten;
             DataTable tb = new DataTable();
             tb.Load(cmd.ExecuteReader());
             return tb;

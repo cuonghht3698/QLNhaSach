@@ -58,7 +58,7 @@ namespace QLNhaSach.Layout.Authent
             // 
             // txtUser
             // 
-            this.txtUser.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUser.Font = new System.Drawing.Font("Times New Roman", 11.25F);
             this.txtUser.Location = new System.Drawing.Point(149, 81);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(202, 25);
@@ -77,7 +77,7 @@ namespace QLNhaSach.Layout.Authent
             // 
             // txtPassword
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 11.25F);
             this.txtPassword.Location = new System.Drawing.Point(149, 125);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
@@ -131,7 +131,7 @@ namespace QLNhaSach.Layout.Authent
             // lbTitle
             // 
             this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("Segoe Print", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle.Font = new System.Drawing.Font("Segoe Print", 14.25F, System.Drawing.FontStyle.Italic);
             this.lbTitle.ForeColor = System.Drawing.Color.Red;
             this.lbTitle.Location = new System.Drawing.Point(109, 9);
             this.lbTitle.Name = "lbTitle";
@@ -154,7 +154,7 @@ namespace QLNhaSach.Layout.Authent
             // lbCheckNV
             // 
             this.lbCheckNV.AutoSize = true;
-            this.lbCheckNV.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCheckNV.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbCheckNV.ForeColor = System.Drawing.Color.Red;
             this.lbCheckNV.Location = new System.Drawing.Point(151, 210);
             this.lbCheckNV.Name = "lbCheckNV";
@@ -172,6 +172,7 @@ namespace QLNhaSach.Layout.Authent
             // 
             // btnDangNhap
             // 
+            this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnDangNhap.IconChar = FontAwesome.Sharp.IconChar.Mendeley;
             this.btnDangNhap.IconColor = System.Drawing.Color.Maroon;
             this.btnDangNhap.IconFont = FontAwesome.Sharp.IconFont.Regular;
@@ -181,13 +182,15 @@ namespace QLNhaSach.Layout.Authent
             this.btnDangNhap.Size = new System.Drawing.Size(168, 50);
             this.btnDangNhap.TabIndex = 102;
             this.btnDangNhap.Text = "Đăng nhập";
+            this.btnDangNhap.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDangNhap.UseVisualStyleBackColor = true;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AcceptButton = this.btnDangNhap;
+            this.AllowDrop = true;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(486, 328);
             this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.lbLoginFailed);

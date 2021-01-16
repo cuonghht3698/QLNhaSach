@@ -1,4 +1,5 @@
-﻿using QLNhaSach.Business;
+﻿using PlayerUI;
+using QLNhaSach.Business;
 using QLNhaSach.Function;
 using QLNhaSach.Services;
 using System;
@@ -21,7 +22,7 @@ namespace QLNhaSach.Layout.Sach
         private SachService Ssach;
         private string ma;
         private string search = "";
-        private int Sactive = 0;
+        private int Sactive = 1;
         private int Skho = 0;
         private int Sncc = 0;
         private int Sloai = 0;
@@ -49,6 +50,7 @@ namespace QLNhaSach.Layout.Sach
             cbNCC.SelectedIndex = 0;
             cbNhaXuatBan.SelectedIndex = 0;
             cbLoaiSach.SelectedIndex = 0;
+            cbHoatDong.SelectedIndex = 1; 
             ImageEmpty = PublicFunction.GetStringFromImage(ptbAnh.Image);
             ClearSearch();
         }
@@ -71,9 +73,10 @@ namespace QLNhaSach.Layout.Sach
                 datePickNgayNhap.Value = ngaynhap != "" ? DateTime.Parse(ngaynhap) : DateTime.Now;
                 txtTacGia.Text = read.Rows[0][5].ToString();
                 txtMoTa.Text = read.Rows[0][6].ToString();
-                checkActive.Text = read.Rows[0][12].ToString() == "True" ? "Hoạt động" : "Ngừng kinh doanh";
-                checkActive.Checked = read.Rows[0][12].ToString() == "True" ? true : false;
-
+                checkActive.Text = read.Rows[0][11].ToString() == "True" ? "Hoạt động" : "Ngừng kinh doanh";
+                checkActive.Checked = read.Rows[0][11].ToString() == "True" ? true : false;
+                txtGiaBan.Text = read.Rows[0][12].ToString();
+                txtDVT.Text = read.Rows[0][14].ToString();
 
 
             }
@@ -81,16 +84,19 @@ namespace QLNhaSach.Layout.Sach
         private void addButtonDataGripview()
         {
             dataGridView1.Columns[0].Width = 34;
-            dataGridView1.Columns[1].Width = 34;
-            dataGridView1.Columns[10].Width = 44;
+            dataGridView1.Columns[1].Width = 44;
+            dataGridView1.Columns[4].Width = 104;
+            dataGridView1.Columns[10].Width = 50;
+
             DataGridViewButtonColumn delete = new DataGridViewButtonColumn();
             delete.HeaderText = "Xóa";
             delete.Name = "btnDelete";
             delete.Text = "Xóa";
-            delete.Width = 20;
             delete.DefaultCellStyle.BackColor = Color.Red;
             delete.UseColumnTextForButtonValue = true;
             dataGridView1.Columns.Add(delete);
+            dataGridView1.Columns[11].Width = 50;
+
         }
         private void Delete(string ma)
         {
@@ -306,7 +312,7 @@ namespace QLNhaSach.Layout.Sach
             cbSearchKho.SelectedIndex = 0;
             cbSearchNCC.SelectedIndex = 0;
             cbSearchLoai.SelectedIndex = 0;
-            cbHoatDong.SelectedIndex = 0;
+            cbHoatDong.SelectedIndex = 1;
             BindGrid();
         }
 
@@ -334,7 +340,7 @@ namespace QLNhaSach.Layout.Sach
         {
             try
             {
-                string ten, tacgia, mota, anh;
+                string ten, tacgia, mota, anh, dvt;
                 int id, soluong, dongia, khoId, nccId, loaisachId, nxbId, giaban;
                 DateTime ngaynhap;
                 bool active;
@@ -342,6 +348,7 @@ namespace QLNhaSach.Layout.Sach
                 ten = txtTen.Text;
                 tacgia = txtTacGia.Text;
                 mota = txtMoTa.Text;
+                dvt = txtDVT.Text;
                 anh = !String.IsNullOrEmpty(ptbAnh.Image.ToString()) ? PublicFunction.GetStringFromImage(ptbAnh.Image) : "";
                 soluong = Int32.Parse(txtSoLuong.Text);
                 dongia = Int32.Parse(txtDonGia.Text);
@@ -354,11 +361,11 @@ namespace QLNhaSach.Layout.Sach
                 active = checkActive.Checked;
                 if (check)
                 {
-                    cn.CreateOrUpdateSachProcedure(true, 0, ten, soluong, dongia, ngaynhap, tacgia, mota, khoId, nccId, loaisachId, nxbId, active, giaban, anh);
+                    cn.CreateOrUpdateSachProcedure(true, 0, ten, soluong, dongia, ngaynhap, tacgia, mota, khoId, nccId, loaisachId, nxbId, active, giaban, anh, dvt);
                 }
 
                 else
-                    cn.CreateOrUpdateSachProcedure(false, id, ten, soluong, dongia, ngaynhap, tacgia, mota, khoId, nccId, loaisachId, nxbId, active, giaban, anh);
+                    cn.CreateOrUpdateSachProcedure(false, id, ten, soluong, dongia, ngaynhap, tacgia, mota, khoId, nccId, loaisachId, nxbId, active, giaban, anh, dvt);
                 BindGrid();
             }
             catch
@@ -401,6 +408,12 @@ namespace QLNhaSach.Layout.Sach
         private void checkActive_CheckedChanged(object sender, EventArgs e)
         {
             checkActive.Text = checkActive.Checked == true ? "Hoạt động" : "Ngừng kinh doanh";
+        }
+
+        private void iconButton4_Click(object sender, EventArgs e)
+        {
+            FMain fm = new FMain();
+            fm.button7_Click(this, EventArgs.Empty);
         }
     }
 }

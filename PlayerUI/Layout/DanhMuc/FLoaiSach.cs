@@ -73,7 +73,7 @@ namespace QLNhaSach.Layout
             // 0 la them 1 la sua
             else if (check == 0)
             {
-                cn.ExecuteNonQuery("INSERT INTO loaisach (tenloai,mota) VALUES (N'" + txtTenLoai.Text + "',N'" + txtMoTa.Text + "')");
+                cn.ExecuteNonQuery("INSERT INTO loaisach (ten,mota) VALUES (N'" + txtTenLoai.Text + "',N'" + txtMoTa.Text + "')");
                 lbThongBao.ForeColor = Color.Green;
                 lbThongBao.Text = "Thêm loại sách thành công";
                 BindGrid("");

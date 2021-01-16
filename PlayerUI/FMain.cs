@@ -1,5 +1,7 @@
 ﻿using QLNhaSach.Function;
 using QLNhaSach.Layout;
+using QLNhaSach.Layout.Authent;
+using QLNhaSach.Layout.NhanSu;
 using QLNhaSach.Layout.Sach;
 using System;
 using System.Collections.Generic;
@@ -7,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,7 +23,11 @@ namespace PlayerUI
             InitializeComponent();
             hideSubMenu();
         }
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
 
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         private void hideSubMenu()
         {
             panelMediaSubMenu.Visible = false;
@@ -94,15 +101,15 @@ namespace PlayerUI
             //your codes
             //..
             openChildForm(new FQLSach());
-            this.Width = 1300;
+            this.Width = 1350;
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        public void button7_Click(object sender, EventArgs e)
         {
             //..
             //your codes
             //..
-           
+            openChildForm(new FNhapSach());
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -132,7 +139,7 @@ namespace PlayerUI
             //..
             //your codes
             //..
-          
+            openChildForm(new FQLNhanVien());
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -140,7 +147,7 @@ namespace PlayerUI
             //..
             //your codes
             //..
-          
+            openChildForm(new FQLKhachHang());
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -182,7 +189,7 @@ namespace PlayerUI
         }
 
         private Form activeForm = null;
-        private void openChildForm(Form childForm)
+        public void openChildForm(Form childForm)
         {
             if (activeForm != null) activeForm.Close();
             activeForm = childForm;
@@ -208,12 +215,48 @@ namespace PlayerUI
         private void FMain_Load(object sender, EventArgs e)
         {
             lbName.Text = Session.ten;
+            Login f = new Login();
+            f.Hide();
         }
 
 
         private void FMain_FormClosing(object sender, FormClosingEventArgs e)
         {
         
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+                this.WindowState = FormWindowState.Maximized;
+            else
+                this.WindowState = FormWindowState.Normal;
         }
     }
 }

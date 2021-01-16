@@ -38,6 +38,30 @@ namespace QLNhaSach.Function
             return value.Split('-')[1];
         }
 
+
+        public static string TrueFalseToNamNu(bool gioitinh)
+        {
+            if (gioitinh)
+            {
+                return "Nam";
+            }
+            else
+            {
+                return "Nữ";
+            }
+        }
+
+        public static bool NamNuToTrueFalse(string gioitinh)
+        {
+            if (gioitinh == "Nam" || gioitinh == "nam")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public static string GetStringFromImage(Image image)
         {
             if (image != null)
@@ -66,7 +90,7 @@ namespace QLNhaSach.Function
                 else
                     return null;
             }
-            catch(Exception e)
+            catch(Exception )
             {
                 return null;
             }

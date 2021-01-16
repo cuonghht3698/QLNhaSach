@@ -32,7 +32,8 @@ namespace QLNhaSach.Layout.Authent
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            DangKy dk = new DangKy();
+            dk.Show();
         }
 
         private void linkGoToLoginAdmin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -41,7 +42,7 @@ namespace QLNhaSach.Layout.Authent
             if (LoginNhanVien)
             {
                 lbCheckNV.Text = "Chế độ quản trị viên";
-                btnDangNhap.Text = "Đăng nhập quản trị";
+                btnDangNhap.Text = "Đăng nhập";
                 linkQuenMatKhau.Visible = false;
                 LinkTaoTaiKhoan.Visible = false;
                 txtUser.Text = "admin";
@@ -53,6 +54,8 @@ namespace QLNhaSach.Layout.Authent
                 btnDangNhap.Text = "Đăng nhập";
                 txtUser.Text = "cuong";
                 txtPassword.Text = "cuong";
+                linkQuenMatKhau.Visible = true;
+                LinkTaoTaiKhoan.Visible = true;
             }
 
         }
@@ -83,9 +86,10 @@ namespace QLNhaSach.Layout.Authent
                 Session.quequan = read.Rows[0][5].ToString();
                 Session.username = read.Rows[0][6].ToString();
                 Session.quyen = read.Rows[0][9].ToString();
+                this.Hide();
                 FMain fMain = new FMain();
                 fMain.ShowDialog();
-                Close();
+                
             }
             else
             {
@@ -104,10 +108,10 @@ namespace QLNhaSach.Layout.Authent
                 Session.sdt = read.Rows[0][3].ToString();
                 Session.quequan = read.Rows[0][5].ToString();
                 Session.username = read.Rows[0][6].ToString();
+                this.Hide();
                 FMainKH fMainKH = new FMainKH();
-
                 fMainKH.ShowDialog();
-                Close();
+                
             }
             else
             {
