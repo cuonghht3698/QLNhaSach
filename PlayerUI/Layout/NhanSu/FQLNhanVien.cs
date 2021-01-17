@@ -60,7 +60,34 @@ namespace QLNhaSach.Layout.NhanSu
             DataTable tb = cn.getDataTable("select id,ten,ngaysinh,sdt,gioitinh,quequan,username,active,quyen from nhanvien where id !=" + Session.idUser + where);
             dataGridView1.DataSource = tb;
         }
+        private void updateNhanVien()
+        {
+            string ten, sdt, quequan, username, quyen;
+            int id;
+            bool gioitinh, active;
+            DateTime ngaysinh;
+            id =int.Parse(txtMa.Text);
+            ten = txtTen.Text;
+            sdt = txtSdt.Text;
+            quequan = txtQueQuan.Text;
+            username = txtUsername.Text;
+            quyen = cbQuyen.SelectedIndex !=0 ? cbQuyen.SelectedItem.ToString():"";
+            gioitinh = PublicFunction.NamNuToTrueFalse(cbGioiTinh.SelectedItem.ToString());
+            active = checkActive.Checked;
+            ngaysinh = dateTimePicker1.Value;
+            string sql = "update nhanvien set ten = N'" +ten+ "',ngaysinh = '"+ngaysinh +"',sdt = '"+sdt+"',gioitinh = '"+ gioitinh +"'" +
+                ",quequan = N'"+quequan+"',username = '"+username+"',active = '"+active+"',quyen =N'"+quyen+"' where id = " + id;
+            try
+            {
+                cn.ExecuteNonQuery(sql);
+                getDataNhanVien();
+            }
+            catch (Exception)
+            {
 
+                MessageBox.Show("Kiểm tra lại thông tin","Thông báo!");
+            }
+        }
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -79,7 +106,7 @@ namespace QLNhaSach.Layout.NhanSu
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            checkBox1.Text = checkBox1.Checked == true ? "Hoạt động" : "Khóa";
+            checkActive.Text = checkActive.Checked == true ? "Hoạt động" : "Khóa";
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -108,7 +135,7 @@ namespace QLNhaSach.Layout.NhanSu
                 txtUsername.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
                 //txtUsername.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
 
-                checkBox1.Checked =Boolean.Parse(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString());
+                checkActive.Checked =Boolean.Parse(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString());
                 cbQuyen.SelectedItem = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
             }
         }
@@ -116,6 +143,11 @@ namespace QLNhaSach.Layout.NhanSu
         private void cbSearchChucVu_SelectedIndexChanged(object sender, EventArgs e)
         {
             getDataNhanVien();
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            updateNhanVien();
         }
     }
 }

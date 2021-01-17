@@ -49,7 +49,7 @@ namespace QLNhaSach.Layout.Authent
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(92, 84);
+            this.label1.Location = new System.Drawing.Point(91, 89);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 0;
@@ -58,17 +58,17 @@ namespace QLNhaSach.Layout.Authent
             // 
             // txtUser
             // 
-            this.txtUser.Font = new System.Drawing.Font("Times New Roman", 11.25F);
+            this.txtUser.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.Location = new System.Drawing.Point(149, 81);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(202, 25);
+            this.txtUser.Size = new System.Drawing.Size(202, 29);
             this.txtUser.TabIndex = 1;
             this.txtUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(92, 128);
+            this.label2.Location = new System.Drawing.Point(91, 133);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 0;
@@ -77,11 +77,11 @@ namespace QLNhaSach.Layout.Authent
             // 
             // txtPassword
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 11.25F);
+            this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(149, 125);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(202, 25);
+            this.txtPassword.Size = new System.Drawing.Size(202, 29);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
             // 
@@ -120,9 +120,10 @@ namespace QLNhaSach.Layout.Authent
             // linkGoToLoginAdmin
             // 
             this.linkGoToLoginAdmin.AutoSize = true;
-            this.linkGoToLoginAdmin.Location = new System.Drawing.Point(367, 293);
+            this.linkGoToLoginAdmin.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkGoToLoginAdmin.Location = new System.Drawing.Point(347, 302);
             this.linkGoToLoginAdmin.Name = "linkGoToLoginAdmin";
-            this.linkGoToLoginAdmin.Size = new System.Drawing.Size(97, 13);
+            this.linkGoToLoginAdmin.Size = new System.Drawing.Size(118, 17);
             this.linkGoToLoginAdmin.TabIndex = 5;
             this.linkGoToLoginAdmin.TabStop = true;
             this.linkGoToLoginAdmin.Text = "Đăng nhập admin?";
