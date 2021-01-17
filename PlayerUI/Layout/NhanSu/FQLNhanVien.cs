@@ -19,6 +19,8 @@ namespace QLNhaSach.Layout.NhanSu
         private Connect cn;
         private string sSearch;
         private string sRole;
+        private bool sTrangThai;
+
         public FQLNhanVien()
         {
             InitializeComponent();
@@ -40,6 +42,7 @@ namespace QLNhaSach.Layout.NhanSu
             cbSearchChucVu.Items.Add(Role.nhanvien);
             cbSearchChucVu.Items.Add(Role.khachhang);
             cbSearchChucVu.SelectedIndex = 0;
+            cbTrangThai.SelectedIndex = 1;
             getDataNhanVien();
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";
         }
@@ -55,7 +58,11 @@ namespace QLNhaSach.Layout.NhanSu
             }
             if (cbSearchChucVu.SelectedIndex != 0)
             {
-                where = " and quyen like '%" + sRole + "%'";
+                where += " and quyen like '%" + sRole + "%'";
+            }
+            if (cbTrangThai.SelectedIndex != 0)
+            {
+                where += " and active = '" + sTrangThai + "'";
             }
             DataTable tb = cn.getDataTable("select id,ten,ngaysinh,sdt,gioitinh,quequan,username,active,quyen from nhanvien where id !=" + Session.idUser + where);
             dataGridView1.DataSource = tb;
@@ -76,7 +83,7 @@ namespace QLNhaSach.Layout.NhanSu
             active = checkActive.Checked;
             ngaysinh = dateTimePicker1.Value;
             string sql = "update nhanvien set ten = N'" +ten+ "',ngaysinh = '"+ngaysinh +"',sdt = '"+sdt+"',gioitinh = '"+ gioitinh +"'" +
-                ",quequan = N'"+quequan+"',username = '"+username+"',active = '"+active+"',quyen =N'"+quyen+"' where id = " + id;
+                ",quequan = N'"+quequan+"',username = '"+username+"',active = '"+ active+"',quyen =N'"+quyen+"' where id = " + id;
             try
             {
                 cn.ExecuteNonQuery(sql);
@@ -148,6 +155,13 @@ namespace QLNhaSach.Layout.NhanSu
         private void iconButton2_Click(object sender, EventArgs e)
         {
             updateNhanVien();
+            getDataNhanVien();
+        }
+
+        private void cbTrangThai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            sTrangThai = cbTrangThai.SelectedIndex == 1 ? true : false;
+            getDataNhanVien();
         }
     }
 }

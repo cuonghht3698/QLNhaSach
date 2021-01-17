@@ -23,6 +23,8 @@ namespace PlayerUI
             InitializeComponent();
             hideSubMenu();
         }
+
+      
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
@@ -34,7 +36,10 @@ namespace PlayerUI
             panelPlaylistSubMenu.Visible = false;
             panelToolsSubMenu.Visible = false;
         }
-
+        private void SetTitle(string title)
+        {
+            lbTitle.Text = title;
+        }
         private void showSubMenu(Panel subMenu)
         {
             if (subMenu.Visible == false)
@@ -185,7 +190,17 @@ namespace PlayerUI
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+            Session.idUser = 0;
+            Session.ten = "";
+            Session.ngaysinh = "";
+            Session.sdt = "";
+            Session.quequan = "";
+            Session.username = "";
+            Session.quyen = "";
+            Login l = new Login();
+            this.Visible = false;
+            l.Show();
         }
 
         private Form activeForm = null;
@@ -257,6 +272,11 @@ namespace PlayerUI
                 this.WindowState = FormWindowState.Maximized;
             else
                 this.WindowState = FormWindowState.Normal;
+        }
+
+        private void panelChildForm_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

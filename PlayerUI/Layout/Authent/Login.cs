@@ -136,8 +136,8 @@ namespace QLNhaSach.Layout.Authent
 
         private void Login_Load(object sender, EventArgs e)
         {
-            Console.WriteLine(Application.StartupPath);
-
+            txtUser.Text = "cuong";
+            txtPassword.Text = "cuong";
         }
 
         private void btnDangNhap_Click_1(object sender, EventArgs e)

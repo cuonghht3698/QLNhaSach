@@ -62,6 +62,8 @@ namespace QLNhaSach.Layout.NhanSu
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cbTrangThai = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -405,6 +407,8 @@ namespace QLNhaSach.Layout.NhanSu
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.cbTrangThai);
+            this.panel4.Controls.Add(this.label13);
             this.panel4.Controls.Add(this.cbSearchChucVu);
             this.panel4.Controls.Add(this.label12);
             this.panel4.Controls.Add(this.label10);
@@ -419,7 +423,7 @@ namespace QLNhaSach.Layout.NhanSu
             // cbSearchChucVu
             // 
             this.cbSearchChucVu.FormattingEnabled = true;
-            this.cbSearchChucVu.Location = new System.Drawing.Point(473, 20);
+            this.cbSearchChucVu.Location = new System.Drawing.Point(438, 20);
             this.cbSearchChucVu.Name = "cbSearchChucVu";
             this.cbSearchChucVu.Size = new System.Drawing.Size(151, 23);
             this.cbSearchChucVu.TabIndex = 3;
@@ -428,7 +432,7 @@ namespace QLNhaSach.Layout.NhanSu
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(388, 27);
+            this.label12.Location = new System.Drawing.Point(353, 27);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(52, 15);
             this.label12.TabIndex = 2;
@@ -450,6 +454,28 @@ namespace QLNhaSach.Layout.NhanSu
             this.txtSearch.Size = new System.Drawing.Size(175, 22);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(637, 23);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(62, 15);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Trạng thái";
+            // 
+            // cbTrangThai
+            // 
+            this.cbTrangThai.FormattingEnabled = true;
+            this.cbTrangThai.Items.AddRange(new object[] {
+            "Trạng thai",
+            "Hoạt động",
+            "Ngừng hoạt động"});
+            this.cbTrangThai.Location = new System.Drawing.Point(720, 20);
+            this.cbTrangThai.Name = "cbTrangThai";
+            this.cbTrangThai.Size = new System.Drawing.Size(107, 23);
+            this.cbTrangThai.TabIndex = 5;
+            this.cbTrangThai.SelectedIndexChanged += new System.EventHandler(this.cbTrangThai_SelectedIndexChanged);
             // 
             // FQLNhanVien
             // 
@@ -510,5 +536,7 @@ namespace QLNhaSach.Layout.NhanSu
         private System.Windows.Forms.TextBox txtSdt;
         private System.Windows.Forms.ComboBox cbSearchChucVu;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cbTrangThai;
+        private System.Windows.Forms.Label label13;
     }
 }

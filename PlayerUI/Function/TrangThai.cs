@@ -11,6 +11,7 @@ namespace QLNhaSach.Function
         public static string TaoPhieu = "Đang giao dịch";
         public static string ChoDuyet = "Chờ duyệt";
         public static string DaDuyet = "Đã duyệt";
+        public static string DaoHang = "Giao Hàng";
         public static string HoanThanh = "Hoàn thành";
         public static string DaHuy = "Hủy";
     }

@@ -125,17 +125,23 @@
     <Compile Include="Layout\DanhMuc\FNhaXB.Designer.cs">
       <DependentUpon>FNhaXB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layout\KhachHang\FGioHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\KhachHang\FGioHang.Designer.cs">
+      <DependentUpon>FGioHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\KhachHang\FMainKH.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Layout\KhachHang\FMainKH.Designer.cs">
       <DependentUpon>FMainKH.cs</DependentUpon>
     </Compile>
-    <Compile Include="Layout\KhachHang\FSachKH.cs">
+    <Compile Include="Layout\KhachHang\FDetailSach.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Layout\KhachHang\FSachKH.Designer.cs">
-      <DependentUpon>FSachKH.cs</DependentUpon>
+    <Compile Include="Layout\KhachHang\FDetailSach.Designer.cs">
+      <DependentUpon>FDetailSach.cs</DependentUpon>
     </Compile>
     <Compile Include="Layout\NhanSu\FQLKhachHang.cs">
       <SubType>Form</SubType>
@@ -188,11 +194,17 @@
     <EmbeddedResource Include="Layout\DanhMuc\FNhaXB.resx">
       <DependentUpon>FNhaXB.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Layout\KhachHang\FGioHang.resx">
+      <DependentUpon>FGioHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Layout\KhachHang\FMainKH.resx">
       <DependentUpon>FMainKH.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Layout\KhachHang\FSachKH.resx">
-      <DependentUpon>FSachKH.cs</DependentUpon>
+    <EmbeddedResource Include="Layout\KhachHang\FDetailSach.resx">
+      <DependentUpon>FDetailSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\NhanSu\FQLKhachHang.resx">
+      <DependentUpon>FQLKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\NhanSu\FQLNhanVien.resx">
       <DependentUpon>FQLNhanVien.cs</DependentUpon>

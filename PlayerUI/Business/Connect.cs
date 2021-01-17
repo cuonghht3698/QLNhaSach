@@ -108,7 +108,7 @@ namespace QLNhaSach.Business
             cmd.Parameters.Add("@dongia", SqlDbType.Decimal).Value = dongia;
             cmd.Parameters.Add("@ngaynhap", SqlDbType.NVarChar, 50).Value = ngaynhap;
             cmd.Parameters.Add("@tacgia", SqlDbType.NVarChar, 50).Value = tacgia;
-            cmd.Parameters.Add("@mota", SqlDbType.NVarChar, 50).Value = mota;
+            cmd.Parameters.Add("@mota", SqlDbType.NVarChar, 500).Value = mota;
             cmd.Parameters.Add("@khoId", SqlDbType.Int).Value = khoId;
             cmd.Parameters.Add("@nccId", SqlDbType.Int).Value = nccId;
             cmd.Parameters.Add("@loaisachId", SqlDbType.Int).Value = loaisachId;
@@ -143,6 +143,25 @@ namespace QLNhaSach.Business
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "EXECUTE getSachMau @ten";
             cmd.Parameters.Add("@ten", SqlDbType.NVarChar, 50).Value = ten;
+            DataTable tb = new DataTable();
+            tb.Load(cmd.ExecuteReader());
+            return tb;
+        }
+
+
+        // get ds khach hang 
+        public DataTable getSachKhProcedure(int id, string search, int pageIndex, int pageSize, string theloai, int giabanTo, int giabanFrom)
+        {
+            connect();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "EXECUTE getSachKhachHang @Id, @sSearch,@pageIndex,@pageSize,@theloai,@giabanTo,@giabanFrom";
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            cmd.Parameters.Add("@sSearch", SqlDbType.NVarChar, 50).Value = search;
+            cmd.Parameters.Add("@pageIndex", SqlDbType.Int).Value = pageIndex;
+            cmd.Parameters.Add("@pageSize", SqlDbType.Int).Value = pageSize;
+            cmd.Parameters.Add("@theloai", SqlDbType.NVarChar,50).Value = theloai;
+            cmd.Parameters.Add("@giabanTo", SqlDbType.Int).Value = giabanTo;
+            cmd.Parameters.Add("@giabanFrom", SqlDbType.Int).Value = giabanFrom;
             DataTable tb = new DataTable();
             tb.Load(cmd.ExecuteReader());
             return tb;
