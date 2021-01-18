@@ -19,12 +19,13 @@ namespace QLNhaSach.Layout.KhachHang
         private int IdHoaDong;
         private DataTable dataHoaDon;
         private int FindId = 0;
-
+        private string TrangThaiHD;
         public FGioHang()
         {
             InitializeComponent();
             cn = new Connect();
             btnHuy.Visible = false;
+            btnTiepNhan.Visible = false;
         }
         public FGioHang(int v)
         {
@@ -35,7 +36,7 @@ namespace QLNhaSach.Layout.KhachHang
             btnMuaThem.Visible = false;
             txtDiaChi.ReadOnly = true;
             txtSDT.ReadOnly = true;
-
+            btnTiepNhan.Visible = true;
 
 
         }
@@ -59,8 +60,8 @@ namespace QLNhaSach.Layout.KhachHang
                 trang = TrangThai.TaoPhieu;
             }
 
-            return cn.getDataTable("select s.ten,ct.dongia,ct.soluong,s.anh,ct.id,(ct.soluong * ct.dongia) as 'ThanhTien', h.id from hoadon h join chitiethoadon ct on h.id = ct.hoadonId join sach s on ct.sachId = s.id" +
-                " where h.khachhangId = " + Session.idUser + " and ('" + trang + "' = '' or h.trangthai = N'" + trang + "') and (" + FindId + " = 0 or h.id = " + FindId + ")" );
+            return cn.getDataTable("select s.ten,ct.dongia,ct.soluong,s.anh,ct.id,(ct.soluong * ct.dongia) as 'ThanhTien', h.id,h.trangthai from hoadon h join chitiethoadon ct on h.id = ct.hoadonId join sach s on ct.sachId = s.id" +
+                " where ("+FindId+" != 0 or h.khachhangId = " + Session.idUser + ") and ('" + trang + "' = '' or h.trangthai = N'" + trang + "') and (" + FindId + " = 0 or h.id = " + FindId + ")" );
         }
 
         private void getGioHang()
@@ -68,6 +69,8 @@ namespace QLNhaSach.Layout.KhachHang
             dataHoaDon = TruyVan();
             if (dataHoaDon.Rows.Count > 0)
             {
+                panelEmpty.Visible = false;
+                lbTrangThaiHD.Text = dataHoaDon.Rows[0][7].ToString();
                 IdHoaDong = Int32.Parse(dataHoaDon.Rows[0][6].ToString());
                 panelParent.Controls.Clear();
                 foreach (DataRow item in dataHoaDon.Rows)
@@ -78,6 +81,14 @@ namespace QLNhaSach.Layout.KhachHang
                 }
                 lbTongTien.Text = thanhtien.ToString();
                 lbTongTienChu.Text = "( " + PublicFunction.ChuyenSo(thanhtien.ToString()) + " đồng )";
+
+            }
+            else
+            {
+                
+                panelParent.Controls.Clear();
+                panelParent.Controls.Add(panelEmpty);
+                panelEmpty.Visible = true;
 
             }
         }
@@ -233,6 +244,7 @@ namespace QLNhaSach.Layout.KhachHang
                 cn.ExecuteNonQuery("DELETE chitiethoadon where id =" + id);
                 getGioHang();
                 UpdateTienChu();
+                
 
             }
         }
@@ -301,7 +313,28 @@ namespace QLNhaSach.Layout.KhachHang
             }
 
         }
+        private void HuyDon()
+        {
+            var confirmResult = MessageBox.Show("Bạn có muốn từ chối đơn hàng ??",
+                                    "Cảnh báo!!",
+                                    MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                cn.ExecuteNonQuery("update hoadon set trangthai =N'" + TrangThai.DaHuy + "' where id = " + FindId);
+                getGioHang();
+                UpdateTienChu();
 
+
+            }
+        }
+        private void GiaoHang()
+        {
+            cn.ExecuteNonQuery("update hoadon set trangthai =N'" + TrangThai.GiaoHang + "' where id = " + FindId);
+            MessageBox.Show("Tiếp nhận đơn hàng thành công??");
+           getGioHang();
+            UpdateTienChu();
+
+        }
         private void iconButton1_Click(object sender, EventArgs e)
         {
             datHang();
@@ -315,7 +348,12 @@ namespace QLNhaSach.Layout.KhachHang
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
+            HuyDon();
+        }
 
+        private void btnTiepNhan_Click(object sender, EventArgs e)
+        {
+            GiaoHang();
         }
     }
 }

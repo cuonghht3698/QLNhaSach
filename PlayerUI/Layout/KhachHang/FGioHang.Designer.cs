@@ -30,8 +30,11 @@ namespace QLNhaSach.Layout.KhachHang
         private void InitializeComponent()
         {
             this.panelParent = new System.Windows.Forms.Panel();
+            this.panelEmpty = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnHuy = new System.Windows.Forms.Button();
             this.lbTongTienChu = new System.Windows.Forms.Label();
             this.btnMuaThem = new FontAwesome.Sharp.IconButton();
             this.btnDatHang = new FontAwesome.Sharp.IconButton();
@@ -42,20 +45,42 @@ namespace QLNhaSach.Layout.KhachHang
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnHuy = new System.Windows.Forms.Button();
+            this.btnTiepNhan = new FontAwesome.Sharp.IconButton();
+            this.lbTrangThaiHD = new System.Windows.Forms.Label();
             this.panelParent.SuspendLayout();
+            this.panelEmpty.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelParent
             // 
             this.panelParent.AutoScroll = true;
+            this.panelParent.Controls.Add(this.panelEmpty);
             this.panelParent.Controls.Add(this.panel3);
             this.panelParent.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelParent.Location = new System.Drawing.Point(0, 0);
             this.panelParent.Name = "panelParent";
             this.panelParent.Size = new System.Drawing.Size(658, 607);
             this.panelParent.TabIndex = 0;
+            // 
+            // panelEmpty
+            // 
+            this.panelEmpty.Controls.Add(this.label5);
+            this.panelEmpty.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelEmpty.Location = new System.Drawing.Point(0, 63);
+            this.panelEmpty.Name = "panelEmpty";
+            this.panelEmpty.Size = new System.Drawing.Size(658, 68);
+            this.panelEmpty.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(124, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(424, 31);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Giỏ hàng hiện chưa có sản phẩm nào.";
             // 
             // panel3
             // 
@@ -67,6 +92,8 @@ namespace QLNhaSach.Layout.KhachHang
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lbTrangThaiHD);
+            this.panel2.Controls.Add(this.btnTiepNhan);
             this.panel2.Controls.Add(this.btnHuy);
             this.panel2.Controls.Add(this.lbTongTienChu);
             this.panel2.Controls.Add(this.btnMuaThem);
@@ -86,6 +113,17 @@ namespace QLNhaSach.Layout.KhachHang
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // btnHuy
+            // 
+            this.btnHuy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnHuy.Location = new System.Drawing.Point(55, 440);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(174, 43);
+            this.btnHuy.TabIndex = 6;
+            this.btnHuy.Text = "Từ chối đơn hàng";
+            this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
             // lbTongTienChu
             // 
             this.lbTongTienChu.AutoSize = true;
@@ -102,7 +140,7 @@ namespace QLNhaSach.Layout.KhachHang
             this.btnMuaThem.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnMuaThem.IconColor = System.Drawing.Color.Black;
             this.btnMuaThem.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMuaThem.Location = new System.Drawing.Point(231, 472);
+            this.btnMuaThem.Location = new System.Drawing.Point(231, 489);
             this.btnMuaThem.Name = "btnMuaThem";
             this.btnMuaThem.Size = new System.Drawing.Size(95, 47);
             this.btnMuaThem.TabIndex = 4;
@@ -114,7 +152,7 @@ namespace QLNhaSach.Layout.KhachHang
             this.btnDatHang.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnDatHang.IconColor = System.Drawing.Color.Black;
             this.btnDatHang.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDatHang.Location = new System.Drawing.Point(54, 472);
+            this.btnDatHang.Location = new System.Drawing.Point(54, 489);
             this.btnDatHang.Name = "btnDatHang";
             this.btnDatHang.Size = new System.Drawing.Size(161, 47);
             this.btnDatHang.TabIndex = 3;
@@ -128,9 +166,9 @@ namespace QLNhaSach.Layout.KhachHang
             this.lbTongTien.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTongTien.Location = new System.Drawing.Point(144, 279);
             this.lbTongTien.Name = "lbTongTien";
-            this.lbTongTien.Size = new System.Drawing.Size(45, 19);
+            this.lbTongTien.Size = new System.Drawing.Size(17, 19);
             this.lbTongTien.TabIndex = 2;
-            this.lbTongTien.Text = "label4";
+            this.lbTongTien.Text = "0";
             this.lbTongTien.Click += new System.EventHandler(this.lbTongTien_Click);
             // 
             // label4
@@ -190,15 +228,28 @@ namespace QLNhaSach.Layout.KhachHang
             this.label1.Text = "Số điện thoại";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // btnHuy
+            // btnTiepNhan
             // 
-            this.btnHuy.Location = new System.Drawing.Point(231, 420);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(94, 43);
-            this.btnHuy.TabIndex = 6;
-            this.btnHuy.Text = "Hủy đơn";
-            this.btnHuy.UseVisualStyleBackColor = true;
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            this.btnTiepNhan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnTiepNhan.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnTiepNhan.IconColor = System.Drawing.Color.Black;
+            this.btnTiepNhan.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnTiepNhan.Location = new System.Drawing.Point(54, 391);
+            this.btnTiepNhan.Name = "btnTiepNhan";
+            this.btnTiepNhan.Size = new System.Drawing.Size(175, 41);
+            this.btnTiepNhan.TabIndex = 7;
+            this.btnTiepNhan.Text = "Tiếp nhận và giao hàng";
+            this.btnTiepNhan.UseVisualStyleBackColor = false;
+            this.btnTiepNhan.Click += new System.EventHandler(this.btnTiepNhan_Click);
+            // 
+            // lbTrangThaiHD
+            // 
+            this.lbTrangThaiHD.AutoSize = true;
+            this.lbTrangThaiHD.Location = new System.Drawing.Point(51, 371);
+            this.lbTrangThaiHD.Name = "lbTrangThaiHD";
+            this.lbTrangThaiHD.Size = new System.Drawing.Size(60, 17);
+            this.lbTrangThaiHD.TabIndex = 8;
+            this.lbTrangThaiHD.Text = "Thao tác";
             // 
             // FGioHang
             // 
@@ -208,9 +259,12 @@ namespace QLNhaSach.Layout.KhachHang
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelParent);
             this.Name = "FGioHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FGioHang";
             this.Load += new System.EventHandler(this.FGioHang_Load);
             this.panelParent.ResumeLayout(false);
+            this.panelEmpty.ResumeLayout(false);
+            this.panelEmpty.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -233,5 +287,9 @@ namespace QLNhaSach.Layout.KhachHang
         private System.Windows.Forms.Label lbTongTien;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Panel panelEmpty;
+        private System.Windows.Forms.Label label5;
+        private FontAwesome.Sharp.IconButton btnTiepNhan;
+        private System.Windows.Forms.Label lbTrangThaiHD;
     }
 }

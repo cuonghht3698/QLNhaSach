@@ -41,7 +41,7 @@ namespace QLNhaSach.Layout.KhachHang
 
         private void getAll()
         {
-            dataGridView1.DataSource = cn.getDataTable("select h.id, s.ten, h.noigiaohang, h.ngaydat,h.trangthai from hoadon h join chitiethoadon ct on h.id = ct.hoadonId join sach s on ct.sachId = s.id" +
+            dataGridView1.DataSource = cn.getDataTable("select distinct h.id, h.noigiaohang, h.ngaydat,h.trangthai from hoadon h join chitiethoadon ct on h.id = ct.hoadonId join sach s on ct.sachId = s.id" +
                   " where h.khachhangId = " + Session.idUser + " group by h.id, s.ten, h.noigiaohang, h.ngaydat, h.trangthai order by h.id desc");
 
             
@@ -53,18 +53,18 @@ namespace QLNhaSach.Layout.KhachHang
             if (e.ColumnIndex == 0 && e.RowIndex != -1)
             {
                 // xem don
-                
-                FGioHang F = new FGioHang(id);
-                F.StartPosition = FormStartPosition.CenterParent;
-                F.Show();
-                
+
+                FGioHang f = new FGioHang(id);
+                f.ShowDialog();
+
+
             }
             else if (e.ColumnIndex == 1 && e.RowIndex != -1)
             {
                 // huy don
-                var confirmResult = MessageBox.Show("Bạn có muốn xóa ??",
+                var confirmResult = MessageBox.Show("Bạn có muốn hủy đơn này ??",
                                      "Cảnh báo!!",
-                                     MessageBoxButtons.YesNo);
+                                     MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
                 if (confirmResult == DialogResult.Yes)
                 {
                     HuyDon(id);
@@ -75,6 +75,20 @@ namespace QLNhaSach.Layout.KhachHang
                 }
 
             }
+        }
+        private Form activeForm = null;
+
+        public void openChildForm(Form childForm)
+        {
+            if (activeForm != null) activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelChildForm.Controls.Add(childForm);
+            panelChildForm.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
         private void HuyDon(int id)
         {

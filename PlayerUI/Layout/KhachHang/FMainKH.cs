@@ -61,11 +61,11 @@ namespace QLNhaSach.Layout.KhachHang
 
             cbSLoaiSach.SelectedIndex = 0;
             cbSPerPage.SelectedIndex = 1;
-
+            checkCart();
         }
 
         private Form activeForm = null;
-        private void openChildForm(Form childForm)
+        public void openChildForm(Form childForm)
         {
             if (activeForm != null) activeForm.Close();
             activeForm = childForm;
@@ -165,7 +165,7 @@ namespace QLNhaSach.Layout.KhachHang
             button.IconSize = 25;
             button.Click += (object sender, EventArgs e) =>
             {
-                AddToCart(id);
+                AddToCart(id, Int32.Parse(Sgia));
             };
             panel.Controls.Add(button);
             // anh
@@ -230,9 +230,32 @@ namespace QLNhaSach.Layout.KhachHang
                 }
             }
         }
-        private void AddToCart(int id)
+        int idHoaDon = 0;
+        private void checkCart()
         {
-            MessageBox.Show(id.ToString());
+
+            var data = cn.getDataTable("select top 1 * from hoadon where khachhangId =" + Session.idUser + " and trangthai =N'" + TrangThai.TaoPhieu + "'");
+            if (data.Rows.Count > 0)
+            {
+                idHoaDon = Int32.Parse(data.Rows[0][0].ToString());
+            }
+            else
+            {
+                // khong co hoa don nao
+                cn.ExecuteNonQuery("insert into hoadon (khachhangId, nhanvienId,ngaydat,ngaygiaohang,noigiaohang,sdt,trangthai) values("
+                    + Session.idUser + ",NULL,NULL,NULL,NULL,NULL,N'" + TrangThai.TaoPhieu + "')");
+                var data1 = cn.getDataTable("select top 1 * from hoadon where khachhangId =" + Session.idUser + " and trangthai =N'" + TrangThai.TaoPhieu + "'");
+                if (data1.Rows.Count > 0)
+                {
+                    idHoaDon = Int32.Parse(data1.Rows[0][0].ToString());
+                }
+            }
+        }
+
+        private void AddToCart(int id ,int dongia)
+        {
+            cn.ExecuteNonQuery("insert into chitiethoadon (hoadonId,sachId,dongia,soluong) values(" + idHoaDon + "," + id + "," + dongia + ",1)");
+            MessageBox.Show("Thêm vào giỏ hàng thành công!", "Thông báo!");
         }
         private void goToDetail(int id)
         {
@@ -265,6 +288,7 @@ namespace QLNhaSach.Layout.KhachHang
             HeightForm = panelChildForm.Height;
             panelChildForm.Controls.Clear();
             RefeshPage();
+            checkCart(); 
         }
 
         private void panel3_MouseDown(object sender, MouseEventArgs e)

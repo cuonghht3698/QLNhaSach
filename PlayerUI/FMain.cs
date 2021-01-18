@@ -1,5 +1,6 @@
 ﻿using QLNhaSach.Function;
 using QLNhaSach.Layout;
+using QLNhaSach.Layout.Admin;
 using QLNhaSach.Layout.Authent;
 using QLNhaSach.Layout.NhanSu;
 using QLNhaSach.Layout.Sach;
@@ -122,7 +123,7 @@ namespace PlayerUI
             //..
             //your codes
             //..
-            
+            openChildForm(new FQLHoaDon());
         }
 
         private void button1_Click(object sender, EventArgs e)

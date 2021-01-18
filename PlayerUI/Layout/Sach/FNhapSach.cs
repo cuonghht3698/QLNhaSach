@@ -121,12 +121,21 @@ namespace QLNhaSach.Layout.Sach
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            int idSach, donGia, soLuong;
-            idSach = Int32.Parse(lbId.Text);
-            donGia = Int32.Parse(txtGiaNhap.Text);
-            soLuong = Int32.Parse(txtSL.Text);
-            TaoChiTietPhieu(idSach, soLuong, donGia);
-            getChiTietPhieu();
+            try
+            {
+                int idSach, donGia, soLuong;
+                idSach = Int32.Parse(lbId.Text);
+                donGia = Int32.Parse(txtGiaNhap.Text);
+                soLuong = Int32.Parse(txtSL.Text);
+                TaoChiTietPhieu(idSach, soLuong, donGia);
+                getChiTietPhieu();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
 
         }
         // LAY PHIẾU ĐANG THAO TÁC
@@ -155,7 +164,7 @@ namespace QLNhaSach.Layout.Sach
         private void getChiTietPhieu()
         {
             string sql = "SELECT ct.id as 'Mã',ct.sachId as 'Mã sách',s.ten as 'Tên', ls.ten as 'Loại',s.dvt as 'DVT',ct.soluong as 'Số lượng',ct.dongia as 'Đơn giá'" +
-                "from chitietphieu ct join sach s on ct.sachId = s.id left join loaisach ls on s.loaisachId = ls.id where phieuId =" + phieuId;
+                "from chitietphieu ct join sach s on ct.sachId = s.id left join loaisach ls on s.loaisachId = ls.id where phieuId =" + phieuId ;
             DataTable dt = cn.getDataTable(sql);
             dataGridView1.DataSource = dt;
             if (dt.Rows.Count > 0)
@@ -245,5 +254,29 @@ namespace QLNhaSach.Layout.Sach
             }
         }
 
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+            {
+
+                foreach (DataGridViewRow item in dataGridView1.Rows)
+                {
+                    DatHang(Int32.Parse(item.Cells[2].Value.ToString()), Int32.Parse(item.Cells[6].Value.ToString()));
+                }
+                MessageBox.Show("Thêm sách thành công");
+                cn.ExecuteNonQuery("update phieu set trangthai = N'" + TrangThai.HoanThanh + "' where id =" + phieuId);
+                getSachMau();
+                CheckPhieu();
+                getChiTietPhieu();
+
+
+            }
+
+        }
+
+        private void DatHang(int id, int sl)
+        {
+            cn.ExecuteNonQuery("update sach set soluong = soluong + " + sl + " where id =" + id);
+        }
     }
 }

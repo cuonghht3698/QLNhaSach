@@ -52,6 +52,7 @@ namespace QLNhaSach.Layout.Sach
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDVT = new System.Windows.Forms.TextBox();
             this.txtGiaBan = new System.Windows.Forms.TextBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -59,6 +60,7 @@ namespace QLNhaSach.Layout.Sach
             this.txtDonGia = new System.Windows.Forms.TextBox();
             this.txtTen = new System.Windows.Forms.TextBox();
             this.txtMa = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -92,8 +94,6 @@ namespace QLNhaSach.Layout.Sach
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.txtDVT = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -377,6 +377,13 @@ namespace QLNhaSach.Layout.Sach
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhóm 1";
             // 
+            // txtDVT
+            // 
+            this.txtDVT.Location = new System.Drawing.Point(114, 241);
+            this.txtDVT.Name = "txtDVT";
+            this.txtDVT.Size = new System.Drawing.Size(102, 25);
+            this.txtDVT.TabIndex = 7;
+            // 
             // txtGiaBan
             // 
             this.txtGiaBan.Location = new System.Drawing.Point(114, 206);
@@ -433,6 +440,17 @@ namespace QLNhaSach.Layout.Sach
             this.txtMa.ReadOnly = true;
             this.txtMa.Size = new System.Drawing.Size(35, 25);
             this.txtMa.TabIndex = 2;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label26.Location = new System.Drawing.Point(27, 241);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(60, 17);
+            this.label26.TabIndex = 1;
+            this.label26.Text = "ĐVT (*)";
+            this.label26.Click += new System.EventHandler(this.label13_Click);
             // 
             // label25
             // 
@@ -734,7 +752,7 @@ namespace QLNhaSach.Layout.Sach
             // iconButton1
             // 
             this.iconButton1.BackColor = System.Drawing.Color.Green;
-            this.iconButton1.Cursor = System.Windows.Forms.Cursors.No;
+            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton1.ForeColor = System.Drawing.Color.White;
@@ -836,24 +854,6 @@ namespace QLNhaSach.Layout.Sach
             this.label20.Size = new System.Drawing.Size(237, 17);
             this.label20.TabIndex = 14;
             this.label20.Text = "- Cách mục (*) không được để trống";
-            // 
-            // txtDVT
-            // 
-            this.txtDVT.Location = new System.Drawing.Point(114, 241);
-            this.txtDVT.Name = "txtDVT";
-            this.txtDVT.Size = new System.Drawing.Size(102, 25);
-            this.txtDVT.TabIndex = 7;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label26.Location = new System.Drawing.Point(27, 241);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(60, 17);
-            this.label26.TabIndex = 1;
-            this.label26.Text = "ĐVT (*)";
-            this.label26.Click += new System.EventHandler(this.label13_Click);
             // 
             // FQLSach
             // 
