@@ -32,6 +32,9 @@ namespace QLNhaSach.Layout.KhachHang
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.iconButton6 = new FontAwesome.Sharp.IconButton();
+            this.panelDetaiHoaDon = new System.Windows.Forms.Panel();
+            this.btnShowHoaDon = new FontAwesome.Sharp.IconButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lbXinchao = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,24 +61,15 @@ namespace QLNhaSach.Layout.KhachHang
             this.panelNext = new System.Windows.Forms.Panel();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.panelDetaiHoaDon = new System.Windows.Forms.Panel();
-            this.iconButton6 = new FontAwesome.Sharp.IconButton();
-            this.btnShowHoaDon = new FontAwesome.Sharp.IconButton();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panelDetaiHoaDon.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelSearh.SuspendLayout();
             this.panelNext.SuspendLayout();
-            this.panelDetaiHoaDon.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -103,6 +97,46 @@ namespace QLNhaSach.Layout.KhachHang
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(180, 688);
             this.panel2.TabIndex = 0;
+            // 
+            // iconButton6
+            // 
+            this.iconButton6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton6.IconColor = System.Drawing.Color.Black;
+            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton6.Location = new System.Drawing.Point(0, 114);
+            this.iconButton6.Name = "iconButton6";
+            this.iconButton6.Size = new System.Drawing.Size(180, 30);
+            this.iconButton6.TabIndex = 5;
+            this.iconButton6.Text = "Sách";
+            this.iconButton6.UseVisualStyleBackColor = true;
+            // 
+            // panelDetaiHoaDon
+            // 
+            this.panelDetaiHoaDon.Controls.Add(this.iconButton7);
+            this.panelDetaiHoaDon.Controls.Add(this.btnShowHoaDon);
+            this.panelDetaiHoaDon.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelDetaiHoaDon.Location = new System.Drawing.Point(0, 72);
+            this.panelDetaiHoaDon.Name = "panelDetaiHoaDon";
+            this.panelDetaiHoaDon.Size = new System.Drawing.Size(180, 42);
+            this.panelDetaiHoaDon.TabIndex = 4;
+            this.panelDetaiHoaDon.Visible = false;
+            // 
+            // btnShowHoaDon
+            // 
+            this.btnShowHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnShowHoaDon.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnShowHoaDon.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnShowHoaDon.IconColor = System.Drawing.Color.Black;
+            this.btnShowHoaDon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnShowHoaDon.Location = new System.Drawing.Point(0, 20);
+            this.btnShowHoaDon.Name = "btnShowHoaDon";
+            this.btnShowHoaDon.Size = new System.Drawing.Size(180, 22);
+            this.btnShowHoaDon.TabIndex = 0;
+            this.btnShowHoaDon.Text = "Hiển thị tất cả";
+            this.btnShowHoaDon.UseVisualStyleBackColor = false;
+            this.btnShowHoaDon.Click += new System.EventHandler(this.btnShowHoaDon_Click);
             // 
             // panel4
             // 
@@ -157,7 +191,7 @@ namespace QLNhaSach.Layout.KhachHang
             this.iconButton8.Name = "iconButton8";
             this.iconButton8.Size = new System.Drawing.Size(180, 36);
             this.iconButton8.TabIndex = 1;
-            this.iconButton8.Text = "Giỏ hàng";
+            this.iconButton8.Text = "Đặt sách";
             this.iconButton8.UseVisualStyleBackColor = true;
             this.iconButton8.Click += new System.EventHandler(this.iconButton8_Click);
             // 
@@ -414,92 +448,20 @@ namespace QLNhaSach.Layout.KhachHang
             this.iconButton4.Text = "Trang sau";
             this.iconButton4.UseVisualStyleBackColor = true;
             // 
-            // panelDetaiHoaDon
+            // iconButton7
             // 
-            this.panelDetaiHoaDon.Controls.Add(this.panel5);
-            this.panelDetaiHoaDon.Controls.Add(this.btnShowHoaDon);
-            this.panelDetaiHoaDon.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelDetaiHoaDon.Location = new System.Drawing.Point(0, 72);
-            this.panelDetaiHoaDon.Name = "panelDetaiHoaDon";
-            this.panelDetaiHoaDon.Size = new System.Drawing.Size(180, 89);
-            this.panelDetaiHoaDon.TabIndex = 4;
-            this.panelDetaiHoaDon.Visible = false;
-            // 
-            // iconButton6
-            // 
-            this.iconButton6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton6.IconColor = System.Drawing.Color.Black;
-            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton6.Location = new System.Drawing.Point(0, 161);
-            this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Size = new System.Drawing.Size(180, 30);
-            this.iconButton6.TabIndex = 5;
-            this.iconButton6.Text = "Sách";
-            this.iconButton6.UseVisualStyleBackColor = true;
-            // 
-            // btnShowHoaDon
-            // 
-            this.btnShowHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnShowHoaDon.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnShowHoaDon.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnShowHoaDon.IconColor = System.Drawing.Color.Black;
-            this.btnShowHoaDon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnShowHoaDon.Location = new System.Drawing.Point(0, 62);
-            this.btnShowHoaDon.Name = "btnShowHoaDon";
-            this.btnShowHoaDon.Size = new System.Drawing.Size(180, 27);
-            this.btnShowHoaDon.TabIndex = 0;
-            this.btnShowHoaDon.Text = "Hiển thị tất cả";
-            this.btnShowHoaDon.UseVisualStyleBackColor = false;
-            this.btnShowHoaDon.Click += new System.EventHandler(this.btnShowHoaDon_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label8);
-            this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.pictureBox1);
-            this.panel5.Location = new System.Drawing.Point(5, 6);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(174, 54);
-            this.panel5.TabIndex = 1;
-            this.panel5.Visible = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(38, 47);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(47, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "label4";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(47, 29);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "label7";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(88, 29);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "label7";
+            this.iconButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.iconButton7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton7.IconColor = System.Drawing.Color.Black;
+            this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton7.Location = new System.Drawing.Point(0, 0);
+            this.iconButton7.Name = "iconButton7";
+            this.iconButton7.Size = new System.Drawing.Size(180, 22);
+            this.iconButton7.TabIndex = 1;
+            this.iconButton7.Text = "Giỏ hàng";
+            this.iconButton7.UseVisualStyleBackColor = false;
+            this.iconButton7.Click += new System.EventHandler(this.iconButton7_Click);
             // 
             // FMainKH
             // 
@@ -519,6 +481,7 @@ namespace QLNhaSach.Layout.KhachHang
             this.ResizeEnd += new System.EventHandler(this.FMainKH_ResizeEnd);
             this.groupBox1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panelDetaiHoaDon.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -526,10 +489,6 @@ namespace QLNhaSach.Layout.KhachHang
             this.panelSearh.ResumeLayout(false);
             this.panelSearh.PerformLayout();
             this.panelNext.ResumeLayout(false);
-            this.panelDetaiHoaDon.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -568,10 +527,6 @@ namespace QLNhaSach.Layout.KhachHang
         private FontAwesome.Sharp.IconButton iconButton6;
         private System.Windows.Forms.Panel panelDetaiHoaDon;
         private FontAwesome.Sharp.IconButton btnShowHoaDon;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconButton iconButton7;
     }
 }

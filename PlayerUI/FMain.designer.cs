@@ -288,7 +288,7 @@
             this.button6.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.button6.Size = new System.Drawing.Size(233, 40);
             this.button6.TabIndex = 2;
-            this.button6.Text = "Import playlist";
+            this.button6.Text = " Quản lý hóa đơn";
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);

@@ -17,10 +17,12 @@ namespace QLNhaSach.Layout.KhachHang
         private Connect cn;
         private int id;
         private DataTable dataSach;
-        private int soluong;
+        private int soluong =1;
         private int IdHoaDon;
         private int sachId;
         private int dongGia;
+
+        
 
         private int IdDangNhap = Session.idUser;
         public FDetailSach(int _id)
@@ -131,6 +133,7 @@ namespace QLNhaSach.Layout.KhachHang
 
         private void iconButton4_Click(object sender, EventArgs e)
         {
+            CheckHoaDon();
             ThemSach();
         }
 

@@ -89,6 +89,12 @@
     <Compile Include="Function\TrangThai.cs" />
     <Compile Include="Function\PublicFunction.cs" />
     <Compile Include="Function\Session.cs" />
+    <Compile Include="Layout\Admin\FQLHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Admin\FQLHoaDon.Designer.cs">
+      <DependentUpon>FQLHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\Authent\DangKy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,12 @@
     </Compile>
     <Compile Include="Layout\KhachHang\FGioHang.Designer.cs">
       <DependentUpon>FGioHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\KhachHang\FLichSuMuaHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\KhachHang\FLichSuMuaHang.Designer.cs">
+      <DependentUpon>FLichSuMuaHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Layout\KhachHang\FMainKH.cs">
       <SubType>Form</SubType>
@@ -173,6 +185,9 @@
     <EmbeddedResource Include="FMain.resx">
       <DependentUpon>FMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Admin\FQLHoaDon.resx">
+      <DependentUpon>FQLHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Layout\Authent\DangKy.resx">
       <DependentUpon>DangKy.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\KhachHang\FGioHang.resx">
       <DependentUpon>FGioHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\KhachHang\FLichSuMuaHang.resx">
+      <DependentUpon>FLichSuMuaHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\KhachHang\FMainKH.resx">
       <DependentUpon>FMainKH.cs</DependentUpon>

@@ -402,8 +402,16 @@ namespace QLNhaSach.Layout.KhachHang
             checkPageSach = false;
             panelNext.Visible = false;
             panelSearh.Visible = false;
-            openChildForm(new FGioHang());
+            openChildForm(new FLichSuMuaHang());
 
+        }
+
+        private void iconButton7_Click(object sender, EventArgs e)
+        {
+            checkPageSach = false;
+            panelNext.Visible = false;
+            panelSearh.Visible = false;
+            openChildForm(new FGioHang());
         }
     }
 }
