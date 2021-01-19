@@ -159,7 +159,7 @@ namespace QLNhaSach.Layout.Sach
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1245, 288);
+            this.dataGridView1.Size = new System.Drawing.Size(1196, 288);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -174,7 +174,7 @@ namespace QLNhaSach.Layout.Sach
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 362);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1245, 362);
+            this.panel1.Size = new System.Drawing.Size(1196, 362);
             this.panel1.TabIndex = 18;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -196,7 +196,7 @@ namespace QLNhaSach.Layout.Sach
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(152, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1093, 74);
+            this.panel4.Size = new System.Drawing.Size(1044, 74);
             this.panel4.TabIndex = 21;
             // 
             // txtSearch
@@ -337,7 +337,7 @@ namespace QLNhaSach.Layout.Sach
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1245, 362);
+            this.panel2.Size = new System.Drawing.Size(1196, 362);
             this.panel2.TabIndex = 19;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint_1);
             // 
@@ -349,7 +349,7 @@ namespace QLNhaSach.Layout.Sach
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 78);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1245, 284);
+            this.panel6.Size = new System.Drawing.Size(1196, 284);
             this.panel6.TabIndex = 18;
             // 
             // groupBox1
@@ -372,28 +372,28 @@ namespace QLNhaSach.Layout.Sach
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(328, 284);
+            this.groupBox1.Size = new System.Drawing.Size(375, 284);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhóm 1";
             // 
             // txtDVT
             // 
-            this.txtDVT.Location = new System.Drawing.Point(114, 241);
+            this.txtDVT.Location = new System.Drawing.Point(115, 244);
             this.txtDVT.Name = "txtDVT";
             this.txtDVT.Size = new System.Drawing.Size(102, 25);
             this.txtDVT.TabIndex = 7;
             // 
             // txtGiaBan
             // 
-            this.txtGiaBan.Location = new System.Drawing.Point(114, 206);
+            this.txtGiaBan.Location = new System.Drawing.Point(115, 209);
             this.txtGiaBan.Name = "txtGiaBan";
             this.txtGiaBan.Size = new System.Drawing.Size(102, 25);
             this.txtGiaBan.TabIndex = 5;
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(114, 145);
+            this.txtSoLuong.Location = new System.Drawing.Point(115, 148);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(101, 25);
             this.txtSoLuong.TabIndex = 4;
@@ -403,7 +403,7 @@ namespace QLNhaSach.Layout.Sach
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.Blue;
-            this.label24.Location = new System.Drawing.Point(137, 27);
+            this.label24.Location = new System.Drawing.Point(196, 27);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(117, 15);
             this.label24.TabIndex = 3;
@@ -411,31 +411,31 @@ namespace QLNhaSach.Layout.Sach
             // 
             // txtTacGia
             // 
-            this.txtTacGia.Location = new System.Drawing.Point(98, 107);
+            this.txtTacGia.Location = new System.Drawing.Point(116, 120);
             this.txtTacGia.Name = "txtTacGia";
-            this.txtTacGia.Size = new System.Drawing.Size(200, 25);
+            this.txtTacGia.Size = new System.Drawing.Size(234, 25);
             this.txtTacGia.TabIndex = 2;
             // 
             // txtDonGia
             // 
-            this.txtDonGia.Location = new System.Drawing.Point(114, 177);
+            this.txtDonGia.Location = new System.Drawing.Point(115, 180);
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(102, 25);
             this.txtDonGia.TabIndex = 2;
             // 
             // txtTen
             // 
-            this.txtTen.Location = new System.Drawing.Point(96, 65);
+            this.txtTen.Location = new System.Drawing.Point(116, 56);
             this.txtTen.Multiline = true;
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(200, 31);
+            this.txtTen.Size = new System.Drawing.Size(234, 47);
             this.txtTen.TabIndex = 2;
             // 
             // txtMa
             // 
             this.txtMa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMa.Enabled = false;
-            this.txtMa.Location = new System.Drawing.Point(96, 24);
+            this.txtMa.Location = new System.Drawing.Point(117, 24);
             this.txtMa.Name = "txtMa";
             this.txtMa.ReadOnly = true;
             this.txtMa.Size = new System.Drawing.Size(35, 25);
@@ -445,7 +445,7 @@ namespace QLNhaSach.Layout.Sach
             // 
             this.label26.AutoSize = true;
             this.label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label26.Location = new System.Drawing.Point(27, 241);
+            this.label26.Location = new System.Drawing.Point(28, 244);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(60, 17);
             this.label26.TabIndex = 1;
@@ -456,7 +456,7 @@ namespace QLNhaSach.Layout.Sach
             // 
             this.label25.AutoSize = true;
             this.label25.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label25.Location = new System.Drawing.Point(27, 209);
+            this.label25.Location = new System.Drawing.Point(28, 212);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(74, 17);
             this.label25.TabIndex = 1;
@@ -467,7 +467,7 @@ namespace QLNhaSach.Layout.Sach
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label13.Location = new System.Drawing.Point(27, 180);
+            this.label13.Location = new System.Drawing.Point(28, 183);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(81, 17);
             this.label13.TabIndex = 1;
@@ -478,7 +478,7 @@ namespace QLNhaSach.Layout.Sach
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label11.Location = new System.Drawing.Point(25, 110);
+            this.label11.Location = new System.Drawing.Point(25, 123);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(73, 17);
             this.label11.TabIndex = 1;
@@ -488,7 +488,7 @@ namespace QLNhaSach.Layout.Sach
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label12.Location = new System.Drawing.Point(25, 144);
+            this.label12.Location = new System.Drawing.Point(26, 147);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(81, 17);
             this.label12.TabIndex = 1;
@@ -498,7 +498,7 @@ namespace QLNhaSach.Layout.Sach
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(25, 68);
+            this.label9.Location = new System.Drawing.Point(24, 58);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 17);
             this.label9.TabIndex = 1;
@@ -534,7 +534,7 @@ namespace QLNhaSach.Layout.Sach
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1072, 284);
+            this.groupBox2.Size = new System.Drawing.Size(1023, 284);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nhóm 2";
@@ -602,7 +602,6 @@ namespace QLNhaSach.Layout.Sach
             // 
             this.cbKho.AutoCompleteCustomSource.AddRange(new string[] {
             "Kho"});
-            this.cbKho.Enabled = false;
             this.cbKho.FormattingEnabled = true;
             this.cbKho.Items.AddRange(new object[] {
             "-- Kho"});
@@ -613,19 +612,19 @@ namespace QLNhaSach.Layout.Sach
             // 
             // txtMoTa
             // 
-            this.txtMoTa.Location = new System.Drawing.Point(722, 189);
+            this.txtMoTa.Location = new System.Drawing.Point(717, 198);
             this.txtMoTa.Multiline = true;
             this.txtMoTa.Name = "txtMoTa";
-            this.txtMoTa.Size = new System.Drawing.Size(159, 73);
+            this.txtMoTa.Size = new System.Drawing.Size(236, 73);
             this.txtMoTa.TabIndex = 2;
             // 
             // ptbAnh
             // 
             this.ptbAnh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ptbAnh.Image = ((System.Drawing.Image)(resources.GetObject("ptbAnh.Image")));
-            this.ptbAnh.Location = new System.Drawing.Point(722, 26);
+            this.ptbAnh.Location = new System.Drawing.Point(717, 24);
             this.ptbAnh.Name = "ptbAnh";
-            this.ptbAnh.Size = new System.Drawing.Size(156, 157);
+            this.ptbAnh.Size = new System.Drawing.Size(119, 157);
             this.ptbAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbAnh.TabIndex = 3;
             this.ptbAnh.TabStop = false;
@@ -635,7 +634,7 @@ namespace QLNhaSach.Layout.Sach
             // 
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label18.Location = new System.Drawing.Point(652, 215);
+            this.label18.Location = new System.Drawing.Point(647, 224);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(64, 17);
             this.label18.TabIndex = 1;
@@ -709,7 +708,7 @@ namespace QLNhaSach.Layout.Sach
             this.groupBox3.Controls.Add(this.iconButton3);
             this.groupBox3.Controls.Add(this.iconButton1);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox3.Location = new System.Drawing.Point(1072, 0);
+            this.groupBox3.Location = new System.Drawing.Point(1023, 0);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(173, 284);
             this.groupBox3.TabIndex = 13;
@@ -778,7 +777,7 @@ namespace QLNhaSach.Layout.Sach
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1245, 78);
+            this.panel5.Size = new System.Drawing.Size(1196, 78);
             this.panel5.TabIndex = 17;
             // 
             // groupBox5
@@ -860,7 +859,7 @@ namespace QLNhaSach.Layout.Sach
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1245, 724);
+            this.ClientSize = new System.Drawing.Size(1196, 724);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label7);

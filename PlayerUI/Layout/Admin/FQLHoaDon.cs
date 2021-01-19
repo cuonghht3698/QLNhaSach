@@ -158,5 +158,11 @@ namespace QLNhaSach.Layout.Admin
             getAll();
 
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            getAll();
+
+        }
     }
 }

@@ -107,7 +107,7 @@ namespace PlayerUI
             //your codes
             //..
             openChildForm(new FQLSach());
-            this.Width = 1350;
+            this.Width = 1400;
         }
 
         public void button7_Click(object sender, EventArgs e)
