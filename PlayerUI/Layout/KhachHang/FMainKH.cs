@@ -437,5 +437,13 @@ namespace QLNhaSach.Layout.KhachHang
             panelSearh.Visible = false;
             openChildForm(new FGioHang());
         }
+
+        private void iconButton6_Click(object sender, EventArgs e)
+        {
+            checkPageSach = false;
+            panelNext.Visible = false;
+            panelSearh.Visible = false;
+            openChildForm(new FQLTaiKhoan());
+        }
     }
 }

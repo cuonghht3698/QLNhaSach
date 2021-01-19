@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -155,6 +155,12 @@
     <Compile Include="Layout\KhachHang\FDetailSach.Designer.cs">
       <DependentUpon>FDetailSach.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layout\KhachHang\FQLTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\KhachHang\FQLTaiKhoan.Designer.cs">
+      <DependentUpon>FQLTaiKhoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\NhanSu\FQLKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\KhachHang\FDetailSach.resx">
       <DependentUpon>FDetailSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\KhachHang\FQLTaiKhoan.resx">
+      <DependentUpon>FQLTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\NhanSu\FQLKhachHang.resx">
       <DependentUpon>FQLKhachHang.cs</DependentUpon>

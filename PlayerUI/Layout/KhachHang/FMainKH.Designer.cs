@@ -61,6 +61,7 @@ namespace QLNhaSach.Layout.KhachHang
             this.panelNext = new System.Windows.Forms.Panel();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.iconButton6 = new FontAwesome.Sharp.IconButton();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelDetaiHoaDon.SuspendLayout();
@@ -85,6 +86,7 @@ namespace QLNhaSach.Layout.KhachHang
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.iconButton6);
             this.panel2.Controls.Add(this.panelDetaiHoaDon);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.iconButton8);
@@ -100,6 +102,7 @@ namespace QLNhaSach.Layout.KhachHang
             // 
             this.panelDetaiHoaDon.Controls.Add(this.iconButton7);
             this.panelDetaiHoaDon.Controls.Add(this.btnShowHoaDon);
+            this.panelDetaiHoaDon.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDetaiHoaDon.Location = new System.Drawing.Point(0, 72);
             this.panelDetaiHoaDon.Name = "panelDetaiHoaDon";
             this.panelDetaiHoaDon.Size = new System.Drawing.Size(180, 77);
@@ -446,6 +449,21 @@ namespace QLNhaSach.Layout.KhachHang
             this.iconButton4.Text = "Trang sau";
             this.iconButton4.UseVisualStyleBackColor = true;
             // 
+            // iconButton6
+            // 
+            this.iconButton6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton6.IconColor = System.Drawing.Color.Black;
+            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton6.Location = new System.Drawing.Point(0, 149);
+            this.iconButton6.Name = "iconButton6";
+            this.iconButton6.Size = new System.Drawing.Size(180, 36);
+            this.iconButton6.TabIndex = 5;
+            this.iconButton6.Text = "Tài khoản";
+            this.iconButton6.UseVisualStyleBackColor = true;
+            this.iconButton6.Click += new System.EventHandler(this.iconButton6_Click);
+            // 
             // FMainKH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -510,5 +528,6 @@ namespace QLNhaSach.Layout.KhachHang
         private System.Windows.Forms.Panel panelDetaiHoaDon;
         private FontAwesome.Sharp.IconButton btnShowHoaDon;
         private FontAwesome.Sharp.IconButton iconButton7;
+        private FontAwesome.Sharp.IconButton iconButton6;
     }
 }

@@ -329,7 +329,7 @@ namespace QLNhaSach.Layout.KhachHang
         }
         private void GiaoHang()
         {
-            cn.ExecuteNonQuery("update hoadon set trangthai =N'" + TrangThai.GiaoHang + "' where id = " + FindId);
+            cn.ExecuteNonQuery("update hoadon set nhanvienId = " + Session.idUser+ ", ngaygiaohang = '" + DateTime.Now + "', trangthai =N'" + TrangThai.GiaoHang + "' where id = " + FindId);
             MessageBox.Show("Tiếp nhận đơn hàng thành công??");
            getGioHang();
             UpdateTienChu();

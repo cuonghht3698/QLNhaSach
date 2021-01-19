@@ -215,5 +215,16 @@ namespace QLNhaSach.Function
                 throw;
             }
         }
+
+        public static string GetDate(DateTime date)
+        {
+            string y, m, d;
+            m = date.Month < 10 ? m = "0" + date.Month.ToString() : date.Month.ToString();
+
+            d = date.Day < 10 ? d = "0" + date.Day.ToString() : date.Day.ToString();
+
+            y = date.Year.ToString();
+            return y + m + d;
+        }
     }
 }
