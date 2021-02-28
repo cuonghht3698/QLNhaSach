@@ -117,36 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAIsAAAAeCAYAAAAcsu0PAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAABCpJREFUeF7tW71uE0EQzntEQuINEC1P4BoJ0ZEXoEZIKSKlQrwBRSQ6dylSpILO
-        baTUrrBAQER+TAKJHJxhZnb3vD+zvvHdOZLj/aRPse929+bm+25n73zZgIICJYpZCtRYyCw3R0dw8e49
-        /Hj+Ar4+eQqjR4/hy+ajwhUh6UW6kX6kI+m5CFRm+fvpMx9ACqBwtUm6kr4a1Jrl9M1b8SCFD4ukcx2y
-        ZpleXJTZZM1IepPuOWTNUoyyniTdcxDNUkrPPPZhQkka9oV998fzwZi14jh2BjCFIVwK7ZowV5ISs9Bi
-        Rxqg0PByaPI06cv774e7cD0ew/VOZBqxbTNKi97ELO3KTw/O9g7hz8FHOOvZbb1t+H2A2/a24XvSfsXY
-        R6eMB3DOV7IRS2z3ACiVo8AsdN8tddTy5/4IkzmCyQjdfopJ7eEVcIqL5dEQbnHT7f5LsR/TCRFtd1fO
-        dLCL36kEyCJxu6q/ph1dnTSyNH3bfXa86uqV4K5oih+RzjhmLBN/vM+NnS8h+f22HAo5M7G0L0vxc5jA
-        LPSgRuqkJZ3Y3fEH+Lb5CqfrG3QHwB0m82TzGYyPb7IJYwpmMYnyRe/SLK4dIp7Co2Rzn7pp3polFUlh
-        Fiwp06zo0pgupiHHnxi0I7OQH3wEZml9B7SFyb+yg8W4wuC3hD6OkVk4GYgwEV2bBWkFmR3HGMg/rhFG
-        YZYxikdhB201ZhnA9TCNl9ZHEzREKrwZk2LkNVSN2ZsyLkWBWehRsNSpjk5YH1WyrRg+xMT5ZkkEdFyC
-        WZBm0WqSKyVfbxYcl9czfuw6s5xj/7ANnQPGxLmIhPfvfqT90rYGJD/42PB3jrzPi7BTs7j2kaCG5qrP
-        ouqzmFkqQbEcSEmWzs8hOE87rmnvxlGahWL246LxyKCcjzCm0NDC+EKfJoz9EMwsTX8Y7MwsFpO+MUXa
-        TmuCRc2CTGaEGbmPdmbh70ZA00drFjLBLGYuQRRLInx6bsk5dWUW9IOPTsoQkQP2kDNLLmmuXdwvFG+J
-        Zqnrs5BZkJX59GbhMfg4FIsVm/MwEz7Os48wd+3NkpQh+5fRZoEbn0Qjs0Qi+msJs01rAiNQaDRDaU1i
-        2LFZkCYndKejNIszCY3ljhcInzOeP5PFfZpz7gK3za3zMsxSJSFIpm7GMPFECZtTapZhlip+hM4s7gLJ
-        zBIcvxxj0M7/3IJzb53bPJT7dXhiR5mPf4evxf5yspFWYLNPbxYmJ81HJtHMmrGz8ASaE7/WLInQ3nc2
-        knQMJsVvjxOP0ZBzH8oRWj9rKXwQjEsQITFL+SGxkKj6IZFQXlFYb6pfUXAo5Wg9KZUfh6xZymuV60fS
-        u9FrlQ6lJK0Hc6XHR61ZCLTYKbPMwyTpKi1mJajM4kD33fSghg5Aj4LLP5mtFu/ln8wKCgjFLAVKAPwH
-        RASe54WY4bgAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Trả góp 0%:
-Trả góp lãi suất 0% với Home Credit. Trả trước 50%, kỳ hạn 8 tháng (Áp dụng trên GIÁ NIÊM YẾT, không áp dụng cùng các khuyến mại khác)
-Chương trình khuyến mại:
-[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá thêm tới 1 triệu
-</value>
-  </data>
 </root>

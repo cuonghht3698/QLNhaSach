@@ -17,12 +17,11 @@ namespace QLNhaSach.Layout.KhachHang
         private Connect cn;
         private int id;
         private DataTable dataSach;
-        private int soluong =1;
+        private int soluong = 1;
         private int IdHoaDon;
         private int sachId;
         private int dongGia;
 
-        
 
         private int IdDangNhap = Session.idUser;
         public FDetailSach(int _id)
@@ -36,7 +35,7 @@ namespace QLNhaSach.Layout.KhachHang
         {
             getPage();
             CheckHoaDon();
-
+            getSachByLoai();
         }
 
         private void getPage()
@@ -55,6 +54,50 @@ namespace QLNhaSach.Layout.KhachHang
                 pictureBox1.Image = PublicFunction.GetImageFromString(dataSach.Rows[0][11].ToString());
 
 
+            }
+        }
+
+        private void getSachByLoai()
+        {
+            var data = cn.getDataTable("select top 5 id,ten,anh from sach");
+            if (data.Rows.Count > 0)
+            {
+                foreach (DataRow item in data.Rows)
+                {
+                    Panel panel = new Panel();
+                    panel.Size = panelMau.Size;
+                    panel.Dock = panelMau.Dock;
+                    panel.Cursor = Cursors.Hand;
+                    panel.Click += (object sender, EventArgs e) =>
+                      {
+                          id = Int32.Parse(item[0].ToString());
+                          getPage();
+                      };
+                    panel.BorderStyle = panelMau.BorderStyle;
+                    panel3.Controls.Add(panel);
+                    Label l = new Label();
+                    PictureBox p = new PictureBox();
+                    l.AutoSize = labelMau.AutoSize;
+                    l.Dock = labelMau.Dock;
+                    l.Text = item[1].ToString();
+                    l.Click += (object sender, EventArgs e) =>
+                    {
+                        id = Int32.Parse(item[0].ToString());
+                        getPage();
+                    };
+                    panel.Controls.Add(l);
+
+                    p.Size = pictureMau.Size;
+                    p.Click += (object sender, EventArgs e) =>
+                    {
+                        id = Int32.Parse(item[0].ToString());
+                        getPage();
+                    };
+                    p.Dock = pictureMau.Dock;
+                    p.Image = PublicFunction.GetImageFromString(item[2].ToString());
+                    p.SizeMode = pictureMau.SizeMode;
+                    panel.Controls.Add(p);
+                }
             }
         }
 
@@ -78,11 +121,11 @@ namespace QLNhaSach.Layout.KhachHang
         private void ThemSach()
         {
             cn.ExecuteNonQuery("insert into chitiethoadon (hoadonId,sachId,dongia,soluong) values(" + IdHoaDon + "," + sachId + "," + dongGia + "," + soluong + ")");
-            MessageBox.Show("Thêm vào giỏ hàng thành công!","Thông báo!");
+            MessageBox.Show("Thêm vào giỏ hàng thành công!", "Thông báo!");
         }
-        
 
-            private void Button_Click(object sender, EventArgs e)
+
+        private void Button_Click(object sender, EventArgs e)
         {
 
         }

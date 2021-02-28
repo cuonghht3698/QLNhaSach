@@ -30,7 +30,6 @@ namespace QLNhaSach.Layout.KhachHang
 
 
         private bool checkPageSach = true;
-
         private int WidthForm;
         private int HeightForm;
         public FMainKH()
@@ -44,8 +43,8 @@ namespace QLNhaSach.Layout.KhachHang
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         private void FMainKH_Load(object sender, EventArgs e)
-
         {
+            GenSLoaiSach();
             cbSLoaiSach.Items.Add("-- Thể loại");
             getTheLoai();
             // gen
@@ -91,7 +90,6 @@ namespace QLNhaSach.Layout.KhachHang
             width = 20;
             height = 30;
             dem = 0;
-            panelNext.Visible = true;
             panelSearh.Visible = true;
             WidthForm = panelChildForm.Width;
             HeightForm = panelChildForm.Height;
@@ -143,9 +141,9 @@ namespace QLNhaSach.Layout.KhachHang
 
 
             //Panel
-            panel.BackColor = Color.FromArgb(255, 192, 192);
+            panel.BackColor = Color.WhiteSmoke;
             panel.Location = new Point(20 + (width), height);
-            panel.Size = new Size(159, 255);
+            panel.Size = new Size(179, 255);
             panel.Cursor = Cursors.Hand;
             panel.Click += (object sender, EventArgs e) =>
             {
@@ -154,7 +152,7 @@ namespace QLNhaSach.Layout.KhachHang
 
             //button
             button.Text = "Đặt";
-            button.Location = new Point(69, 136);
+            button.Location = new Point(89, 218);
             button.Size = new Size(77, 28);
             button.Tag = "hihi";
             button.ForeColor = Color.Blue;
@@ -171,7 +169,7 @@ namespace QLNhaSach.Layout.KhachHang
             // anh
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox.Location = new Point(13, 15);
-            pictureBox.Size = new Size(133, 115);
+            pictureBox.Size = new Size(153, 115);
             pictureBox.Image = PublicFunction.GetImageFromString(anh);
             pictureBox.Click += (object sender, EventArgs e) =>
             {
@@ -259,8 +257,8 @@ namespace QLNhaSach.Layout.KhachHang
         }
         private void goToDetail(int id)
         {
+
             checkPageSach = false;
-            panelNext.Visible = false;
             panelSearh.Visible = false;
             openChildForm(new FDetailSach(id));
         }
@@ -281,6 +279,7 @@ namespace QLNhaSach.Layout.KhachHang
 
         private void btnOpenSach_Click(object sender, EventArgs e)
         {
+            panel5.Visible = true;
             width = 20;
             height = 30;
             dem = 0;
@@ -288,7 +287,8 @@ namespace QLNhaSach.Layout.KhachHang
             HeightForm = panelChildForm.Height;
             panelChildForm.Controls.Clear();
             RefeshPage();
-            checkCart(); 
+            checkCart();
+            panel5.Visible = true;
         }
 
         private void panel3_MouseDown(object sender, MouseEventArgs e)
@@ -398,7 +398,28 @@ namespace QLNhaSach.Layout.KhachHang
             getPage();
 
         }
-
+        private void GenSLoaiSach()
+        {
+            var data = cn.getDataTable("select * from loaisach");
+            if (data.Rows.Count > 0)
+            {
+                foreach (DataRow item in data.Rows)
+                {
+                    IconButton icon = new IconButton();
+                    icon.Size = btnSLoaiMau.Size;
+                    icon.BackColor = btnSLoaiMau.BackColor;
+                    icon.Dock = btnSLoaiMau.Dock;
+                    icon.ForeColor = btnSLoaiMau.ForeColor;
+                    icon.Text = item[1].ToString();
+                    icon.Click += (object sender, EventArgs e) =>
+                      {
+                          theloai = item[1].ToString();
+                          getPage();
+                      };
+                    panel5.Controls.Add(icon);
+                }
+            }
+        }
         private void iconButton2_Click(object sender, EventArgs e)
         {
             Session.idUser = 0;
@@ -417,14 +438,17 @@ namespace QLNhaSach.Layout.KhachHang
         private bool check = false;
         private void iconButton8_Click(object sender, EventArgs e)
         {
+            panel5.Visible = false;
+
             check = !check;
             panelDetaiHoaDon.Visible = check;
         }
 
         private void btnShowHoaDon_Click(object sender, EventArgs e)
         {
+            panel5.Visible = false;
+
             checkPageSach = false;
-            panelNext.Visible = false;
             panelSearh.Visible = false;
             openChildForm(new FLichSuMuaHang());
 
@@ -432,18 +456,43 @@ namespace QLNhaSach.Layout.KhachHang
 
         private void iconButton7_Click(object sender, EventArgs e)
         {
+            panel5.Visible = false;
+
             checkPageSach = false;
-            panelNext.Visible = false;
             panelSearh.Visible = false;
             openChildForm(new FGioHang());
         }
 
         private void iconButton6_Click(object sender, EventArgs e)
         {
+            panel5.Visible = false;
+
             checkPageSach = false;
-            panelNext.Visible = false;
             panelSearh.Visible = false;
             openChildForm(new FQLTaiKhoan());
+        }
+
+        private void panelChildForm_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void iconButton9_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FQLTaiKhoan());
+        }
+
+        private void btnSLoaiMau_Click(object sender, EventArgs e)
+        {
+            theloai = "";
+            getPage();
+        }
+
+        private void iconButton4_Click(object sender, EventArgs e)
+        {
+            panel5.Visible = true;
+
+            getPage();
         }
     }
 }

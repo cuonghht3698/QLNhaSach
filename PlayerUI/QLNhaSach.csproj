@@ -185,6 +185,12 @@
     <Compile Include="Layout\Sach\FQLSach.Designer.cs">
       <DependentUpon>FQLSach.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layout\Sach\QLNhapSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Sach\QLNhapSach.Designer.cs">
+      <DependentUpon>QLNhapSach.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\SachService.cs" />
@@ -241,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\Sach\FQLSach.resx">
       <DependentUpon>FQLSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Sach\QLNhapSach.resx">
+      <DependentUpon>QLNhapSach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
