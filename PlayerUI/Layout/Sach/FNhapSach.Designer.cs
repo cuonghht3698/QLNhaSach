@@ -378,7 +378,7 @@ namespace QLNhaSach.Layout.Sach
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(347, 3);
+            this.iconButton1.Location = new System.Drawing.Point(570, 6);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(68, 28);
             this.iconButton1.TabIndex = 2;
@@ -391,7 +391,7 @@ namespace QLNhaSach.Layout.Sach
             this.listSearch.ItemHeight = 17;
             this.listSearch.Location = new System.Drawing.Point(132, 28);
             this.listSearch.Name = "listSearch";
-            this.listSearch.Size = new System.Drawing.Size(208, 72);
+            this.listSearch.Size = new System.Drawing.Size(357, 72);
             this.listSearch.TabIndex = 300;
             this.listSearch.Visible = false;
             this.listSearch.SelectedIndexChanged += new System.EventHandler(this.listSearch_SelectedIndexChanged);
@@ -401,7 +401,7 @@ namespace QLNhaSach.Layout.Sach
             // 
             this.txtSearch.Location = new System.Drawing.Point(132, 3);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(209, 25);
+            this.txtSearch.Size = new System.Drawing.Size(357, 25);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txtSearch_MouseDown);
