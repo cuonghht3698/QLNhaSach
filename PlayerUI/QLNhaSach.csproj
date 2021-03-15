@@ -173,6 +173,12 @@
     <Compile Include="Layout\NhanSu\FQLNhanVien.Designer.cs">
       <DependentUpon>FQLNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layout\Sach\BaoCaoDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Sach\BaoCaoDoanhThu.Designer.cs">
+      <DependentUpon>BaoCaoDoanhThu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\Sach\FNhapSach.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,18 @@
     </Compile>
     <Compile Include="Layout\Sach\QLNhapSach.Designer.cs">
       <DependentUpon>QLNhapSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Sach\QuanLySachDaBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Sach\QuanLySachDaBan.Designer.cs">
+      <DependentUpon>QuanLySachDaBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Sach\TonKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Sach\TonKho.Designer.cs">
+      <DependentUpon>TonKho.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -242,6 +260,9 @@
     <EmbeddedResource Include="Layout\NhanSu\FQLNhanVien.resx">
       <DependentUpon>FQLNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Sach\BaoCaoDoanhThu.resx">
+      <DependentUpon>BaoCaoDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Layout\Sach\FNhapSach.resx">
       <DependentUpon>FNhapSach.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,6 +271,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\Sach\QLNhapSach.resx">
       <DependentUpon>QLNhapSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Sach\QuanLySachDaBan.resx">
+      <DependentUpon>QuanLySachDaBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Sach\TonKho.resx">
+      <DependentUpon>TonKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

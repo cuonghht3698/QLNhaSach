@@ -393,6 +393,7 @@ namespace QLNhaSach.Layout.Sach
             // 
             // txtSoLuong
             // 
+            this.txtSoLuong.Enabled = false;
             this.txtSoLuong.Location = new System.Drawing.Point(115, 148);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(101, 25);

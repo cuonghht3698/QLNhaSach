@@ -284,5 +284,21 @@ namespace PlayerUI
         {
             openChildForm(new QLNhapSach());
         }
+
+        private void button9_Click_1(object sender, EventArgs e)
+        {
+            openChildForm(new TonKho());
+        }
+
+        private void button10_Click_1(object sender, EventArgs e)
+        {
+            openChildForm(new QuanLySachDaBan());
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            openChildForm(new BaoCaoDoanhThu());
+        }
     }
 }
