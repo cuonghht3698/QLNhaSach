@@ -78,7 +78,7 @@ namespace QLNhaSach.Layout.Admin
         private void getAll()
         {
             dataGridView1.DataSource = cn.getDataTable("select distinct h.id, h.noigiaohang, h.ngaydat,h.trangthai from hoadon h join chitiethoadon ct on h.id = ct.hoadonId " +
-                "join sach s on ct.sachId = s.id where h.ngaydat >='"+PublicFunction.GetDate(ngayTu)+"' and h.ngaydat <='"+ngayDen.ToString()+"' and ('"+StrangThai+ "' = '' or h.trangthai = N'" + StrangThai + "') " +
+                "join sach s on ct.sachId = s.id where h.ngaydat >='"+PublicFunction.GetDate(ngayTu)+"' and h.ngaydat <='"+ PublicFunction.GetDate(ngayDen) +"' and ('"+StrangThai+ "' = '' or h.trangthai = N'" + StrangThai + "') " +
                 "and ( "+SIdNV+" = 0 or h.nhanvienId = "+SIdNV+") group by h.id, s.ten, h.noigiaohang, h.ngaydat, h.trangthai  order by h.trangthai asc");
 
 

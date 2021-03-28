@@ -59,7 +59,7 @@ namespace QLNhaSach.Layout.KhachHang
 
         private void getSachByLoai()
         {
-            var data = cn.getDataTable("select top 5 id,ten,anh from sach");
+            var data = cn.getDataTable("select top 10 id,ten,anh from sach");
             if (data.Rows.Count > 0)
             {
                 foreach (DataRow item in data.Rows)

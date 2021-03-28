@@ -421,13 +421,15 @@ namespace QLNhaSach.Layout.KhachHang
             this.panelMau.Name = "panelMau";
             this.panelMau.Size = new System.Drawing.Size(150, 206);
             this.panelMau.TabIndex = 1;
+            this.panelMau.Visible = false;
             // 
             // labelMau
             // 
             this.labelMau.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelMau.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMau.Location = new System.Drawing.Point(0, 0);
             this.labelMau.Name = "labelMau";
-            this.labelMau.Size = new System.Drawing.Size(148, 36);
+            this.labelMau.Size = new System.Drawing.Size(148, 59);
             this.labelMau.TabIndex = 1;
             this.labelMau.Text = "Chương 1: Tư Duy Và Tính Cách";
             // 

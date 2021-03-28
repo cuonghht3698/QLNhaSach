@@ -28,7 +28,8 @@ namespace QLNhaSach.Layout.Sach
 
         private void getTonKho()
         {
-            dataGridView1.DataSource = cn.getDataTable("select ROW_NUMBER() OVER(order by s.ten) as 'STT',s.id as 'Mã', s.ten,s.soluong as 'Số lượng tồn',s.dongia as 'Giá nhập',s.giaban as 'Giá bán',k.ten as 'Kho' from sach s" +
+            dataGridView1.DataSource = cn.getDataTable("select ROW_NUMBER() OVER(order by s.ten) as 'STT',s.id as 'Mã', " +
+                "s.ten,s.soluong as 'Số lượng tồn',s.dongia as 'Giá nhập',s.giaban as 'Giá bán',k.ten as 'Kho' from sach s" +
                 " join kho k on s.khoId = k.id where ('"+search+"' = '' or s.ten like N'%"+search+"%')");
             
         }
