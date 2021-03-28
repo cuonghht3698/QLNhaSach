@@ -86,7 +86,7 @@ namespace QLNhaSach.Layout.KhachHang
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel2.Controls.Add(this.iconButton6);
             this.panel2.Controls.Add(this.panelDetaiHoaDon);
             this.panel2.Controls.Add(this.panel4);
