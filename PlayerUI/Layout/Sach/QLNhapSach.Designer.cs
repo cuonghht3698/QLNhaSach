@@ -31,13 +31,13 @@ namespace QLNhaSach.Layout.Sach
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +73,18 @@ namespace QLNhaSach.Layout.Sach
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(999, 143);
             this.panel1.TabIndex = 14;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label4.Location = new System.Drawing.Point(37, 76);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 18);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "label4";
             // 
             // label3
             // 
@@ -132,17 +144,6 @@ namespace QLNhaSach.Layout.Sach
             this.label1.Size = new System.Drawing.Size(69, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tìm kiếm";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label4.Location = new System.Drawing.Point(37, 76);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 18);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "label4";
             // 
             // QLNhapSach
             // 

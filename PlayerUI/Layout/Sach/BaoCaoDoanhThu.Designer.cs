@@ -35,7 +35,15 @@ namespace QLNhaSach.Layout.Sach
             this.label3 = new System.Windows.Forms.Label();
             this.lbSL = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -52,69 +60,154 @@ namespace QLNhaSach.Layout.Sach
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1033, 246);
+            this.dataGridView1.Size = new System.Drawing.Size(1033, 280);
             this.dataGridView1.TabIndex = 18;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(397, 265);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(429, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.Size = new System.Drawing.Size(145, 24);
             this.label1.TabIndex = 19;
             this.label1.Text = "Tổng doanh thu";
             // 
             // lbTong
             // 
             this.lbTong.AutoSize = true;
-            this.lbTong.Location = new System.Drawing.Point(509, 265);
+            this.lbTong.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTong.Location = new System.Drawing.Point(592, 57);
             this.lbTong.Name = "lbTong";
-            this.lbTong.Size = new System.Drawing.Size(13, 13);
+            this.lbTong.Size = new System.Drawing.Size(20, 24);
             this.lbTong.TabIndex = 19;
             this.lbTong.Text = "0";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(234, 265);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(208, 57);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.Size = new System.Drawing.Size(123, 24);
             this.label3.TabIndex = 19;
             this.label3.Text = "Số lượng bán";
             // 
             // lbSL
             // 
             this.lbSL.AutoSize = true;
-            this.lbSL.Location = new System.Drawing.Point(346, 265);
+            this.lbSL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSL.Location = new System.Drawing.Point(352, 57);
             this.lbSL.Name = "lbSL";
-            this.lbSL.Size = new System.Drawing.Size(13, 13);
+            this.lbSL.Size = new System.Drawing.Size(20, 24);
             this.lbSL.TabIndex = 19;
             this.lbSL.Text = "0";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(66, 265);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(25, 14);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(171, 24);
             this.label5.TabIndex = 19;
-            this.label5.Text = "label1";
+            this.label5.Text = "Doanh thu theo đợt";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lbSL);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.lbTong);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 280);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1033, 90);
+            this.panel1.TabIndex = 20;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(261, 382);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 18);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Đến";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(26, 383);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 18);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Từ ngày";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(302, 379);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(155, 24);
+            this.dateTimePicker2.TabIndex = 24;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(123, 379);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(132, 24);
+            this.dateTimePicker1.TabIndex = 23;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label2.Location = new System.Drawing.Point(209, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 18);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "label2";
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.Location = new System.Drawing.Point(501, 379);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(119, 33);
+            this.iconButton1.TabIndex = 27;
+            this.iconButton1.Text = "Xuất excel";
+            this.iconButton1.UseVisualStyleBackColor = true;
             // 
             // BaoCaoDoanhThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 591);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.lbSL);
-            this.Controls.Add(this.lbTong);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.iconButton1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "BaoCaoDoanhThu";
             this.Text = "BaoCaoDoanhThu";
             this.Load += new System.EventHandler(this.BaoCaoDoanhThu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,5 +221,12 @@ namespace QLNhaSach.Layout.Sach
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbSL;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label2;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

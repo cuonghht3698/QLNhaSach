@@ -65,5 +65,10 @@ namespace QLNhaSach.Layout.Sach
             GetDanhSachNhapSach();
 
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
