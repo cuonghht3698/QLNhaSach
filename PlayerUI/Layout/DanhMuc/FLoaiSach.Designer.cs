@@ -30,7 +30,6 @@ namespace QLNhaSach.Layout
         private void InitializeComponent()
         {
             this.lbThongBao = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -58,18 +57,6 @@ namespace QLNhaSach.Layout
             this.lbThongBao.Size = new System.Drawing.Size(0, 19);
             this.lbThongBao.TabIndex = 17;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(20, 43);
-            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(243, 31);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Danh mục loai sách";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -84,7 +71,7 @@ namespace QLNhaSach.Layout
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(133, 106);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(5);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(292, 25);
             this.textBox1.TabIndex = 14;
@@ -102,7 +89,7 @@ namespace QLNhaSach.Layout
             this.panel1.Controls.Add(this.txtTenLoai);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(534, 147);
-            this.panel1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(387, 365);
             this.panel1.TabIndex = 13;
@@ -122,7 +109,7 @@ namespace QLNhaSach.Layout
             // btnClear
             // 
             this.btnClear.Location = new System.Drawing.Point(240, 280);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(5);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(118, 42);
             this.btnClear.TabIndex = 4;
@@ -133,7 +120,7 @@ namespace QLNhaSach.Layout
             // btnSua
             // 
             this.btnSua.Location = new System.Drawing.Point(136, 280);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(5);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(98, 42);
             this.btnSua.TabIndex = 4;
@@ -144,7 +131,7 @@ namespace QLNhaSach.Layout
             // btnThem
             // 
             this.btnThem.Location = new System.Drawing.Point(28, 280);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(5);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(98, 42);
             this.btnThem.TabIndex = 4;
@@ -155,7 +142,7 @@ namespace QLNhaSach.Layout
             // txtMoTa
             // 
             this.txtMoTa.Location = new System.Drawing.Point(135, 149);
-            this.txtMoTa.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtMoTa.Margin = new System.Windows.Forms.Padding(5);
             this.txtMoTa.Multiline = true;
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Size = new System.Drawing.Size(224, 92);
@@ -175,7 +162,7 @@ namespace QLNhaSach.Layout
             // txtTenLoai
             // 
             this.txtTenLoai.Location = new System.Drawing.Point(135, 112);
-            this.txtTenLoai.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtTenLoai.Margin = new System.Windows.Forms.Padding(5);
             this.txtTenLoai.Name = "txtTenLoai";
             this.txtTenLoai.Size = new System.Drawing.Size(224, 25);
             this.txtTenLoai.TabIndex = 1;
@@ -200,7 +187,7 @@ namespace QLNhaSach.Layout
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(26, 147);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(483, 365);
@@ -213,13 +200,12 @@ namespace QLNhaSach.Layout
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(940, 578);
             this.Controls.Add(this.lbThongBao);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FLoaiSach";
             this.Text = "FLoaiSach";
             this.Load += new System.EventHandler(this.FLoaiSach_Load);
@@ -234,7 +220,6 @@ namespace QLNhaSach.Layout
         #endregion
 
         private System.Windows.Forms.Label lbThongBao;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel1;

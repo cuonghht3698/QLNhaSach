@@ -40,7 +40,7 @@ namespace QLNhaSach.Layout.KhachHang
 
         private void getPage()
         {
-            dataSach = cn.getSachKhProcedure(id, "", 1, 1, "", 0, 0);
+            dataSach = cn.getSachKhProcedure(id, "", 1, 1, "", 0, 0, out int total);
             if (dataSach.Rows.Count > 0)
             {
                 sachId = Int32.Parse(dataSach.Rows[0][1].ToString());

@@ -36,6 +36,13 @@ namespace QLNhaSach.Layout.Sach
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lbPageIndex = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.iconButton6 = new FontAwesome.Sharp.IconButton();
+            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.cbPageSize = new System.Windows.Forms.ComboBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cbHoatDong = new System.Windows.Forms.ComboBox();
             this.cbSearchKho = new System.Windows.Forms.ComboBox();
@@ -98,6 +105,7 @@ namespace QLNhaSach.Layout.Sach
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -181,6 +189,9 @@ namespace QLNhaSach.Layout.Sach
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.GhostWhite;
+            this.panel4.Controls.Add(this.lbPageIndex);
+            this.panel4.Controls.Add(this.label28);
+            this.panel4.Controls.Add(this.panel7);
             this.panel4.Controls.Add(this.txtSearch);
             this.panel4.Controls.Add(this.cbHoatDong);
             this.panel4.Controls.Add(this.cbSearchKho);
@@ -198,6 +209,86 @@ namespace QLNhaSach.Layout.Sach
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1044, 74);
             this.panel4.TabIndex = 21;
+            // 
+            // lbPageIndex
+            // 
+            this.lbPageIndex.AutoSize = true;
+            this.lbPageIndex.Location = new System.Drawing.Point(60, 50);
+            this.lbPageIndex.Name = "lbPageIndex";
+            this.lbPageIndex.Size = new System.Drawing.Size(15, 17);
+            this.lbPageIndex.TabIndex = 23;
+            this.lbPageIndex.Text = "1";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(7, 50);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(42, 17);
+            this.label28.TabIndex = 22;
+            this.label28.Text = "Trang";
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.label27);
+            this.panel7.Controls.Add(this.iconButton6);
+            this.panel7.Controls.Add(this.iconButton5);
+            this.panel7.Controls.Add(this.cbPageSize);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel7.Location = new System.Drawing.Point(844, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(200, 74);
+            this.panel7.TabIndex = 21;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(58, 13);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(66, 17);
+            this.label27.TabIndex = 2;
+            this.label27.Text = "Page Size";
+            // 
+            // iconButton6
+            // 
+            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton6.IconColor = System.Drawing.Color.Black;
+            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton6.Location = new System.Drawing.Point(61, 40);
+            this.iconButton6.Name = "iconButton6";
+            this.iconButton6.Size = new System.Drawing.Size(57, 27);
+            this.iconButton6.TabIndex = 1;
+            this.iconButton6.Text = "Prev";
+            this.iconButton6.UseVisualStyleBackColor = true;
+            this.iconButton6.Click += new System.EventHandler(this.iconButton6_Click);
+            // 
+            // iconButton5
+            // 
+            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton5.IconColor = System.Drawing.Color.Black;
+            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton5.Location = new System.Drawing.Point(134, 40);
+            this.iconButton5.Name = "iconButton5";
+            this.iconButton5.Size = new System.Drawing.Size(57, 27);
+            this.iconButton5.TabIndex = 1;
+            this.iconButton5.Text = "Next";
+            this.iconButton5.UseVisualStyleBackColor = true;
+            this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click);
+            // 
+            // cbPageSize
+            // 
+            this.cbPageSize.FormattingEnabled = true;
+            this.cbPageSize.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "20",
+            "50",
+            "100"});
+            this.cbPageSize.Location = new System.Drawing.Point(134, 9);
+            this.cbPageSize.Name = "cbPageSize";
+            this.cbPageSize.Size = new System.Drawing.Size(57, 25);
+            this.cbPageSize.TabIndex = 0;
+            this.cbPageSize.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // txtSearch
             // 
@@ -398,6 +489,7 @@ namespace QLNhaSach.Layout.Sach
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(101, 25);
             this.txtSoLuong.TabIndex = 4;
+            this.txtSoLuong.Text = "0";
             // 
             // label24
             // 
@@ -874,6 +966,8 @@ namespace QLNhaSach.Layout.Sach
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -959,5 +1053,12 @@ namespace QLNhaSach.Layout.Sach
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtDVT;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label27;
+        private FontAwesome.Sharp.IconButton iconButton6;
+        private FontAwesome.Sharp.IconButton iconButton5;
+        private System.Windows.Forms.ComboBox cbPageSize;
+        private System.Windows.Forms.Label lbPageIndex;
+        private System.Windows.Forms.Label label28;
     }
 }

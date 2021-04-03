@@ -34,14 +34,12 @@ namespace QLNhaSach.Layout.Sach
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.iconButton1);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label1);
@@ -98,16 +96,6 @@ namespace QLNhaSach.Layout.Sach
             this.dataGridView1.Size = new System.Drawing.Size(930, 379);
             this.dataGridView1.TabIndex = 15;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(37, 4);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(157, 24);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Quản lý tồn kho";
-            // 
             // TonKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -132,6 +120,5 @@ namespace QLNhaSach.Layout.Sach
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.Label label2;
     }
 }

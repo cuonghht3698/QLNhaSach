@@ -121,17 +121,20 @@ namespace QLNhaSach.Business
             tb.Load(cmd.ExecuteReader());
             return tb;
         }
-        public DataTable callSachProcedure(string proc, string search, int kho, int ncc, int loai, int nxb, int active)
+        public DataTable callSachProcedure(string proc, string search, int kho, int ncc, int loai, int nxb, int active,int PageIndex,int PageSize)
         {
             connect();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "EXECUTE " + proc + " @search,@kho,@ncc,@loai,@nxb,@active";
+            cmd.CommandText = "EXECUTE " + proc + " @search,@kho,@ncc,@loai,@nxb,@active,@PageIndex,@PageSize";
             cmd.Parameters.Add("@search", SqlDbType.NVarChar, 50).Value = search;
             cmd.Parameters.Add("@kho", SqlDbType.Int, 10).Value = kho;
             cmd.Parameters.Add("@ncc", SqlDbType.Int).Value = ncc;
             cmd.Parameters.Add("@loai", SqlDbType.Int).Value = loai;
             cmd.Parameters.Add("@nxb", SqlDbType.Int).Value = nxb;
             cmd.Parameters.Add("@active", SqlDbType.Int).Value = active;
+            cmd.Parameters.Add("@PageIndex", SqlDbType.Int).Value = PageIndex;
+            cmd.Parameters.Add("@PageSize", SqlDbType.Int).Value = PageSize;
+
             DataTable tb = new DataTable();
             tb.Load(cmd.ExecuteReader());
             return tb;
@@ -150,11 +153,13 @@ namespace QLNhaSach.Business
 
 
         // get ds khach hang 
-        public DataTable getSachKhProcedure(int id, string search, int pageIndex, int pageSize, string theloai, int giabanTo, int giabanFrom)
+        public DataTable getSachKhProcedure(int id, string search, int pageIndex, int pageSize, string theloai, int giabanTo, int giabanFrom, out int total)
         {
             connect();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "EXECUTE getSachKhachHang @Id, @sSearch,@pageIndex,@pageSize,@theloai,@giabanTo,@giabanFrom";
+            //cmd.CommandText = "EXECUTE getSachKhachHang @Id, @sSearch,@pageIndex,@pageSize,@theloai,@giabanTo,@giabanFrom,@total";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "getSachKhachHang";
             cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
             cmd.Parameters.Add("@sSearch", SqlDbType.NVarChar, 50).Value = search;
             cmd.Parameters.Add("@pageIndex", SqlDbType.Int).Value = pageIndex;
@@ -162,8 +167,10 @@ namespace QLNhaSach.Business
             cmd.Parameters.Add("@theloai", SqlDbType.NVarChar,50).Value = theloai;
             cmd.Parameters.Add("@giabanTo", SqlDbType.Int).Value = giabanTo;
             cmd.Parameters.Add("@giabanFrom", SqlDbType.Int).Value = giabanFrom;
+            cmd.Parameters.Add("@total", SqlDbType.Int).Value = ParameterDirection.Output;
             DataTable tb = new DataTable();
             tb.Load(cmd.ExecuteReader());
+            total = Convert.ToInt32(cmd.Parameters["@total"].Value);
             return tb;
         }
     }

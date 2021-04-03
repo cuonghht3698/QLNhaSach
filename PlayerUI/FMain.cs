@@ -60,6 +60,7 @@ namespace PlayerUI
         #region MediaSubMenu
         private void button2_Click(object sender, EventArgs e)
         {
+            lbTitle.Text = "Nhà cung cấp";
             openChildForm(new FNhaCC());
             //..
             //your codes
@@ -72,6 +73,7 @@ namespace PlayerUI
             //..
             //your codes
             //..
+            lbTitle.Text = "Nhà xuất bản";
             openChildForm(new FNhaXB());
             this.Width = 1200;
         }
@@ -81,6 +83,7 @@ namespace PlayerUI
             //..
             //your codes
             //..
+            lbTitle.Text = "Quản lý kho";
             openChildForm(new FKho());
             this.Width = 1200;
         }
@@ -90,6 +93,7 @@ namespace PlayerUI
             //..
             //your codes
             //..
+            lbTitle.Text = "Loại sách";
             openChildForm(new FLoaiSach());
             this.Width = 1200;
         }
@@ -106,8 +110,9 @@ namespace PlayerUI
             //..
             //your codes
             //..
+            lbTitle.Text = "Quản lý sách";
             openChildForm(new FQLSach());
-            this.Width = 1400;
+            //this.Width = 1400;
         }
 
         public void button7_Click(object sender, EventArgs e)
@@ -123,6 +128,7 @@ namespace PlayerUI
             //..
             //your codes
             //..
+            lbTitle.Text = "Hóa đơn";
             openChildForm(new FQLHoaDon());
         }
 
@@ -145,6 +151,7 @@ namespace PlayerUI
             //..
             //your codes
             //..
+            lbTitle.Text = "Quản lý nhân viên";
             openChildForm(new FQLNhanVien());
         }
 
@@ -153,6 +160,7 @@ namespace PlayerUI
             //..
             //your codes
             //..
+            lbTitle.Text = "Quản lý khách hàng";
             openChildForm(new FQLKhachHang());
         }
 
@@ -282,22 +290,26 @@ namespace PlayerUI
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            lbTitle.Text = "Lịch sử nhập hàng";
             openChildForm(new QLNhapSach());
         }
 
         private void button9_Click_1(object sender, EventArgs e)
         {
+            lbTitle.Text = "Quản lý tồn kho";
             openChildForm(new TonKho());
         }
 
         private void button10_Click_1(object sender, EventArgs e)
         {
+            lbTitle.Text = "Quản lý sách đã bán";
             openChildForm(new QuanLySachDaBan());
 
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
+            lbTitle.Text = "Báo cáo doanh thu";
             openChildForm(new BaoCaoDoanhThu());
         }
     }

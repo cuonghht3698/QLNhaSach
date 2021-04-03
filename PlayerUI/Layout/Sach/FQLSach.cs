@@ -27,6 +27,8 @@ namespace QLNhaSach.Layout.Sach
         private int Sncc = 0;
         private int Sloai = 0;
         private int Snxb = 0;
+        private int PageSize = 10;
+        private int PageIndex = 1;
         public FQLSach()
         {
             InitializeComponent();
@@ -41,6 +43,7 @@ namespace QLNhaSach.Layout.Sach
         }
         private void FQLSach_Load(object sender, EventArgs e)
         {
+            cbPageSize.SelectedIndex = 1;
             BindGrid();
             addButtonDataGripview();
             datePickNgayNhap.CustomFormat = "dd/MM/yyyy";
@@ -56,7 +59,8 @@ namespace QLNhaSach.Layout.Sach
         }
         private void BindGrid()
         {
-            dataGridView1.DataSource = cn.callSachProcedure("getSach", search, Skho, Sncc, Sloai, Snxb, Sactive);
+            dataGridView1.DataSource = cn.callSachProcedure("getSach", search, Skho, Sncc, Sloai, Snxb, Sactive, PageIndex, PageSize);
+            lbPageIndex.Text = PageIndex.ToString();
 
         }
         private void GetAllRow()
@@ -112,13 +116,12 @@ namespace QLNhaSach.Layout.Sach
                 }
                 catch
                 {
-                    DialogResult dr = MessageBox.Show("Không thể xóa sách! Bỏ hoạt động", "Thông báo", MessageBoxButtons.YesNoCancel,
-                    MessageBoxIcon.Information);
-                    if (dr == DialogResult.Yes)
-                    {
-                        cn.ExecuteNonQuery("UPDATE sach active = false where id =" + ma);
-                        BindGrid();
-                    }
+                    DialogResult dr = MessageBox.Show("Sách đang lưu ở lịch sử ! Không thể xóa sách! ", "Thông báo" );
+                    //if (dr == DialogResult.Yes)
+                    //{
+                    //    cn.ExecuteNonQuery("UPDATE sach active = false where id =" + ma);
+                    //    BindGrid();
+                    //}
                 }
 
             }
@@ -362,10 +365,15 @@ namespace QLNhaSach.Layout.Sach
                 if (check)
                 {
                     cn.CreateOrUpdateSachProcedure(true, 0, ten, soluong, dongia, ngaynhap, tacgia, mota, khoId, nccId, loaisachId, nxbId, active, giaban, anh, dvt);
+                    MessageBox.Show("Thêm sản phẩm thành công");
                 }
 
                 else
+                {
                     cn.CreateOrUpdateSachProcedure(false, id, ten, soluong, dongia, ngaynhap, tacgia, mota, khoId, nccId, loaisachId, nxbId, active, giaban, anh, dvt);
+                    MessageBox.Show("Sửa sản phẩm thành công");
+                }
+                        
                 BindGrid();
             }
             catch
@@ -414,6 +422,33 @@ namespace QLNhaSach.Layout.Sach
         {
             FMain fm = new FMain();
             fm.button7_Click(this, EventArgs.Empty);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PageSize = Int32.Parse(cbPageSize.SelectedItem.ToString());
+            BindGrid();
+            lbPageIndex.Text = PageIndex.ToString();
+
+        }
+
+        private void iconButton6_Click(object sender, EventArgs e)
+        {
+            if (PageIndex == 1)
+            {
+                return;
+            }
+            PageIndex -= 1;
+            lbPageIndex.Text = PageIndex.ToString();
+
+            BindGrid();
+        }
+
+        private void iconButton5_Click(object sender, EventArgs e)
+        {
+            PageIndex += 1;
+            lbPageIndex.Text = PageIndex.ToString();
+            BindGrid();
         }
     }
 }

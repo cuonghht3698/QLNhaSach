@@ -19,7 +19,7 @@ namespace QLNhaSach.Layout.Admin
         private DateTime ngayTu;
         private DateTime ngayDen;
         private int SIdNV = 0;
-        private string StrangThai;
+        private string StrangThai = "";
 
         public FQLHoaDon()
         {
@@ -29,6 +29,9 @@ namespace QLNhaSach.Layout.Admin
 
         private void FQLHoaDon_Load(object sender, EventArgs e)
         {
+            ngayTu = DateTime.Now.AddDays(-7);
+            ngayDen = DateTime.Now;
+            datePickTu.Value = ngayTu;
             cbSTrangThai.Items.Add("Trạng thái");
             cbSTrangThai.Items.Add(TrangThai.ChoDuyet);
             cbSTrangThai.Items.Add(TrangThai.GiaoHang);
@@ -36,30 +39,9 @@ namespace QLNhaSach.Layout.Admin
             cbSTrangThai.Items.Add(TrangThai.DaHuy);
             cbSTrangThai.SelectedIndex = 0;
             cbSNhanVien.Items.Add("0 -Người xử lý");
-            ngayTu = DateTime.Now;
-            ngayDen = DateTime.Now;
-
             getNhanVien();
             cbSNhanVien.SelectedIndex = 0;
             getAll();
-
-            DataGridViewButtonColumn xem = new DataGridViewButtonColumn();
-            xem.HeaderText = "Xem";
-            xem.Text = "Xem";
-            xem.Width = 40;
-            xem.UseColumnTextForButtonValue = true;
-            dataGridView1.Columns.Add(xem);
-
-            DataGridViewButtonColumn delete = new DataGridViewButtonColumn();
-            delete.HeaderText = "Hủy đơn";
-            delete.Text = "Hủy đơn";
-            delete.Width = 40;
-            delete.UseColumnTextForButtonValue = true;
-            dataGridView1.Columns.Add(delete);
-
-            datePickTu.CustomFormat = "dd/MM/yyyy";
-            datePickDen.CustomFormat = "dd/MM/yyyy";
-
         }
 
 
@@ -77,11 +59,30 @@ namespace QLNhaSach.Layout.Admin
         }
         private void getAll()
         {
-            dataGridView1.DataSource = cn.getDataTable("select distinct h.id, h.noigiaohang, h.ngaydat,h.trangthai from hoadon h join chitiethoadon ct on h.id = ct.hoadonId " +
+            dataGridView1.Columns.Clear();
+            dataGridView1.DataSource = cn.getDataTable("select distinct h.id as 'Mã hóa đơn', h.noigiaohang as 'Địa chỉ', h.ngaydat as 'Ngày đặt',h.trangthai as 'Trạng thái' from hoadon h join chitiethoadon ct on h.id = ct.hoadonId " +
                 "join sach s on ct.sachId = s.id where h.ngaydat >='"+PublicFunction.GetDate(ngayTu)+"' and h.ngaydat <='"+ PublicFunction.GetDate(ngayDen) +"' and ('"+StrangThai+ "' = '' or h.trangthai = N'" + StrangThai + "') " +
                 "and ( "+SIdNV+" = 0 or h.nhanvienId = "+SIdNV+") group by h.id, s.ten, h.noigiaohang, h.ngaydat, h.trangthai  order by h.trangthai asc");
+            DataGridViewButtonColumn xem = new DataGridViewButtonColumn();
+            xem.HeaderText = "Xem";
+            xem.Text = "Xem";
+            xem.Width = 40;
+            xem.UseColumnTextForButtonValue = true;
+            dataGridView1.Columns.Add(xem);
 
+            DataGridViewButtonColumn delete = new DataGridViewButtonColumn();
+            delete.HeaderText = "Hủy đơn";
+            delete.Text = "Hủy đơn";
+            delete.Width = 40;
+            delete.UseColumnTextForButtonValue = true;
+            dataGridView1.Columns.Add(delete);
 
+            datePickTu.CustomFormat = "dd/MM/yyyy";
+            datePickDen.CustomFormat = "dd/MM/yyyy";
+            dataGridView1.Columns[0].Width = 50;
+            dataGridView1.Columns[4].Width = 80;
+            dataGridView1.Columns[5].Width = 80;
+            label4.Text = "Khoảng " + PublicFunction.CountDay(ngayTu, ngayDen) + " ngày trước.";
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -131,6 +132,11 @@ namespace QLNhaSach.Layout.Admin
                 SIdNV = PublicFunction.GetIdFromCombobox(cbSNhanVien.SelectedItem.ToString());
                 getAll();
             }
+            else
+            {
+                SIdNV = 0;
+                getAll();
+            }
         }
 
         private void cbSTrangThai_SelectedIndexChanged(object sender, EventArgs e)
@@ -140,6 +146,11 @@ namespace QLNhaSach.Layout.Admin
                 StrangThai = cbSTrangThai.SelectedItem.ToString();
                 getAll();
 
+            }
+            else
+            {
+                StrangThai = "";
+                getAll();
             }
         }
 

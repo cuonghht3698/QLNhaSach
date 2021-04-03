@@ -45,7 +45,6 @@ namespace QLNhaSach.Layout
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.lbThongBao = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -215,17 +214,6 @@ namespace QLNhaSach.Layout
             this.label1.TabIndex = 3;
             this.label1.Text = "Tìm kiếm";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Chartreuse;
-            this.label7.Location = new System.Drawing.Point(28, 8);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(294, 31);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Danh mục nhà cung cấp";
-            // 
             // lbThongBao
             // 
             this.lbThongBao.AutoSize = true;
@@ -243,7 +231,6 @@ namespace QLNhaSach.Layout
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(940, 471);
             this.Controls.Add(this.lbThongBao);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
@@ -278,7 +265,6 @@ namespace QLNhaSach.Layout
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbThongBao;
     }
 }

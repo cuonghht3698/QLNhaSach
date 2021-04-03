@@ -21,11 +21,12 @@ namespace QLNhaSach.Layout.KhachHang
         private DataTable dataSach;
         private string ma;
         private string search = "";
-        private int pageIndex = 1;
-        private int pageSize = 30;
+        private int PageIndex = 1;
+        private int PageSize = 30;
         private string theloai = "";
         private int giabanTu = 0;
         private int giabanDen = 0;
+        private int total = 0;
 
 
 
@@ -50,9 +51,6 @@ namespace QLNhaSach.Layout.KhachHang
             // gen
             WidthForm = this.Width;
             HeightForm = this.Height;
-            width = 20;
-            height = 30;
-            dem = 0;
             WidthForm = panelChildForm.Width;
             HeightForm = panelChildForm.Height;
             getPage();
@@ -78,7 +76,10 @@ namespace QLNhaSach.Layout.KhachHang
         }
         private void getPage()
         {
-            dataSach = cn.getSachKhProcedure(0, search, pageIndex, pageSize, theloai, giabanTu, giabanDen);
+            dataSach = cn.getSachKhProcedure(0, search, PageIndex, PageSize, theloai, giabanTu, giabanDen, out int total);
+            this.total = total;
+            lbTong.Text = total.ToString();
+            //lbPageIndex.Text = PageIndex.ToString() + " / " + (total / PageIndex).ToString();
             RefeshPage();
         }
 
@@ -87,9 +88,9 @@ namespace QLNhaSach.Layout.KhachHang
             int id, luotxem;
             string ten, anh, mota, gia;
             checkPageSach = true;
-            width = 20;
-            height = 30;
-            dem = 0;
+            w = 0;
+            h = 20;
+            count = 0;
             panelSearh.Visible = true;
             WidthForm = panelChildForm.Width;
             HeightForm = panelChildForm.Height;
@@ -103,7 +104,7 @@ namespace QLNhaSach.Layout.KhachHang
                     anh = item[11].ToString();
                     mota = item[5].ToString();
                     gia = item[4].ToString();
-                    luotxem = 0;
+                    luotxem = Int32.Parse(item[13].ToString());
                     addSp(id, ten, anh, mota, gia, luotxem);
                 }
             }
@@ -111,26 +112,24 @@ namespace QLNhaSach.Layout.KhachHang
 
 
 
-        private int width = 20;
-        private int height = 30;
-        private int dem = 0;
+        private int w = 0;
+        private int h = 20;
+        private int count = 0;
 
         private void addSp(int id, string Sten, string anh, string Smota, string Sgia, int Sluotxem)
         {
 
             // kiem tra panel
-            dem += 1;
+            // location
+            w = (panelMau.Width + 10) * count;
 
-            if (width + 100 < WidthForm / 1.4)
+            if (panelChildForm.Width < w + 270)
             {
-                if (dem > 1)
-                    width += 200;
+                w = 0;
+                count = 0;
+                h += panelMau.Height + 20;
             }
-            else
-            {
-                height += 280;
-                width = 20;
-            }
+            count++;
             Panel panel = new Panel();
             PictureBox pictureBox = new PictureBox();
             IconButton button = new IconButton();
@@ -141,35 +140,37 @@ namespace QLNhaSach.Layout.KhachHang
 
 
             //Panel
-            panel.BackColor = Color.WhiteSmoke;
-            panel.Location = new Point(20 + (width), height);
-            panel.Size = new Size(179, 255);
+            panel.BackColor = panelMau.BackColor;
+            panel.Location = new Point(20 + w, h);
+            panel.Size = panelMau.Size;
             panel.Cursor = Cursors.Hand;
+            panel.BorderStyle = panelMau.BorderStyle;
             panel.Click += (object sender, EventArgs e) =>
             {
                 goToDetail(id);
             };
 
             //button
-            button.Text = "Đặt";
-            button.Location = new Point(89, 218);
-            button.Size = new Size(77, 28);
-            button.Tag = "hihi";
-            button.ForeColor = Color.Blue;
-            button.IconChar = IconChar.CartPlus;
-            button.IconColor = Color.Green;
-            button.IconFont = IconFont.Auto;
-            button.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button.IconSize = 25;
+            button.Text = btnDatMau.Text;
+            button.Location = btnDatMau.Location;
+            button.Size = btnDatMau.Size;
+            button.ForeColor = btnDatMau.ForeColor;
+            button.IconChar = btnDatMau.IconChar;
+            button.ImageAlign = btnDatMau.ImageAlign;
+            button.IconColor = btnDatMau.IconColor;
+            button.IconFont = btnDatMau.IconFont;
+            button.TextImageRelation = btnDatMau.TextImageRelation;
+            button.IconSize = btnDatMau.IconSize;
+            btnDatMau.TextAlign = btnDatMau.TextAlign;
             button.Click += (object sender, EventArgs e) =>
             {
                 AddToCart(id, Int32.Parse(Sgia));
             };
             panel.Controls.Add(button);
             // anh
-            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox.Location = new Point(13, 15);
-            pictureBox.Size = new Size(153, 115);
+            pictureBox.SizeMode = picMau.SizeMode;
+            pictureBox.Location = picMau.Location;
+            pictureBox.Size = picMau.Size;
             pictureBox.Image = PublicFunction.GetImageFromString(anh);
             pictureBox.Click += (object sender, EventArgs e) =>
             {
@@ -178,23 +179,22 @@ namespace QLNhaSach.Layout.KhachHang
             panel.Controls.Add(pictureBox);
             //ten
             ten.Text = "Tên   : " + Sten;
-            ten.Location = new Point(10, 162);
+            ten.Location = labelTenMau.Location;
+            ten.AutoSize = labelTenMau.AutoSize;
+            ten.Font = labelTenMau.Font;
+            ten.Size = labelTenMau.Size;
+            ten.ForeColor = labelTenMau.ForeColor;
             panel.Controls.Add(ten);
             ten.Click += (object sender, EventArgs e) =>
             {
                 goToDetail(id);
             };
-            //mota
-            mota.Text = "Mô tả : " + Smota;
-            mota.Location = new Point(10, 185);
-            mota.Click += (object sender, EventArgs e) =>
-            {
-                goToDetail(id);
-            };
-            panel.Controls.Add(mota);
-            //gia
+             //gia
             gia.Text = "Giá : " + Sgia;
-            gia.Location = new Point(10, 206);
+            gia.Location = labelGiaMau.Location;
+            gia.Font = labelGiaMau.Font;
+            gia.BackColor = labelGiaMau.BackColor;
+
             gia.Click += (object sender, EventArgs e) =>
             {
                 goToDetail(id);
@@ -202,7 +202,9 @@ namespace QLNhaSach.Layout.KhachHang
             panel.Controls.Add(gia);
             //luotxem
             luotxem.Text = "Lượt xem : " + Sluotxem;
-            luotxem.Location = new Point(10, 232);
+            luotxem.Location = labelView.Location;
+            luotxem.Font = labelView.Font;
+            luotxem.BackColor = labelView.BackColor;
             luotxem.Click += (object sender, EventArgs e) =>
             {
                 goToDetail(id);
@@ -260,15 +262,18 @@ namespace QLNhaSach.Layout.KhachHang
 
             checkPageSach = false;
             panelSearh.Visible = false;
+            UpdateView(id);
             openChildForm(new FDetailSach(id));
+        }
+
+        private void UpdateView(int id)
+        {
+            cn.ExecuteNonQuery("update sach set luotxem = luotxem + 1 where id = " + id);
         }
         private void FMainKH_ResizeEnd(object sender, EventArgs e)
         {
             if (checkPageSach)
             {
-                width = 20;
-                height = 30;
-                dem = 0;
                 WidthForm = panelChildForm.Width;
                 HeightForm = panelChildForm.Height;
                 panelChildForm.Controls.Clear();
@@ -280,9 +285,7 @@ namespace QLNhaSach.Layout.KhachHang
         private void btnOpenSach_Click(object sender, EventArgs e)
         {
             panel5.Visible = true;
-            width = 20;
-            height = 30;
-            dem = 0;
+           
             WidthForm = panelChildForm.Width;
             HeightForm = panelChildForm.Height;
             panelChildForm.Controls.Clear();
@@ -309,9 +312,7 @@ namespace QLNhaSach.Layout.KhachHang
                 this.WindowState = FormWindowState.Normal;
             if (checkPageSach)
             {
-                width = 20;
-                height = 30;
-                dem = 0;
+               
                 WidthForm = panelChildForm.Width;
                 HeightForm = panelChildForm.Height;
                 panelChildForm.Controls.Clear();
@@ -394,7 +395,7 @@ namespace QLNhaSach.Layout.KhachHang
 
         private void cbSPerPage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pageSize = Int32.Parse(cbSPerPage.SelectedItem.ToString());
+            PageSize = Int32.Parse(cbSPerPage.SelectedItem.ToString());
             getPage();
 
         }
@@ -491,6 +492,24 @@ namespace QLNhaSach.Layout.KhachHang
         private void iconButton4_Click(object sender, EventArgs e)
         {
             panel5.Visible = true;
+
+            getPage();
+        }
+
+        private void iconButton5_Click(object sender, EventArgs e)
+        {
+            if (PageIndex == 1)
+            {
+                return;
+            }
+            PageIndex -= 1;
+
+            getPage();
+        }
+
+        private void iconButton9_Click_1(object sender, EventArgs e)
+        {
+            PageIndex += 1;
 
             getPage();
         }

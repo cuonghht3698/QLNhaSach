@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -224,7 +225,13 @@ namespace QLNhaSach.Function
             d = date.Day < 10 ? d = "0" + date.Day.ToString() : date.Day.ToString();
 
             y = date.Year.ToString();
-            return y + m + d;
+            return (y + m + d).ToString();
+        }
+
+        public static string CountDay(DateTime DateTo , DateTime DateFrom)
+        {
+            string count = ((DateFrom - DateTo).TotalDays).ToString("F0", CultureInfo.InvariantCulture);
+            return count;
         }
     }
 }

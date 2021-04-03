@@ -51,6 +51,8 @@ namespace QLNhaSach.Layout.KhachHang
             this.btnMax = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panelSearh = new System.Windows.Forms.Panel();
+            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.iconButton9 = new FontAwesome.Sharp.IconButton();
             this.cbSPerPage = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -62,6 +64,15 @@ namespace QLNhaSach.Layout.KhachHang
             this.txtSGiaTu = new System.Windows.Forms.TextBox();
             this.txtSSearh = new System.Windows.Forms.TextBox();
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.panelMau = new System.Windows.Forms.Panel();
+            this.btnDatMau = new FontAwesome.Sharp.IconButton();
+            this.labelView = new System.Windows.Forms.Label();
+            this.labelGiaMau = new System.Windows.Forms.Label();
+            this.labelTenMau = new System.Windows.Forms.Label();
+            this.picMau = new System.Windows.Forms.PictureBox();
+            this.lbPageIndex = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.lbTong = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelDetaiHoaDon.SuspendLayout();
@@ -70,6 +81,9 @@ namespace QLNhaSach.Layout.KhachHang
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelSearh.SuspendLayout();
+            this.panelChildForm.SuspendLayout();
+            this.panelMau.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picMau)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -347,8 +361,13 @@ namespace QLNhaSach.Layout.KhachHang
             // panelSearh
             // 
             this.panelSearh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panelSearh.Controls.Add(this.lbPageIndex);
+            this.panelSearh.Controls.Add(this.iconButton5);
+            this.panelSearh.Controls.Add(this.label28);
+            this.panelSearh.Controls.Add(this.iconButton9);
             this.panelSearh.Controls.Add(this.cbSPerPage);
             this.panelSearh.Controls.Add(this.label2);
+            this.panelSearh.Controls.Add(this.lbTong);
             this.panelSearh.Controls.Add(this.label6);
             this.panelSearh.Controls.Add(this.aa);
             this.panelSearh.Controls.Add(this.cbSLoaiSach);
@@ -363,6 +382,32 @@ namespace QLNhaSach.Layout.KhachHang
             this.panelSearh.Size = new System.Drawing.Size(1205, 55);
             this.panelSearh.TabIndex = 99;
             // 
+            // iconButton5
+            // 
+            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton5.IconColor = System.Drawing.Color.Black;
+            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton5.Location = new System.Drawing.Point(1073, 28);
+            this.iconButton5.Name = "iconButton5";
+            this.iconButton5.Size = new System.Drawing.Size(57, 27);
+            this.iconButton5.TabIndex = 5;
+            this.iconButton5.Text = "Prev";
+            this.iconButton5.UseVisualStyleBackColor = true;
+            this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click);
+            // 
+            // iconButton9
+            // 
+            this.iconButton9.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton9.IconColor = System.Drawing.Color.Black;
+            this.iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton9.Location = new System.Drawing.Point(1136, 28);
+            this.iconButton9.Name = "iconButton9";
+            this.iconButton9.Size = new System.Drawing.Size(57, 27);
+            this.iconButton9.TabIndex = 6;
+            this.iconButton9.Text = "Next";
+            this.iconButton9.UseVisualStyleBackColor = true;
+            this.iconButton9.Click += new System.EventHandler(this.iconButton9_Click_1);
+            // 
             // cbSPerPage
             // 
             this.cbSPerPage.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -373,7 +418,7 @@ namespace QLNhaSach.Layout.KhachHang
             "20",
             "50",
             "100"});
-            this.cbSPerPage.Location = new System.Drawing.Point(1087, 15);
+            this.cbSPerPage.Location = new System.Drawing.Point(1042, 0);
             this.cbSPerPage.Name = "cbSPerPage";
             this.cbSPerPage.Size = new System.Drawing.Size(53, 25);
             this.cbSPerPage.TabIndex = 4;
@@ -393,7 +438,7 @@ namespace QLNhaSach.Layout.KhachHang
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1001, 18);
+            this.label6.Location = new System.Drawing.Point(956, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 17);
             this.label6.TabIndex = 3;
@@ -403,7 +448,7 @@ namespace QLNhaSach.Layout.KhachHang
             // 
             this.aa.AutoSize = true;
             this.aa.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aa.Location = new System.Drawing.Point(444, 17);
+            this.aa.Location = new System.Drawing.Point(576, 18);
             this.aa.Name = "aa";
             this.aa.Size = new System.Drawing.Size(44, 17);
             this.aa.TabIndex = 0;
@@ -413,18 +458,17 @@ namespace QLNhaSach.Layout.KhachHang
             // 
             this.cbSLoaiSach.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSLoaiSach.FormattingEnabled = true;
-            this.cbSLoaiSach.Location = new System.Drawing.Point(383, 10);
+            this.cbSLoaiSach.Location = new System.Drawing.Point(452, 15);
             this.cbSLoaiSach.Name = "cbSLoaiSach";
-            this.cbSLoaiSach.Size = new System.Drawing.Size(15, 25);
+            this.cbSLoaiSach.Size = new System.Drawing.Size(118, 25);
             this.cbSLoaiSach.TabIndex = 2;
-            this.cbSLoaiSach.Visible = false;
             this.cbSLoaiSach.SelectedIndexChanged += new System.EventHandler(this.cbSLoaiSach_SelectedIndexChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(603, 17);
+            this.label5.Location = new System.Drawing.Point(735, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 17);
             this.label5.TabIndex = 0;
@@ -433,7 +477,7 @@ namespace QLNhaSach.Layout.KhachHang
             // txtSGiaDen
             // 
             this.txtSGiaDen.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSGiaDen.Location = new System.Drawing.Point(644, 14);
+            this.txtSGiaDen.Location = new System.Drawing.Point(776, 15);
             this.txtSGiaDen.Name = "txtSGiaDen";
             this.txtSGiaDen.Size = new System.Drawing.Size(86, 25);
             this.txtSGiaDen.TabIndex = 1;
@@ -448,12 +492,11 @@ namespace QLNhaSach.Layout.KhachHang
             this.label3.Size = new System.Drawing.Size(65, 17);
             this.label3.TabIndex = 0;
             this.label3.Text = "Loại sách";
-            this.label3.Visible = false;
             // 
             // txtSGiaTu
             // 
             this.txtSGiaTu.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSGiaTu.Location = new System.Drawing.Point(495, 14);
+            this.txtSGiaTu.Location = new System.Drawing.Point(627, 15);
             this.txtSGiaTu.Name = "txtSGiaTu";
             this.txtSGiaTu.Size = new System.Drawing.Size(83, 25);
             this.txtSGiaTu.TabIndex = 1;
@@ -473,13 +516,110 @@ namespace QLNhaSach.Layout.KhachHang
             // 
             this.panelChildForm.AutoScroll = true;
             this.panelChildForm.AutoSize = true;
-            this.panelChildForm.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panelChildForm.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panelChildForm.Controls.Add(this.panelMau);
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(186, 143);
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(1205, 619);
             this.panelChildForm.TabIndex = 0;
             this.panelChildForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelChildForm_Paint);
+            // 
+            // panelMau
+            // 
+            this.panelMau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelMau.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMau.Controls.Add(this.btnDatMau);
+            this.panelMau.Controls.Add(this.labelView);
+            this.panelMau.Controls.Add(this.labelGiaMau);
+            this.panelMau.Controls.Add(this.labelTenMau);
+            this.panelMau.Controls.Add(this.picMau);
+            this.panelMau.Location = new System.Drawing.Point(41, 23);
+            this.panelMau.Name = "panelMau";
+            this.panelMau.Size = new System.Drawing.Size(204, 280);
+            this.panelMau.TabIndex = 0;
+            this.panelMau.Visible = false;
+            // 
+            // btnDatMau
+            // 
+            this.btnDatMau.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDatMau.IconChar = FontAwesome.Sharp.IconChar.CartPlus;
+            this.btnDatMau.IconColor = System.Drawing.Color.DarkGreen;
+            this.btnDatMau.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDatMau.IconSize = 30;
+            this.btnDatMau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDatMau.Location = new System.Drawing.Point(78, 233);
+            this.btnDatMau.Name = "btnDatMau";
+            this.btnDatMau.Size = new System.Drawing.Size(113, 38);
+            this.btnDatMau.TabIndex = 3;
+            this.btnDatMau.Text = "Đặt hàng";
+            this.btnDatMau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDatMau.UseVisualStyleBackColor = true;
+            // 
+            // labelView
+            // 
+            this.labelView.AutoSize = true;
+            this.labelView.Location = new System.Drawing.Point(11, 240);
+            this.labelView.Name = "labelView";
+            this.labelView.Size = new System.Drawing.Size(35, 13);
+            this.labelView.TabIndex = 2;
+            this.labelView.Text = "label7";
+            // 
+            // labelGiaMau
+            // 
+            this.labelGiaMau.AutoSize = true;
+            this.labelGiaMau.Location = new System.Drawing.Point(11, 206);
+            this.labelGiaMau.Name = "labelGiaMau";
+            this.labelGiaMau.Size = new System.Drawing.Size(35, 13);
+            this.labelGiaMau.TabIndex = 2;
+            this.labelGiaMau.Text = "label7";
+            // 
+            // labelTenMau
+            // 
+            this.labelTenMau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTenMau.Location = new System.Drawing.Point(11, 155);
+            this.labelTenMau.Name = "labelTenMau";
+            this.labelTenMau.Size = new System.Drawing.Size(180, 51);
+            this.labelTenMau.TabIndex = 1;
+            this.labelTenMau.Text = "label4";
+            // 
+            // picMau
+            // 
+            this.picMau.Location = new System.Drawing.Point(14, 13);
+            this.picMau.Name = "picMau";
+            this.picMau.Size = new System.Drawing.Size(177, 124);
+            this.picMau.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picMau.TabIndex = 0;
+            this.picMau.TabStop = false;
+            // 
+            // lbPageIndex
+            // 
+            this.lbPageIndex.AutoSize = true;
+            this.lbPageIndex.Location = new System.Drawing.Point(1054, 35);
+            this.lbPageIndex.Name = "lbPageIndex";
+            this.lbPageIndex.Size = new System.Drawing.Size(13, 13);
+            this.lbPageIndex.TabIndex = 25;
+            this.lbPageIndex.Text = "1";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(1001, 35);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(35, 13);
+            this.label28.TabIndex = 24;
+            this.label28.Text = "Trang";
+            // 
+            // lbTong
+            // 
+            this.lbTong.AutoSize = true;
+            this.lbTong.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTong.Location = new System.Drawing.Point(1101, 3);
+            this.lbTong.Name = "lbTong";
+            this.lbTong.Size = new System.Drawing.Size(15, 17);
+            this.lbTong.TabIndex = 3;
+            this.lbTong.Text = "0";
+            this.lbTong.Visible = false;
             // 
             // FMainKH
             // 
@@ -495,7 +635,6 @@ namespace QLNhaSach.Layout.KhachHang
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FMainKH_Load);
-            this.ResizeEnd += new System.EventHandler(this.FMainKH_ResizeEnd);
             this.groupBox1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panelDetaiHoaDon.ResumeLayout(false);
@@ -506,6 +645,10 @@ namespace QLNhaSach.Layout.KhachHang
             this.panel3.ResumeLayout(false);
             this.panelSearh.ResumeLayout(false);
             this.panelSearh.PerformLayout();
+            this.panelChildForm.ResumeLayout(false);
+            this.panelMau.ResumeLayout(false);
+            this.panelMau.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picMau)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -545,5 +688,16 @@ namespace QLNhaSach.Layout.KhachHang
         private System.Windows.Forms.Panel panel5;
         private FontAwesome.Sharp.IconButton btnSLoaiMau;
         private FontAwesome.Sharp.IconButton iconButton4;
+        private System.Windows.Forms.Panel panelMau;
+        private System.Windows.Forms.Label labelTenMau;
+        private System.Windows.Forms.PictureBox picMau;
+        private FontAwesome.Sharp.IconButton btnDatMau;
+        private System.Windows.Forms.Label labelView;
+        private System.Windows.Forms.Label labelGiaMau;
+        private FontAwesome.Sharp.IconButton iconButton5;
+        private FontAwesome.Sharp.IconButton iconButton9;
+        private System.Windows.Forms.Label lbPageIndex;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label lbTong;
     }
 }
